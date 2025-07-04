@@ -105,11 +105,8 @@
     section {
       display: none;
       padding: 80px 20px 20px;
-      max-width: 800px;
+      max-width: 900px;
       margin: 0 auto;
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       animation: fadeIn 0.7s ease-in-out;
     }
     section.active { display: block; }
@@ -117,19 +114,35 @@
     h2 {
       font-family: 'Playfair Display', serif;
       font-size: 2em;
-      margin-bottom: 15px;
+      margin-bottom: 25px;
       color: #C39B6E;
+      text-align: center;
     }
     h3 {
       font-family: 'Playfair Display', serif;
       font-size: 1.4em;
-      margin-top: 25px;
+      margin-top: 35px;
+      margin-bottom: 15px;
       color: #2C2C2C;
+      text-align: center;
+    }
+    .floating-box {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 25px;
+      margin: 20px 0;
+      border-radius: 15px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .floating-box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.15);
     }
     p {
       font-size: 1em;
       line-height: 1.7;
       color: #333;
+      margin: 0;
     }
 
     .social-icons {
@@ -148,21 +161,6 @@
     .social-icons a:hover {
       color: #C39B6E;
       transform: scale(1.2);
-    }
-
-    .buttons a {
-      display: inline-block;
-      margin: 10px;
-      padding: 12px 20px;
-      background: #C39B6E;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 30px;
-      font-weight: bold;
-      transition: 0.3s ease;
-    }
-    .buttons a:hover {
-      background: #2C2C2C;
     }
 
     @keyframes fadeIn {
@@ -196,12 +194,20 @@
 
   <section id="about">
     <h2>About</h2>
-    <p>Agape Aeterna was born from a deep love for fragrances — not just any scent, but those that last, linger, and leave a mark. For me, perfume is more than just a fragrance. It is a reflection of one’s personality, a quiet statement, and a lasting memory left behind.</p>
-    <p>The name Agape Aeterna means eternal, unconditional love — a reflection of who I am and what I want to share with the world. Through this brand, I want people to feel loved, valued, and confident. I want each scent to give them the power to walk into any room and be remembered — even without saying a word.</p>
+    <div class="floating-box">
+      <p>Agape Aeterna was born from a deep love for fragrances — not just any scent, but those that last, linger, and leave a mark. For me, perfume is more than just a fragrance. It is a reflection of one’s personality, a quiet statement, and a lasting memory left behind.</p>
+      <p>The name Agape Aeterna means eternal, unconditional love — a reflection of who I am and what I want to share with the world. Through this brand, I want people to feel loved, valued, and confident. I want each scent to give them the power to walk into any room and be remembered — even without saying a word.</p>
+    </div>
+
     <h3>Mission</h3>
-    <p>To craft a variety of signature scents that celebrate different personalities — making each one unforgettable, lovable, and soulfully created for everyone.</p>
+    <div class="floating-box">
+      <p>To craft a variety of signature scents that celebrate different personalities — making each one unforgettable, lovable, and soulfully created for everyone.</p>
+    </div>
+
     <h3>Vision</h3>
-    <p>To become a trusted name in local fragrance — known for soulful blends, high-quality ingredients, and affordable luxury. We aim to build a community where every bottle tells a story, and where scent becomes a symbol of self-expression, confidence, and love.</p>
+    <div class="floating-box">
+      <p>To become a trusted name in local fragrance — known for soulful blends, high-quality ingredients, and affordable luxury. We aim to build a community where every bottle tells a story, and where scent becomes a symbol of self-expression, confidence, and love.</p>
+    </div>
   </section>
 
   <section id="signature"><h2>Scents</h2><p>Coming soon...</p></section>
