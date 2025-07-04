@@ -38,7 +38,6 @@
       transition: background 0.3s;
     }
     .menu-btn:hover { background: #C39B6E; }
-
     .music-icon {
       position: absolute;
       top: 20px;
@@ -54,7 +53,6 @@
       transition: background 0.3s;
     }
     .music-icon:hover { background: #C39B6E; }
-
     nav {
       position: fixed;
       top: 0;
@@ -80,7 +78,6 @@
       transition: background 0.3s;
     }
     nav a:hover { background: #C39B6E; }
-
     #mini-header {
       display: none;
       position: fixed;
@@ -101,7 +98,6 @@
       padding: 5px 10px;
       font-size: 1.7em;
     }
-
     section {
       display: none;
       padding: 80px 20px 20px;
@@ -110,7 +106,6 @@
       animation: fadeIn 0.7s ease-in-out;
     }
     section.active { display: block; }
-
     h2 {
       font-family: 'Playfair Display', serif;
       font-size: 2em;
@@ -118,25 +113,17 @@
       color: #C39B6E;
       text-align: center;
     }
-    h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.4em;
-      margin-top: 35px;
-      margin-bottom: 15px;
-      color: #2C2C2C;
-      text-align: center;
-    }
     .floating-box {
-      background: rgba(255, 255, 255, 0.9);
+      background: rgba(255, 255, 255, 0.95);
       padding: 25px;
       margin: 20px 0;
       border-radius: 15px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
       transition: transform 0.3s, box-shadow 0.3s;
     }
     .floating-box:hover {
       transform: translateY(-5px);
-      box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.15);
     }
     p {
       font-size: 1em;
@@ -144,25 +131,8 @@
       color: #333;
       margin: 0;
     }
-
-    .social-icons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 15px;
-      justify-content: center;
-      margin-top: 20px;
-    }
-    .social-icons a {
-      color: #2C2C2C;
-      font-size: 1.5em;
-      text-decoration: none;
-      transition: transform 0.3s, color 0.3s;
-    }
-    .social-icons a:hover {
-      color: #C39B6E;
-      transform: scale(1.2);
-    }
-
+    ul { padding-left: 20px; }
+    li { margin-bottom: 8px; }
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
@@ -198,39 +168,77 @@
       <p>Agape Aeterna was born from a deep love for fragrances — not just any scent, but those that last, linger, and leave a mark. For me, perfume is more than just a fragrance. It is a reflection of one’s personality, a quiet statement, and a lasting memory left behind.</p>
       <p>The name Agape Aeterna means eternal, unconditional love — a reflection of who I am and what I want to share with the world. Through this brand, I want people to feel loved, valued, and confident. I want each scent to give them the power to walk into any room and be remembered — even without saying a word.</p>
     </div>
-
-    <h3>Mission</h3>
+    <h2>Mission</h2>
     <div class="floating-box">
       <p>To craft a variety of signature scents that celebrate different personalities — making each one unforgettable, lovable, and soulfully created for everyone.</p>
     </div>
-
-    <h3>Vision</h3>
+    <h2>Vision</h2>
     <div class="floating-box">
       <p>To become a trusted name in local fragrance — known for soulful blends, high-quality ingredients, and affordable luxury. We aim to build a community where every bottle tells a story, and where scent becomes a symbol of self-expression, confidence, and love.</p>
     </div>
   </section>
 
-  <section id="signature"><h2>Scents</h2><p>Coming soon...</p></section>
-  <section id="order"><h2>Shop Now</h2><div class="buttons"><a href="#">Purchase</a></div></section>
-  <section id="discount"><h2>Rewards</h2><p>Exclusive promos...</p></section>
-  <section id="games"><h2>Find your Scent</h2><p>Coming soon...</p></section>
-  <section id="faq"><h2>FAQs</h2><p>Answers coming soon!</p></section>
-  <section id="testimonials"><h2>Reviews</h2><div class="buttons"><a href="#">Feedback</a></div></section>
-
-  <section id="contact">
-    <h2>Get in Touch</h2>
-    <div class="social-icons">
-      <a href="viber://chat"><i class="fab fa-viber"></i></a>
-      <a href="https://wa.me/"><i class="fab fa-whatsapp"></i></a>
-      <a href="https://t.me/"><i class="fab fa-telegram-plane"></i></a>
-      <a href="mailto:agapeaeternaperfumeshop@gmail.com"><i class="fas fa-envelope"></i></a>
-      <a href="https://www.facebook.com/share/1AhMby9z3U/"><i class="fab fa-facebook"></i></a>
-      <a href="https://www.tiktok.com/@agapeaeterna?_t=ZS-8xk9f1XaSKw&_r=1"><i class="fab fa-tiktok"></i></a>
-      <a href="https://www.instagram.com/yoursafe.spot?igsh=NTJhNHA0eXd6YnF0"><i class="fab fa-instagram"></i></a>
+  <section id="games">
+    <h2>Discover Your Signature Scent</h2>
+    <div class="floating-box">
+      <p>Take this quiz to reveal your perfect perfume personality and learn the scent families that suit you — for morning freshness and evening elegance.</p>
+    </div>
+    <div class="floating-box">
+      <p><strong>HOW TO PLAY:</strong><br>Choose one letter (A, B, C, or D) per question. 📝 Keep track of your answers. Scroll down after the quiz to read your result and explore the scent glossary.</p>
+    </div>
+    <div class="floating-box">
+      <p><strong>QUESTIONS</strong></p>
+      <ul>
+        <li>1. How do you usually feel in the morning? A. Focused and motivated B. Calm and centered C. Romantic and soft D. Excited and spontaneous</li>
+        <li>2. Your ideal evening vibe is: A. Sophisticated and mysterious B. Cozy and grounded C. Elegant and timeless D. Bold and unforgettable</li>
+        <li>3. What’s your go-to fashion style? A. Black, sleek, and tailored B. Earthy, breezy, and natural C. Feminine with soft colors D. Trendy, colorful, and expressive</li>
+        <li>4. Which dream destination speaks to you most? A. New York B. Bali C. Paris D. Dubai</li>
+        <li>5. Choose a quote: A. "Power is silent." B. "Simplicity is sophistication." C. "Love is in the air." D. "I was born to stand out."</li>
+        <li>6. What scent do you enjoy on others? A. Woody/spicy B. Green/fresh C. Floral/powdery D. Fruity/sweet</li>
+        <li>7. Why wear perfume? A. Confidence B. Freshness C. Romance D. Expression</li>
+      </ul>
+    </div>
+    <div class="floating-box">
+      <p><strong>RESULTS</strong><br>
+      Mostly A: The Sophisticated Scent — Woody, Amber, Spicy, Oud.<br>
+      Mostly B: The Serene Scent — Green, Fresh, Aquatic, Citrus.<br>
+      Mostly C: The Romantic Scent — Floral, Powdery, Soft Musk.<br>
+      Mostly D: The Playful Scent — Fruity, Sweet, Gourmand, Tropical.<br>
+      Tie or Mixed? You're a Dual Signature or Explorer — try layering scents!</p>
+    </div>
+    <div class="floating-box">
+      <p><strong>SCENT FAMILY GUIDE</strong><br>
+      🌳 Woody — Grounded, warm, elegant.<br>
+      🕯️ Amber — Warm, rich, sensual.<br>
+      🌶️ Spicy — Exotic, bold.<br>
+      🪵 Oud — Deep, smoky, luxurious.<br>
+      🌿 Green — Crisp, clean, natural.<br>
+      🌊 Aquatic — Fresh, breezy.<br>
+      🍋 Citrus — Bright, zesty.<br>
+      🌸 Floral — Feminine, romantic.<br>
+      🧼 Powdery — Soft, intimate.<br>
+      🍓 Fruity — Sweet, fresh.<br>
+      🍭 Gourmand — Edible, comforting.</p>
+    </div>
+    <div class="floating-box">
+      <p><strong>PERFUME STORAGE TIPS</strong><br>
+      ✅ Cool, dry place (away from sunlight and heat).<br>
+      ❌ Avoid humid areas (like bathrooms).<br>
+      ✅ Keep cap tightly closed.<br>
+      ❄️ Optional: Refrigerate if too warm — avoid frequent temp changes.</p>
+    </div>
+    <div class="floating-box">
+      <p><strong>HOW TO MAKE PERFUME LAST LONGER</strong><br>
+      On skin: Pulse points, moisturize first, don’t rub, spray from 6–8 inches.<br>
+      On clothes: Spray collars or sleeves, test first, air dry naturally.<br>
+      Bonus: Spray hairbrush, layer with lotion, carry travel atomizer.</p>
+    </div>
+    <div class="floating-box">
+      <p>DISCOVER. EXPRESS. SCENT YOUR STORY.<br>
+      Your scent is more than fragrance — it’s your signature.<br><br>
+      Ready to explore your match? 🔍 Shop Now • 🔁 Retake Quiz • 📲 Share</p>
     </div>
   </section>
-
-  <section id="chat"><h2>Talk to Us</h2><p>Click chat bubble...</p></section>
 
   <audio id="bg-music" loop>
     <source src="https://www.bensound.com/bensound-music/bensound-dreams.mp3" type="audio/mpeg">
