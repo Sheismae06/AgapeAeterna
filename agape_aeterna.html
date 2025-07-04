@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AURELÉA</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <style>
+    body {
+      margin: 0; padding: 0;
+      background: #FAF9F6;
+      font-family: 'Lato', sans-serif;
+      color: #1A1A1A;
+      scroll-behavior: smooth;
+    }
+    #cover {
+      height: 100vh;
+      background: url('homepage.png') no-repeat center center/cover;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    .menu-btn {
+      position: absolute;
+      top: 20px;
+      right: 60px;
+      font-size: 2em;
+      cursor: pointer;
+      z-index: 1001;
+      color: #fff;
+      background: #2C2C2C;
+      border-radius: 5px;
+      padding: 5px 10px;
+    }
+    .music-icon {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 1.4em;
+      background: #2C2C2C;
+      color: #fff;
+      border: none;
+      padding: 7px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      z-index: 1001;
+    }
+    nav {
+      position: fixed;
+      top: 0;
+      right: -220px;
+      width: 200px;
+      height: 100%;
+      background: #2C2C2C;
+      box-shadow: -2px 0 5px rgba(0,0,0,.1);
+      transition: right 0.3s ease;
+      padding-top: 60px;
+      z-index: 1000;
+      overflow-y: auto;
+    }
+    nav.open { right: 0; }
+    nav ul { list-style: none; padding: 0; margin: 0; }
+    nav a {
+      display: block;
+      padding: 15px 20px;
+      text-decoration: none;
+      color: #fff;
+      font-size: 1.1em;
+      border-bottom: 1px solid #444;
+      font-family: 'Playfair Display', serif;
+    }
+    nav a:hover { background: #444; }
+    #mini-header {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 55px;
+      background: #2C2C2C;
+      box-shadow: 0 2px 5px rgba(0,0,0,.1);
+      align-items: center;
+      padding: 0 15px;
+      z-index: 999;
+      justify-content: flex-end;
+    }
+    #mini-header .menu-btn {
+      color: #fff;
+      background: #2C2C2C;
+      border-radius: 5px;
+      padding: 5px 10px;
+      font-size: 1.7em;
+    }
+    section {
+      display: none;
+      padding: 80px 20px 20px;
+      max-width: 800px;
+      margin: 0 auto;
+      background: #FAF9F6;
+      border-radius: 10px;
+      animation: fadeIn 0.7s ease-in-out;
+    }
+    section.active { display: block; }
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.7em;
+      margin-bottom: 10px;
+      color: #C39B6E;
+    }
+    .divider {
+      height: 2px;
+      background: #C39B6E;
+      margin: 30px 0;
+      border: none;
+    }
+    .buttons a {
+      display: inline-block;
+      margin: 10px;
+      padding: 12px 20px;
+      background: #C39B6E;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: bold;
+      transition: 0.3s ease;
+    }
+    .buttons a:hover {
+      background: #2C2C2C;
+    }
+    .circle-label {
+      display: inline-block;
+      margin-top: 20px;
+      background: #C39B6E;
+      color: white;
+      border-radius: 50%;
+      padding: 25px 30px;
+      font-weight: bold;
+      text-align: center;
+    }
+    .social-icons {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 20px;
+    }
+    .social-icons a {
+      color: #2C2C2C;
+      font-size: 1.4em;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .social-icons a i {
+      font-size: 1.6em;
+      min-width: 30px;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div id="cover">
+    <div class="menu-btn" onclick="toggleNav()">☰</div>
+    <button class="music-icon" onclick="toggleMusic()">♫</button>
+  </div>
+
+  <nav id="nav">
+    <ul>
+      <li><a href="#" onclick="openSection('home')">Home</a></li>
+      <li><a href="#" onclick="openSection('about')">About</a></li>
+      <li><a href="#" onclick="openSection('signature')">Scents</a></li>
+      <li><a href="#" onclick="openSection('order')">Shop Now</a></li>
+      <li><a href="#" onclick="openSection('discount')">Rewards</a></li>
+      <li><a href="#" onclick="openSection('games')">Find your Scent</a></li>
+      <li><a href="#" onclick="openSection('faq')">FAQs</a></li>
+      <li><a href="#" onclick="openSection('testimonials')">Reviews</a></li>
+      <li><a href="#" onclick="openSection('contact')">Get in Touch</a></li>
+      <li><a href="#" onclick="openSection('chat')">Talk to Us</a></li>
+    </ul>
+  </nav>
+
+  <div id="mini-header"><div class="menu-btn" onclick="toggleNav()">☰</div></div>
+
+  <section id="about"><h2>About</h2><p>Agape Aeterna was born...</p></section>
+  <section id="signature"><h2>Scents</h2><p>Coming soon...</p></section>
+  <section id="order"><h2>Shop Now</h2><div class="buttons"><a href="#">Purchase</a></div></section>
+  <section id="discount"><h2>Rewards</h2><p>Exclusive promos...</p></section>
+  <section id="games"><h2>Find your Scent</h2><p>Coming soon...</p></section>
+  <section id="faq"><h2>FAQs</h2><p>Answers coming soon!</p></section>
+  <section id="testimonials"><h2>Reviews</h2><div class="buttons"><a href="#">Feedback</a></div></section>
+  <section id="contact"><h2>Get in Touch</h2><div class="social-icons"><a href="#"><i class="fas fa-envelope"></i> Email</a></div></section>
+  <section id="chat"><h2>Talk to Us</h2><p>Click chat bubble...</p></section>
+
+  <audio id="bg-music" loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-dreams.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    function toggleNav() {
+      document.getElementById('nav').classList.toggle('open');
+    }
+    function openSection(id) {
+      document.getElementById('nav').classList.remove('open');
+      document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
+      if (id === 'home') {
+        document.getElementById('cover').style.display = 'flex';
+        document.getElementById('mini-header').style.display = 'none';
+      } else {
+        document.getElementById('cover').style.display = 'none';
+        document.getElementById('mini-header').style.display = 'flex';
+        document.getElementById(id).classList.add('active');
+      }
+    }
+    const music = document.getElementById('bg-music');
+    let playing = false;
+    function toggleMusic() {
+      if (!playing) {
+        music.play();
+        document.querySelector('.music-icon').innerText = '✖';
+      } else {
+        music.pause();
+        document.querySelector('.music-icon').innerText = '♫';
+      }
+      playing = !playing;
+    }
+  </script>
+</body>
+            </html>
