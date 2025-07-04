@@ -35,11 +35,10 @@
       background: #2C2C2C;
       border-radius: 5px;
       padding: 5px 10px;
-      transition: background 0.3s ease;
+      transition: background 0.3s;
     }
-    .menu-btn:hover {
-      background: #C39B6E;
-    }
+    .menu-btn:hover { background: #C39B6E; }
+
     .music-icon {
       position: absolute;
       top: 20px;
@@ -52,11 +51,10 @@
       border-radius: 5px;
       cursor: pointer;
       z-index: 1001;
-      transition: background 0.3s ease;
+      transition: background 0.3s;
     }
-    .music-icon:hover {
-      background: #C39B6E;
-    }
+    .music-icon:hover { background: #C39B6E; }
+
     nav {
       position: fixed;
       top: 0;
@@ -64,7 +62,6 @@
       width: 200px;
       height: 100%;
       background: #2C2C2C;
-      box-shadow: -2px 0 5px rgba(0,0,0,.1);
       transition: right 0.3s ease;
       padding-top: 60px;
       z-index: 1000;
@@ -80,9 +77,10 @@
       font-size: 1.1em;
       border-bottom: 1px solid #444;
       font-family: 'Playfair Display', serif;
-      transition: background 0.3s ease;
+      transition: background 0.3s;
     }
     nav a:hover { background: #C39B6E; }
+
     #mini-header {
       display: none;
       position: fixed;
@@ -91,7 +89,6 @@
       width: 100%;
       height: 55px;
       background: #2C2C2C;
-      box-shadow: 0 2px 5px rgba(0,0,0,.1);
       align-items: center;
       padding: 0 15px;
       z-index: 999;
@@ -104,17 +101,19 @@
       padding: 5px 10px;
       font-size: 1.7em;
     }
+
     section {
       display: none;
-      padding: 80px 20px 40px;
+      padding: 80px 20px 20px;
       max-width: 800px;
-      margin: 40px auto;
-      background: #ffffff;
+      margin: 0 auto;
+      background: #fff;
       border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-      animation: fadeUp 0.8s ease forwards;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      animation: fadeIn 0.7s ease-in-out;
     }
     section.active { display: block; }
+
     h2 {
       font-family: 'Playfair Display', serif;
       font-size: 2em;
@@ -123,49 +122,51 @@
     }
     h3 {
       font-family: 'Playfair Display', serif;
-      font-size: 1.3em;
+      font-size: 1.4em;
       margin-top: 25px;
       color: #2C2C2C;
     }
     p {
       font-size: 1em;
-      line-height: 1.6;
+      line-height: 1.7;
       color: #333;
     }
-    .buttons a {
-      display: inline-block;
-      margin: 10px;
-      padding: 12px 25px;
-      background: #C39B6E;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 30px;
-      font-weight: bold;
-      transition: all 0.3s ease;
-    }
-    .buttons a:hover {
-      background: #2C2C2C;
-      box-shadow: 0 0 10px #C39B6E;
-    }
+
     .social-icons {
       display: flex;
       flex-wrap: wrap;
-      justify-content: center;
       gap: 15px;
+      justify-content: center;
       margin-top: 20px;
     }
     .social-icons a {
       color: #2C2C2C;
       font-size: 1.5em;
       text-decoration: none;
-      transition: transform 0.3s ease, color 0.3s ease;
+      transition: transform 0.3s, color 0.3s;
     }
     .social-icons a:hover {
-      transform: scale(1.2);
       color: #C39B6E;
+      transform: scale(1.2);
     }
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(30px); }
+
+    .buttons a {
+      display: inline-block;
+      margin: 10px;
+      padding: 12px 20px;
+      background: #C39B6E;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: bold;
+      transition: 0.3s ease;
+    }
+    .buttons a:hover {
+      background: #2C2C2C;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
   </style>
@@ -195,19 +196,20 @@
 
   <section id="about">
     <h2>About</h2>
-    <p>Agape Aeterna was born from a deep love for fragrances — not just any scent, but those that last, linger, and leave a mark. Perfume is a quiet statement and a lasting memory left behind.</p>
+    <p>Agape Aeterna was born from a deep love for fragrances — not just any scent, but those that last, linger, and leave a mark. For me, perfume is more than just a fragrance. It is a reflection of one’s personality, a quiet statement, and a lasting memory left behind.</p>
+    <p>The name Agape Aeterna means eternal, unconditional love — a reflection of who I am and what I want to share with the world. Through this brand, I want people to feel loved, valued, and confident. I want each scent to give them the power to walk into any room and be remembered — even without saying a word.</p>
     <h3>Mission</h3>
-    <p>To craft signature scents that celebrate different personalities — unforgettable, lovable, and soulfully created for everyone.</p>
+    <p>To craft a variety of signature scents that celebrate different personalities — making each one unforgettable, lovable, and soulfully created for everyone.</p>
     <h3>Vision</h3>
-    <p>To become a trusted name in local fragrance — soulful blends, high-quality ingredients, and affordable luxury. Where scent becomes self-expression and confidence.</p>
+    <p>To become a trusted name in local fragrance — known for soulful blends, high-quality ingredients, and affordable luxury. We aim to build a community where every bottle tells a story, and where scent becomes a symbol of self-expression, confidence, and love.</p>
   </section>
 
   <section id="signature"><h2>Scents</h2><p>Coming soon...</p></section>
   <section id="order"><h2>Shop Now</h2><div class="buttons"><a href="#">Purchase</a></div></section>
-  <section id="discount"><h2>Rewards</h2><p>Exclusive promos coming soon...</p></section>
+  <section id="discount"><h2>Rewards</h2><p>Exclusive promos...</p></section>
   <section id="games"><h2>Find your Scent</h2><p>Coming soon...</p></section>
   <section id="faq"><h2>FAQs</h2><p>Answers coming soon!</p></section>
-  <section id="testimonials"><h2>Reviews</h2><div class="buttons"><a href="#">Leave Feedback</a></div></section>
+  <section id="testimonials"><h2>Reviews</h2><div class="buttons"><a href="#">Feedback</a></div></section>
 
   <section id="contact">
     <h2>Get in Touch</h2>
@@ -222,7 +224,7 @@
     </div>
   </section>
 
-  <section id="chat"><h2>Talk to Us</h2><p>Click chat bubble to start!</p></section>
+  <section id="chat"><h2>Talk to Us</h2><p>Click chat bubble...</p></section>
 
   <audio id="bg-music" loop>
     <source src="https://www.bensound.com/bensound-music/bensound-dreams.mp3" type="audio/mpeg">
