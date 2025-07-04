@@ -133,21 +133,20 @@
     }
     .social-icons {
       display: flex;
-      flex-direction: column;
-      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
       margin-top: 20px;
     }
     .social-icons a {
       color: #2C2C2C;
-      font-size: 1.4em;
+      font-size: 1.7em;
       text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 12px;
+      transition: transform 0.3s ease, color 0.3s ease;
     }
-    .social-icons a i {
-      font-size: 1.6em;
-      min-width: 30px;
+    .social-icons a:hover {
+      color: #C39B6E;
+      transform: scale(1.2);
     }
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
@@ -198,14 +197,14 @@
   <section id="contact">
     <h2>Get in Touch</h2>
     <div class="social-icons">
-      <a href="viber://chat"><i class="fab fa-viber"></i> Viber</a>
-      <a href="https://wa.me/"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-      <a href="https://t.me/"><i class="fab fa-telegram-plane"></i> Telegram</a>
-      <a href="mailto:agapeaeternaperfumeshop@gmail.com"><i class="fas fa-envelope"></i> Gmail: agapeaeternaperfumeshop@gmail.com</a>
-      <a href="mailto:agapeaeternaperfumeshop@outlook.com"><i class="fas fa-envelope"></i> Outlook: agapeaeternaperfumeshop@outlook.com</a>
-      <a href="https://www.facebook.com/share/1AhMby9z3U/"><i class="fab fa-facebook"></i> Facebook</a>
-      <a href="https://www.tiktok.com/@agapeaeterna?_t=ZS-8xk9f1XaSKw&_r=1"><i class="fab fa-tiktok"></i> TikTok</a>
-      <a href="https://www.instagram.com/yoursafe.spot?igsh=NTJhNHA0eXd6YnF0"><i class="fab fa-instagram"></i> Instagram</a>
+      <a href="viber://chat" target="_blank"><i class="fab fa-viber"></i></a>
+      <a href="https://wa.me/" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      <a href="https://t.me/" target="_blank"><i class="fab fa-telegram-plane"></i></a>
+      <a href="mailto:agapeaeternaperfumeshop@gmail.com"><i class="fas fa-envelope"></i></a>
+      <a href="mailto:agapeaeternaperfumeshop@outlook.com"><i class="fas fa-envelope"></i></a>
+      <a href="https://www.facebook.com/share/1AhMby9z3U/" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="https://www.tiktok.com/@agapeaeterna?_t=ZS-8xk9f1XaSKw&_r=1" target="_blank"><i class="fab fa-tiktok"></i></a>
+      <a href="https://www.instagram.com/yoursafe.spot?igsh=NTJhNHA0eXd6YnF0" target="_blank"><i class="fab fa-instagram"></i></a>
     </div>
   </section>
 
