@@ -189,22 +189,62 @@
 <div id="mini-header"><div class="menu-btn" onclick="toggleNav()">☰</div></div>
 
 <section id="about" class="active">
-  <h2>About</h2>
-  <p>
-    Agape Aeterna was born from a deep love for fragrances — not just any scent, but those that last, linger, and leave a mark. For me, perfume is more than just a fragrance. It is a reflection of one’s personality, a quiet statement, and a lasting memory left behind.
-    The name Agape Aeterna means eternal, unconditional love — a reflection of who I am and what I want to share with the world. Through this brand, I want people to feel loved, valued, and confident. I want each scent to give them the power to walk into any room and be remembered — even without saying a word.
-  </p>
-  <hr class="divider" />
-  <h2>Mission</h2>
-  <p>
-    To craft a variety of signature scents that celebrate different personalities — making each one unforgettable, lovable, and soulfully created for everyone.
-  </p>
-  <hr class="divider" />
-  <h2>Vision</h2>
-  <p>
-    To become a trusted name in local fragrance — known for soulful blends, high-quality ingredients, and affordable luxury. We aim to build a community where every bottle tells a story, and where scent becomes a symbol of self-expression, confidence, and love.
-  </p>
+<section id="about">
+  <div class="about-box">
+    <h2 class="about-title">ABOUT</h2>
+    <p>
+      Agape Aeterna was born from a deep love for fragrances — not just any scent, but those that last, linger, and leave a mark. For me, perfume is more than just a fragrance. It is a reflection of one’s personality, a quiet statement, and a lasting memory left behind. The name Agape Aeterna means eternal, unconditional love — a reflection of who I am and what I want to share with the world. Through this brand, I want people to feel loved, valued, and confident. I want each scent to give them the power to walk into any room and be remembered — even without saying a word.
+    </p>
+    <h2 class="about-title">MISSION</h2>
+    <p>
+      To craft a variety of signature scents that celebrate different personalities — making each one unforgettable, lovable, and soulfully created for everyone.
+    </p>
+    <h2 class="about-title">VISION</h2>
+    <p>
+      To become a trusted name in local fragrance — known for soulful blends, high-quality ingredients, and affordable luxury. We aim to build a community where every bottle tells a story, and where scent becomes a symbol of self-expression, confidence, and love.
+    </p>
+  </div>
 </section>
+
+<style>
+  #about {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 20px;
+    background: #FAF9F6;
+  }
+  .about-box {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    text-align: center;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+  .about-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  }
+  .about-title {
+    font-family: 'Playfair Display', serif;
+    color: #C39B6E;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    transition: color 0.3s ease;
+    cursor: pointer;
+  }
+  .about-title:hover {
+    color: #FFD700; /* gold on hover */
+  }
+  .about-box p {
+    font-family: 'Lato', sans-serif;
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+</style>
 
 <section id="signature">
   <h2>Scents</h2>
