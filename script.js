@@ -1,33 +1,49 @@
-document.addEventListener("DOMContentLoaded", function() {
-  const menuBtn = document.querySelector(".menu-btn");
-  const nav = document.querySelector("nav");
-  const miniHeader = document.getElementById("mini-header");
-  const sections = document.querySelectorAll("section");
-  const navLinks = document.querySelectorAll("nav a");
+function toggleNav() {
+  document.getElementById('nav').classList.toggle('open');
+}
 
-  menuBtn.addEventListener("click", function() {
-    nav.classList.toggle("open");
+function openSection(id) {
+  document.getElementById('nav').classList.remove('open');
+
+  // Hide all sections
+  document.querySelectorAll('section').forEach(s => {
+    s.style.display = 'none';
   });
 
-  navLinks.forEach(link => {
-    link.addEventListener("click", function(e) {
-      e.preventDefault();
-      const target = this.getAttribute("href").substring(1);
-      sections.forEach(section => {
-        section.style.display = section.id === target ? "block" : "none";
-      });
-      nav.classList.remove("open");
-      if (window.scrollY > 100) {
-        miniHeader.style.display = "flex";
-      }
-    });
-  });
-
-  window.addEventListener("scroll", function() {
-    if (window.scrollY > 100) {
-      miniHeader.style.display = "flex";
-    } else {
-      miniHeader.style.display = "none";
+  // Show cover or specific section
+  if (id === 'home') {
+    document.getElementById('cover').style.display = 'flex';
+    document.getElementById('mini-header').style.display = 'none';
+  } else {
+    document.getElementById('cover').style.display = 'none';
+    document.getElementById('mini-header').style.display = 'flex';
+    const targetSection = document.getElementById(id);
+    if (targetSection) {
+      targetSection.style.display = 'block';
     }
+  }
+}
+
+const music = document.getElementById('bg-music');
+music.volume = 1.0;
+let playing = false;
+
+function toggleMusic() {
+  if (!playing) {
+    music.play();
+    document.querySelector('.music-icon').innerText = '✖';
+  } else {
+    music.pause();
+    document.querySelector('.music-icon').innerText = '♫';
+  }
+  playing = !playing;
+}
+
+// Default state on page load
+window.addEventListener('load', () => {
+  document.getElementById('cover').style.display = 'flex';
+  document.getElementById('mini-header').style.display = 'none';
+  document.querySelectorAll('section').forEach(s => {
+    s.style.display = 'none';
   });
 });
