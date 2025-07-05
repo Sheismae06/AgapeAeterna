@@ -264,15 +264,18 @@
   <p>Exclusive promos and discount offers await!</p>
 </section>
 
-<section id="games">
-  <h2>Find your Scent</h2>
+    <section id="games">
+  <h2 class="section-title">Find your Scent</h2>
   <div class="floating-box">
-    <h3>DISCOVER YOUR SIGNATURE SCENT</h3>
+    <div class="floating-badge" onclick="this.classList.toggle('active')">✨</div>
+    
+    <h3 class="caps-title">DISCOVER YOUR SIGNATURE SCENT</h3>
     <p>Take this quiz to reveal your perfect perfume personality and learn the scent families that suit you — for morning freshness and evening elegance.</p>
-    <h4>HOW TO PLAY:</h4>
+    
+    <h4 class="caps-title">HOW TO PLAY:</h4>
     <p>Choose one letter (A, B, C, or D) per question. 📝 Keep track of your answers. Scroll down after the quiz to read your result and explore the scent glossary.</p>
     
-    <h4>QUESTIONS</h4>
+    <h4 class="caps-title">QUESTIONS</h4>
     <p>1. How do you usually feel in the morning?<br>
     A. Focused and motivated<br>
     B. Calm and centered<br>
@@ -315,7 +318,7 @@
     C. To feel romantic and beautiful<br>
     D. To express my personality</p>
 
-    <h4>RESULTS</h4>
+    <h4 class="caps-title">RESULTS</h4>
     <p><b>Mostly A — THE SOPHISTICATED SCENT</b><br>
     You're powerful, bold, and composed. Best Scent Families: Woody, Amber, Spicy, Oud.<br>
     💡 Try: Creed Aventus, Tom Ford Oud Wood, Baccarat Rouge 540.</p>
@@ -335,7 +338,7 @@
     <p><b>TIE OR MIXED ANSWERS?</b><br>
     You’re a Dual Signature or Scent Explorer. Try layering scents or rotating fragrances by season and mood.</p>
 
-    <h4>SCENT FAMILY GUIDE</h4>
+    <h4 class="caps-title">SCENT FAMILY GUIDE</h4>
     <p>🌳 Woody — Grounded, warm, elegant. Notes: Vetiver, sandalwood, patchouli.</p>
     <p>🕯️ Amber — Warm, rich, sensual. Notes: Amber, labdanum, benzoin.</p>
     <p>🌶️ Spicy — Exotic and bold. Notes: Cardamom, pepper, saffron.</p>
@@ -348,28 +351,92 @@
     <p>🍓 Fruity — Sweet and fresh. Notes: Strawberry, pear, mango.</p>
     <p>🍭 Gourmand — Edible and comforting. Notes: Vanilla, caramel, coffee.</p>
 
-    <h4>UNDERSTANDING PERFUME CONCENTRATIONS</h4>
+    <h4 class="caps-title">UNDERSTANDING PERFUME CONCENTRATIONS</h4>
     <p><b>Parfum / Extrait de Parfum</b> — 20–30% oil, 8–12+ hours. Deep, intense, luxurious. Best for special occasions.</p>
     <p><b>Eau de Parfum (EDP)</b> — 15–20% oil, 6–8 hours. Balanced, long-lasting. Ideal for daily wear and evenings.</p>
     <p><b>Eau de Toilette (EDT)</b> — 5–15% oil, 4–6 hours. Fresh, lighter scent. Good for hot weather or casual days.</p>
     <p><b>Eau de Cologne (EDC)</b> — 2–5% oil, 2–4 hours. Very light. Great for layering or quick refresh.</p>
     <p><b>Body Mist / Splash</b> — 1–3% oil, 1–2 hours. Gentle scent. Best for post-shower or bedtime.</p>
 
-    <h4>PERFUME STORAGE TIPS</h4>
+    <h4 class="caps-title">PERFUME STORAGE TIPS</h4>
     <p>▪︎ Store in a cool, dry place (away from sunlight and heat).<br>
     ▪︎ Don’t leave perfumes in humid areas like bathrooms.<br>
     ▪︎ Keep the cap tightly closed to prevent evaporation.<br>
     ❄️ Optional: Refrigerate only if your room gets too warm — but avoid temperature changes.</p>
 
-    <h4>HOW TO MAKE PERFUME LAST LONGER</h4>
+    <h4 class="caps-title">HOW TO MAKE PERFUME LAST LONGER</h4>
     <p><b>ON SKIN:</b> Apply on pulse points (wrists, neck, behind ears, inner elbows). Moisturize first with unscented lotion or petroleum jelly. Don’t rub wrists together. Spray from 6–8 inches away.</p>
     <p><b>ON CLOTHES:</b> Spray on fabric-safe areas like collars or sleeves. Avoid delicate fabrics like silk — test first. Let air dry naturally — no rubbing.</p>
 
-    <h4>BONUS TIPS</h4>
+    <h4 class="caps-title">BONUS TIPS</h4>
     <p>Spray a bit in your hairbrush (not directly on hair). Layer using matching body lotions or oils. Carry a travel-size atomizer for touch-ups.</p>
 
-    <p><b
+    <p><b>DISCOVER. EXPRESS. SCENT YOUR STORY.</b><br>
+    Your scent is more than fragrance — it’s your signature.<br>
+    Ready to explore your match?</p>
 
+    <div class="buttons">
+      <a href="#order">🔍 Shop Now</a>
+      <a href="#games">🔁 Retake Quiz</a>
+      <a href="#">📲 Share Your Result</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .section-title {
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 2em;
+    color: #C39B6E;
+    margin-bottom: 20px;
+  }
+  .floating-box {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+    position: relative;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    max-width: 900px;
+    margin: auto;
+  }
+  .floating-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2);
+  }
+  .caps-title {
+    color: #C39B6E;
+    text-transform: uppercase;
+    margin-top: 35px;
+    margin-bottom: 10px;
+    transition: color 0.3s ease;
+  }
+  .caps-title:hover {
+    color: #FFD700;
+  }
+  .floating-badge {
+    position: absolute;
+    top: -25px;
+    left: calc(50% - 25px);
+    background: #C39B6E;
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+  }
+  .floating-badge:hover, .floating-badge.active {
+    background: #FFD700;
+    transform: scale(1.1);
+  }
+</style>
+  
 <section id="faq"><h2>FAQs</h2><p>Answers coming soon!</p></section>
 
 <section id="testimonials">
