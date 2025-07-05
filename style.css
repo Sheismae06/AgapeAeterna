@@ -1,38 +1,131 @@
-.social-icons {
+/* Find Your Scent section styles */
+
+#games {
+  background: linear-gradient(135deg, #FAF8F1 0%, #EFE6DD 100%);
+  padding: 80px 20px;
+}
+
+#games .center-title {
+  text-align: center;
+  color: #C2A270;
+  font-family: 'Playfair Display', serif;
+  font-size: 2em;
+  letter-spacing: 1.5px;
+  border-bottom: 2px solid #C2A270;
+  display: inline-block;
+  padding-bottom: 5px;
+  margin-bottom: 30px;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+}
+
+#games .floating-box {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(8px);
+  padding: 35px;
+  border-radius: 25px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+  max-width: 950px;
+  margin: auto;
+  position: relative;
+  animation: floatSlow 6s ease-in-out infinite alternate;
+  transition: all 0.5s ease;
+}
+
+#games .floating-box:hover {
+  box-shadow: 0 30px 80px rgba(0,0,0,0.25);
+  transform: translateY(-5px);
+}
+
+#games .center-sub {
+  text-align: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
+  line-height: 1.8;
+  margin-bottom: 30px;
+}
+
+#games .caps-title {
+  text-align: center;
+  color: #C2A270;
+  font-family: 'Playfair Display', serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 40px 0 15px;
+  font-weight: 700;
+  transition: color 0.4s ease;
+}
+
+#games .caps-title:hover {
+  color: #BFA980;
+}
+
+#games p {
+  font-family: 'Lato', sans-serif;
+  color: #333;
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+#games .result-container,
+#games .scent-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 15px;
+  gap: 12px;
   justify-content: center;
-  margin-top: 30px;
+  margin: 20px 0;
 }
 
-.social-icons a {
+#games .result-box,
+#games .scent-box {
   flex: 1 1 180px;
-  background: rgba(255, 255, 255, 0.65);
+  background: rgba(255,255,255,0.85);
   border: 2px solid #C2A270;
-  padding: 12px 20px;
-  border-radius: 25px;
-  text-decoration: none;
-  color: #2C2C2C;
+  padding: 15px;
+  text-align: center;
   font-family: 'Cormorant Garamond', serif;
-  font-size: 1.1rem;
-  font-weight: 500;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
+  font-size: 1rem;
+  border-radius: 12px;
+  cursor: pointer;
   transition: all 0.4s ease;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
 }
 
-.social-icons a i {
-  font-size: 1.4em;
-  min-width: 28px;
-}
-
-.social-icons a:hover {
+#games .result-box:hover,
+#games .scent-box:hover {
   background: #C2A270;
   color: white;
-  transform: translateY(-5px) scale(1.02);
-  box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+  box-shadow: 0 10px 25px rgba(194,162,112,0.5);
+}
+
+#games .center-tagline {
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+  line-height: 1.7;
+}
+
+#games .buttons a {
+  display: inline-block;
+  margin: 8px;
+  padding: 12px 25px;
+  background: linear-gradient(135deg, #C2A270, #FFD700);
+  color: white;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: 600;
+  transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+#games .buttons a:hover {
+  background: linear-gradient(135deg, #FFD700, #C2A270);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+/* Floating animation */
+@keyframes floatSlow {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-12px); }
 }
