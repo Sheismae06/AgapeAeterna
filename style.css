@@ -1,0 +1,134 @@
+/* Base styles */
+body {
+  margin: 0;
+  padding: 0;
+  background: #FAF9F6;
+  font-family: 'Lato', sans-serif;
+  color: #1A1A1A;
+  scroll-behavior: smooth;
+}
+
+/* Buttons */
+.buttons a {
+  display: inline-block;
+  margin: 8px;
+  padding: 12px 25px;
+  background: #C2A270;
+  color: white;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: 600;
+  transition: all 0.4s ease;
+}
+
+.buttons a:hover {
+  background: #2C2C2C;
+}
+
+/* Titles and headings */
+.caps-title,
+.center-tagline {
+  background: linear-gradient(90deg, #a47e51, #d3b787);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-transform: uppercase;
+  margin-top: 40px;
+  margin-bottom: 15px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.center-tagline {
+  font-weight: bold;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.center-title {
+  text-align: center;
+  color: #C2A270;
+  font-size: 2em;
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 20px;
+}
+
+.center-sub {
+  text-align: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.about-title {
+  font-family: 'Playfair Display', serif;
+  color: #C2A270;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-top: 50px;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.about-title::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 1.5px;
+  background: #C2A270;
+  margin: 8px auto 0;
+}
+
+.about-title:hover {
+  color: #BFA980;
+}
+
+/* Sections */
+section {
+  display: none;
+  padding: 80px 20px 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+  background: #FAF9F6;
+  border-radius: 10px;
+}
+
+#about {
+  justify-content: center;
+  align-items: center;
+  padding: 80px 20px;
+  background: linear-gradient(135deg, #fdfcfb, #e2d1c3);
+  position: relative;
+}
+
+.about-box {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(8px);
+  padding: 60px 50px;
+  border-radius: 20px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.1);
+  max-width: 850px;
+  text-align: center;
+}
+
+.about-box p {
+  font-family: 'Lato', sans-serif;
+  color: #333;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1.05rem;
+}
+
+.signature {
+  font-family: 'Dancing Script', cursive;
+  color: #C2A270;
+  font-size: 1.4rem;
+  margin-top: 40px;
+}
+
+.signature span {
+  font-weight: 700;
+}
