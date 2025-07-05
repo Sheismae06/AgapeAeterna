@@ -2,392 +2,327 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>AURELÉA</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Agape Aeterna Perfume</title>
   <style>
     body {
-      margin: 0; padding: 0;
-      background: #FAF9F6;
-      font-family: 'Lato', sans-serif;
-      color: #1A1A1A;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      margin: 0;
+      background-color: #fff9f0;
+      color: #333;
       scroll-behavior: smooth;
-      transition: all 0.4s ease;
     }
-    #cover {
-      height: 100vh;
-      background: url('aac81c51-9b17-444c-9593-1e584bd13d2b.png') no-repeat center center/cover;
+    header {
+      background: rgba(255, 255, 255, 0.9);
       display: flex;
-      flex-direction: column;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
-      text-align: center;
-      position: relative;
+      padding: 10px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 999;
     }
-    .menu-btn {
-      position: absolute;
-      top: 20px;
-      right: 60px;
-      font-size: 2em;
-      cursor: pointer;
-      z-index: 1001;
-      color: #fff;
-      background: #2C2C2C;
-      border-radius: 5px;
-      padding: 5px 10px;
-    }
-    .music-icon {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      font-size: 1.4em;
-      background: #2C2C2C;
-      color: #fff;
-      border: none;
-      padding: 7px 10px;
-      border-radius: 5px;
-      cursor: pointer;
-      z-index: 1001;
+    header img {
+      height: 50px;
     }
     nav {
-      position: fixed;
-      top: 0;
-      right: -240px;
-      width: 220px;
-      height: 100%;
-      background: #2C2C2C;
-      transition: right 0.3s ease;
-      padding-top: 60px;
-      z-index: 1000;
-      overflow-y: auto;
+      display: flex;
+      gap: 15px;
     }
-    nav.open { right: 0; }
-    nav ul { list-style: none; padding: 0; margin: 0; }
     nav a {
-      display: block;
-      padding: 15px 20px;
       text-decoration: none;
-      color: #fff;
-      font-size: 1.1em;
-      border-bottom: 1px solid #444;
-      font-family: 'Playfair Display', serif;
-      transition: background 0.3s;
+      color: #333;
+      font-weight: bold;
+      transition: color 0.3s;
     }
-    nav a:hover { background: #444; }
-    #mini-header {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 55px;
-      background: #2C2C2C;
-      box-shadow: 0 2px 5px rgba(0,0,0,.1);
-      align-items: center;
-      padding: 0 15px;
-      z-index: 999;
-      justify-content: flex-end;
+    nav a:hover {
+      color: #f5c518;
     }
     section {
-      display: none;
-      padding: 80px 20px 40px;
-      max-width: 900px;
-      margin: 0 auto;
-      background: rgba(255,255,255,0.9);
-      border-radius: 15px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-      animation: fadeIn 0.8s ease-in-out;
-    }
-    section.active { display: block; }
-    h2, h3 {
-      font-family: 'Playfair Display', serif;
-      color: #C39B6E;
+      padding: 60px 20px;
       text-align: center;
     }
-    p {
-      line-height: 1.7;
-      margin: 10px 0;
-      text-align: justify;
+    h1, h2 {
+      color: #e0ac1c;
     }
-    .buttons a {
-      display: inline-block;
-      margin: 10px;
-      padding: 12px 20px;
-      background: #C39B6E;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 30px;
-      font-weight: bold;
-      transition: 0.3s;
+    button {
+      padding: 10px 20px;
+      border: none;
+      background-color: #e0ac1c;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.3s;
     }
-    .buttons a:hover { background: #2C2C2C; }
-    .social-icons a {
-      color: #2C2C2C;
-      font-size: 1.5em;
-      margin: 10px;
-      transition: transform 0.3s, color 0.3s;
+    button:hover {
+      background-color: #c79512;
+      transform: scale(1.05);
     }
-    .social-icons a:hover {
-      color: #C39B6E;
-      transform: scale(1.2);
-    }
-    .quiz-box {
-      background: #fff;
-      border-radius: 15px;
+    .floating-box {
+      background: white;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.1);
       padding: 20px;
-      margin: 20px 0;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+      margin: 20px auto;
+      max-width: 700px;
+      border-radius: 12px;
     }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+    .quiz-question {
+      text-align: left;
+      margin-bottom: 20px;
+    }
+    .quiz-options button {
+      display: block;
+      width: 100%;
+      margin: 5px 0;
+    }
+    footer {
+      background: #222;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    .review-buttons button {
+      margin: 10px;
+    }
+    .music-icon {
+      cursor: pointer;
+      margin-left: auto;
     }
   </style>
 </head>
 <body>
-  <div id="cover">
-    <div class="menu-btn" onclick="toggleNav()">☰</div>
-    <button class="music-icon" onclick="toggleMusic()">♫</button>
-  </div>
 
-  <nav id="nav">
-    <ul>
-      <li><a href="#" onclick="openSection('about')">About</a></li>
-      <li><a href="#" onclick="openSection('scents')">Scents</a></li>
-      <li><a href="#" onclick="openSection('order')">Shop Now</a></li>
-      <li><a href="#" onclick="openSection('discount')">Rewards</a></li>
-      <li><a href="#" onclick="openSection('find')">Find Your Scent</a></li>
-      <li><a href="#" onclick="openSection('testimonials')">Reviews</a></li>
-      <li><a href="#" onclick="openSection('contact')">Get in Touch</a></li>
-      <li><a href="#" onclick="openSection('chat')">Let's Talk</a></li>
-    </ul>
+<header>
+  <img src="https://i.ibb.co/WscLZQ1/Agape-Yellow.png" alt="Agape Logo">
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#scents">Scents</a>
+    <a href="#shop">Shop Now</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#find">Find Your Scent</a>
+    <a href="#contact">Get in Touch</a>
+    <a href="#talk">Let's Talk</a>
   </nav>
+  <div class="music-icon">🎵</div>
+</header>
 
-  <div id="mini-header"><div class="menu-btn" onclick="toggleNav()">☰</div></div>
+<section id="home">
+  <h1>Welcome to Agape Aeterna</h1>
+  <p>Discover fragrances that embody eternal love and confidence. Your scent, your story.</p>
+  <button onclick="window.location='#shop'">Shop Now 🛍️</button>
+</section>
 
-  <section id="about">
-    <h2>About</h2>
+<section id="about">
+  <h2>About</h2>
+  <div class="floating-box">
     <p>Agape Aeterna was born from a deep love for fragrances — not just any scent, but those that last, linger, and leave a mark. For me, perfume is more than just a fragrance. It is a reflection of one’s personality, a quiet statement, and a lasting memory left behind.</p>
     <p>The name Agape Aeterna means eternal, unconditional love — a reflection of who I am and what I want to share with the world. Through this brand, I want people to feel loved, valued, and confident. I want each scent to give them the power to walk into any room and be remembered — even without saying a word.</p>
-    <h3>Mission</h3>
+  </div>
+
+  <h2>Mission</h2>
+  <div class="floating-box">
     <p>To craft a variety of signature scents that celebrate different personalities — making each one unforgettable, lovable, and soulfully created for everyone.</p>
-    <h3>Vision</h3>
+  </div>
+
+  <h2>Vision</h2>
+  <div class="floating-box">
     <p>To become a trusted name in local fragrance — known for soulful blends, high-quality ingredients, and affordable luxury. We aim to build a community where every bottle tells a story, and where scent becomes a symbol of self-expression, confidence, and love.</p>
-  </section>
+  </div>
+</section>
 
-  <section id="scents">
-    <h2>Scents</h2>
-    <p>Explore our signature scents coming soon...</p>
-  </section>
+<section id="scents">
+  <h2>Scents</h2>
+  <div class="floating-box">
+    <p>[Placeholder for scents and product images — coming soon]</p>
+  </div>
+</section>
 
-  <section id="order">
-    <h2><i class="fas fa-shopping-bag"></i> Shop Now</h2>
-    <div class="buttons"><a href="#">Purchase Here</a></div>
-  </section>
+<section id="shop">
+  <h2>Shop Now 🛍️</h2>
+  <div class="floating-box">
+    <p>[Placeholder for shop items — coming soon]</p>
+  </div>
+</section>
 
-  <section id="discount">
-    <h2>Rewards</h2>
-    <p>Exclusive rewards and promos coming soon...</p>
-  </section>
+<section id="reviews">
+  <h2>Reviews</h2>
+  <div class="review-buttons">
+    <button>Submit Your Review</button>
+    <button>Customer Reviews</button>
+  </div>
+</section>
 
-  <section id="find">
-    <h2>DISCOVER YOUR SIGNATURE SCENT</h2>
-    <div class="quiz-box">
-      <p>Take this quiz to reveal your perfect perfume personality and learn the scent families that suit you — for morning freshness and evening elegance.</p>
-      <p><strong>HOW TO PLAY:</strong> Choose one letter (A, B, C, or D) per question. 📝 Keep track of your answers. Scroll down after the quiz to read your result and explore the scent glossary.</p>
-      <p><strong>QUESTIONS</strong></p>
-      <p>1. How do you usually feel in the morning? A. Focused and motivated B. Calm and centered C. Romantic and soft D. Excited and spontaneous</p>
-      <p>2. Your ideal evening vibe is: A. Sophisticated and mysterious B. Cozy and grounded C. Elegant and timeless D. Bold and unforgettable</p>
-      <p>3. What’s your go-to fashion style? A. Black, sleek, and tailored B. Earthy, breezy, and natural C. Feminine with soft colors D. Trendy, colorful, and expressive</p>
-      <p>4. Which dream destination speaks to you most? A. New York powerful and modern B. Bali peaceful and nature-filled C. Paris romantic and classic D. Dubai glamorous and exciting</p>
-      <p>5. Choose a quote that reflects you best: A. "Power is silent." B. "Simplicity is the ultimate sophistication." C. "Love is in the air." D. "I was born to stand out."</p>
-      <p>6. What kind of scent do you usually enjoy on others? A. Deep, woody, or spicy B. Clean, green, or airy C. Floral or powdery D. Fruity or sweet</p>
-      <p>7. Why do you wear perfume? A. To feel confident and empowered B. To stay fresh and light C. To feel romantic and beautiful D. To express my personality</p>
-      <p><strong>RESULTS</strong></p>
-      <p>Mostly A THE SOPHISTICATED SCENT — You're powerful, bold, and composed. Best Scent Families: Woody, Amber, Spicy, Oud 💡 Try: Creed Aventus, Tom Ford Oud Wood, Baccarat Rouge 540</p>
-      <p>Mostly B THE SERENE SCENT — You're peaceful, grounded, and love simplicity. Best Scent Families: Green, Fresh, Aquatic, Citrus 💡 Try: Dolce & Gabbana Light Blue, Elizabeth Arden Green Tea, Acqua di Gioia</p>
-      <p>Mostly C THE ROMANTIC SCENT — You are gentle, loving, and dreamy. Best Scent Families: Floral, Powdery, Soft Musk 💡 Try: Miss Dior, Chloe Eau de Parfum, Daisy by Marc Jacobs</p>
-      <p>Mostly D THE PLAYFUL SCENT — You're vibrant, fun, and full of life. Best Scent Families: Fruity, Sweet, Gourmand, Tropical 💡 Try: YSL Mon Paris, Ariana Grande Cloud, Pink Sugar</p>
-      <p>TIE OR MIXED ANSWERS? 🎭 You’re a Dual Signature or Scent Explorer. Try layering scents or rotating fragrances by season and mood.</p>
-      <p><strong>SCENT FAMILY GUIDE</strong></p>
-      <p>🌳 Woody — Grounded, warm, elegant. Notes: Vetiver, sandalwood, patchouli.</p>
-      <p>🕯️ Amber — Warm, rich, sensual. Notes: Amber, labdanum, benzoin.</p>
-      <p>🌶️ Spicy — Exotic and bold. Notes: Cardamom, pepper, saffron.</p>
-      <p>🪵 Oud — Deep, smoky, luxurious. Best for evening. Rare and powerful.</p>
-      <p>🌿 Green — Crisp, clean, natural. Notes: Basil, green tea, galbanum.</p>
-      <p>🌊 Aquatic — Fresh and breezy. Notes: Marine, cucumber, water lily.</p>
-      <p>🍋 Citrus — Bright and zesty. Notes: Grapefruit, mandarin, lime.</p>
-      <p>🌸 Floral — Feminine and romantic. Notes: Rose, jasmine, peony.</p>
-      <p>🧼 Powdery — Soft and intimate. Notes: Iris, violet, white musk.</p>
-      <p>🍓 Fruity — Sweet and fresh. Notes: Strawberry, pear, mango.</p>
-      <p>🍭 Gourmand — Edible and comforting. Notes: Vanilla, caramel, coffee.</p>
-      <p><strong>UNDERSTANDING PERFUME CONCENTRATIONS</strong></p>
-      <p>Parfum / Extrait de Parfum — 20–30% oil, 8–12+ hours. Deep, intense, luxurious. Best for special occasions.</p>
-      <p>Eau de Parfum (EDP) — 15–20% oil, 6–8 hours. Balanced and long-lasting. Daily or evening wear.</p>
-      <p>Eau de Toilette (EDT) — 5–15% oil, 4–6 hours. Light, fresh. Good for warm days or casual wear.</p>
-      <p>Eau de Cologne (EDC) — 2–5% oil, 2–4 hours. Very light. Great for layering or refreshing.</p>
-      <p>Body Mist — 1–3% oil, 1–2 hours. Gentle, great for post-shower or bedtime.</p>
-      <p><strong>PERFUME STORAGE TIPS</strong></p>
-      <p>✅ Store in cool, dry place. ❌ Don’t leave in humid bathrooms. ✅ Close tightly. ❄️ Refrigerate only if very hot — avoid temp swings.</p>
-      <p><strong>HOW TO MAKE PERFUME LAST LONGER</strong></p>
-      <p>On skin — pulse points, moisturize first, don’t rub, spray from 6–8 inches.</p>
-      <p>On clothes — fabric-safe areas, no silk, air dry.</p>
-      <p>Bonus — hairbrush, layer with lotions, bring atomizer.</p>
-      <p>DISCOVER. EXPRESS. SCENT YOUR STORY. Your scent is more than fragrance — it’s your signature.</p>
-      <div class="buttons">
-        <a href="#" onclick="openSection('order')">Shop Now</a>
-        <a href="#" onclick="openSection('find')">Retake Quiz</a>
-        <a href="#" onclick="openSection('contact')">Share Your Result</a>
+<section id="find">
+  <h2>Discover Your Signature Scent</h2>
+  <div class="floating-box">
+    <p>Take this quiz to reveal your perfect perfume personality and learn the scent families that suit you — for morning freshness and evening elegance.</p>
+    <p><strong>HOW TO PLAY:</strong> Choose one letter (A, B, C, or D) per question. 📝 Keep track of your answers. Scroll down after the quiz to read your result and explore the scent glossary.</p>
+
+    <div class="quiz-question">
+      <p>1. How do you usually feel in the morning?</p>
+      <div class="quiz-options">
+        <button>A. Focused and motivated</button>
+        <button>B. Calm and centered</button>
+        <button>C. Romantic and soft</button>
+        <button>D. Excited and spontaneous</button>
       </div>
     </div>
-  </section>
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>AURELÉA</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-  <style>
-    body {
-      margin: 0; padding: 0;
-      background: #FAF9F6;
-      font-family: 'Lato', sans-serif;
-      color: #1A1A1A;
-      scroll-behavior: smooth;
-      transition: all 0.4s ease;
+
+    <div class="quiz-question">
+      <p>2. Your ideal evening vibe is:</p>
+      <div class="quiz-options">
+        <button>A. Sophisticated and mysterious</button>
+        <button>B. Cozy and grounded</button>
+        <button>C. Elegant and timeless</button>
+        <button>D. Bold and unforgettable</button>
+      </div>
+    </div>
+
+    <!-- CONTINUED IN PART 2 -->
+  </div>
+</section>
+<div class="quiz-question">
+      <p>3. What’s your go-to fashion style?</p>
+      <div class="quiz-options">
+        <button>A. Black, sleek, and tailored</button>
+        <button>B. Earthy, breezy, and natural</button>
+        <button>C. Feminine with soft colors</button>
+        <button>D. Trendy, colorful, and expressive</button>
+      </div>
+    </div>
+
+    <div class="quiz-question">
+      <p>4. Which dream destination speaks to you most?</p>
+      <div class="quiz-options">
+        <button>A. New York powerful and modern</button>
+        <button>B. Bali peaceful and nature-filled</button>
+        <button>C. Paris romantic and classic</button>
+        <button>D. Dubai glamorous and exciting</button>
+      </div>
+    </div>
+
+    <div class="quiz-question">
+      <p>5. Choose a quote that reflects you best:</p>
+      <div class="quiz-options">
+        <button>A. "Power is silent."</button>
+        <button>B. "Simplicity is the ultimate sophistication."</button>
+        <button>C. "Love is in the air."</button>
+        <button>D. "I was born to stand out."</button>
+      </div>
+    </div>
+
+    <div class="quiz-question">
+      <p>6. What kind of scent do you usually enjoy on others?</p>
+      <div class="quiz-options">
+        <button>A. Deep, woody, or spicy</button>
+        <button>B. Clean, green, or airy</button>
+        <button>C. Floral or powdery</button>
+        <button>D. Fruity or sweet</button>
+      </div>
+    </div>
+
+    <div class="quiz-question">
+      <p>7. Why do you wear perfume?</p>
+      <div class="quiz-options">
+        <button>A. To feel confident and empowered</button>
+        <button>B. To stay fresh and light</button>
+        <button>C. To feel romantic and beautiful</button>
+        <button>D. To express my personality</button>
+      </div>
+    </div>
+
+    <h3>RESULTS</h3>
+    <p><strong>Mostly A:</strong> THE SOPHISTICATED SCENT — You're powerful, bold, and composed. Best Scent Families: Woody, Amber, Spicy, Oud 💡 Try: Creed Aventus, Tom Ford Oud Wood, Baccarat Rouge 540</p>
+    <p><strong>Mostly B:</strong> THE SERENE SCENT — You're peaceful, grounded, and love simplicity. Best Scent Families: Green, Fresh, Aquatic, Citrus 💡 Try: Dolce & Gabbana Light Blue, Elizabeth Arden Green Tea, Acqua di Gioia</p>
+    <p><strong>Mostly C:</strong> THE ROMANTIC SCENT — You are gentle, loving, and dreamy. Best Scent Families: Floral, Powdery, Soft Musk 💡 Try: Miss Dior, Chloe Eau de Parfum, Daisy by Marc Jacobs</p>
+    <p><strong>Mostly D:</strong> THE PLAYFUL SCENT — You're vibrant, fun, and full of life. Best Scent Families: Fruity, Sweet, Gourmand, Tropical 💡 Try: YSL Mon Paris, Ariana Grande Cloud, Pink Sugar</p>
+    <p><strong>Tie or Mixed Answers?</strong> 🎭 You’re a Dual Signature or Scent Explorer. Try layering scents or rotating fragrances by season and mood.</p>
+
+    <h3>SCENT FAMILY GUIDE</h3>
+    <p>🌳 Woody — Grounded, warm, elegant. Notes: Vetiver, sandalwood, patchouli.</p>
+    <p>🕯️ Amber — Warm, rich, sensual. Notes: Amber, labdanum, benzoin.</p>
+    <p>🌶️ Spicy — Exotic and bold. Notes: Cardamom, pepper, saffron.</p>
+    <p>🪵 Oud — Deep, smoky, luxurious. Best for evening. Rare and powerful.</p>
+    <p>🌿 Green — Crisp, clean, natural. Notes: Basil, green tea, galbanum.</p>
+    <p>🌊 Aquatic — Fresh and breezy. Notes: Marine, cucumber, water lily.</p>
+    <p>🍋 Citrus — Bright and zesty. Notes: Grapefruit, mandarin, lime.</p>
+    <p>🌸 Floral — Feminine and romantic. Notes: Rose, jasmine, peony.</p>
+    <p>🧼 Powdery — Soft and intimate. Notes: Iris, violet, white musk.</p>
+    <p>🍓 Fruity — Sweet and fresh. Notes: Strawberry, pear, mango.</p>
+    <p>🍭 Gourmand — Edible and comforting. Notes: Vanilla, caramel, coffee.</p>
+
+    <h3>UNDERSTANDING PERFUME CONCENTRATIONS</h3>
+    <p>Parfum / Extrait de Parfum — 20–30% oil, 8–12+ hours, deep and luxurious. Best for special occasions.</p>
+    <p>Eau de Parfum (EDP) — 15–20% oil, 6–8 hours, balanced and long-lasting. Great for daily wear.</p>
+    <p>Eau de Toilette (EDT) — 5–15% oil, 4–6 hours, fresh and light. Ideal for casual days.</p>
+    <p>Eau de Cologne (EDC) — 2–5% oil, 2–4 hours, very light. Good for layering or refreshing.</p>
+    <p>Body Mist / Splash — 1–3% oil, 1–2 hours, gentle scent. Best for post-shower or bedtime.</p>
+
+    <h3>PERFUME STORAGE TIPS</h3>
+    <p>✅ Store in a cool, dry place (away from sunlight and heat)</p>
+    <p>❌ Don’t leave perfumes in humid areas like bathrooms</p>
+    <p>✅ Keep the cap tightly closed to prevent evaporation</p>
+    <p>❄️ Optional: Refrigerate only if your room gets too warm — avoid temperature changes</p>
+
+    <h3>HOW TO MAKE PERFUME LAST LONGER</h3>
+    <p><strong>On Skin:</strong> Apply on pulse points, moisturize first, don’t rub wrists, spray from 6–8 inches.</p>
+    <p><strong>On Clothes:</strong> Spray on collars/sleeves, avoid silk, let air dry naturally.</p>
+
+    <h3>BONUS TIPS</h3>
+    <p>Spray on hairbrush, layer with lotions, carry travel atomizer.</p>
+
+    <p>DISCOVER. EXPRESS. SCENT YOUR STORY. Your scent is more than fragrance — it’s your signature.</p>
+    <p>Ready to explore your match?</p>
+    <button>🔍 Shop Now</button>
+    <button>🔁 Retake Quiz</button>
+    <button>📲 Share Your Result</button>
+  </div>
+</section>
+
+<section id="contact">
+  <h2>Get in Touch</h2>
+  <div class="floating-box">
+    <p>MESSAGE</p>
+    <p><a href="viber://chat?number=YOURNUMBER">Viber</a></p>
+    <p><a href="https://wa.me/YOURNUMBER">WhatsApp</a></p>
+    <p><a href="https://t.me/YOURUSERNAME">Telegram</a></p>
+    <p><a href="mailto:agapeaeternaperfumeshop@gmail.com">Send Email (Gmail)</a></p>
+    <p><a href="mailto:agapeaeternaperfumeshop@outlook.com">Send Email (Outlook)</a></p>
+    <p><a href="https://www.facebook.com/YOURPAGE">Facebook</a></p>
+  </div>
+</section>
+
+<section id="talk">
+  <h2>Let's Talk</h2>
+  <div class="floating-box">
+    <p>Hi! I’m happy to assist you. If you have any questions, concerns, or issues, don’t hesitate to talk to me in real time.</p>
+    <button>No Chathead Popup?</button>
+    <p>If you don’t see the chathead, click the button above. You’ll be redirected to basic troubleshooting on how to enable or view the chat icon.</p>
+  </div>
+</section>
+<!-- Background Music -->
+<audio id="bg-music" loop>
+  <source src="your-music-file.mp3" type="audio/mpeg">
+</audio>
+<script>
+  function toggleMenu() {
+    var nav = document.getElementById("nav-menu");
+    nav.style.display = (nav.style.display === "flex") ? "none" : "flex";
+  }
+
+  function toggleMusic() {
+    var music = document.getElementById("bg-music");
+    var icon = document.getElementById("music-icon");
+    if (music.paused) {
+      music.play();
+      icon.textContent = "🔊";
+    } else {
+      music.pause();
+      icon.textContent = "🔈";
     }
-    #cover {
-      height: 100vh;
-      background: url('aac81c51-9b17-444c-9593-1e584bd13d2b.png') no-repeat center center/cover;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      position: relative;
-    }
-    .menu-btn {
-      position: absolute;
-      top: 20px;
-      right: 60px;
-      font-size: 2em;
-      cursor: pointer;
-      z-index: 1001;
-      color: #fff;
-      background: #2C2C2C;
-      border-radius: 5px;
-      padding: 5px 10px;
-    }
-    .music-icon {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      font-size: 1.4em;
-      background: #2C2C2C;
-      color: #fff;
-      border: none;
-      padding: 7px 10px;
-      border-radius: 5px;
-      cursor: pointer;
-      z-index: 1001;
-    }
-    nav {
-      position: fixed;
-      top: 0;
-      right: -240px;
-      width: 220px;
-      height: 100%;
-      background: #2C2C2C;
-      transition: right 0.3s ease;
-      padding-top: 60px;
-      z-index: 1000;
-      overflow-y: auto;
-    }
-    nav.open { right: 0; }
-    nav ul { list-style: none; padding: 0; margin: 0; }
-    nav a {
-      display: block;
-      padding: 15px 20px;
-      text-decoration: none;
-      color: #fff;
-      font-size: 1.1em;
-      border-bottom: 1px solid #444;
-      font-family: 'Playfair Display', serif;
-      transition: background 0.3s;
-    }
-    nav a:hover { background: #444; }
-    #mini-header {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 55px;
-      background: #2C2C2C;
-      box-shadow: 0 2px 5px rgba(0,0,0,.1);
-      align-items: center;
-      padding: 0 15px;
-      z-index: 999;
-      justify-content: flex-end;
-    }
-    section {
-      display: none;
-      padding: 80px 20px 40px;
-      max-width: 900px;
-      margin: 0 auto;
-      background: rgba(255,255,255,0.9);
-      border-radius: 15px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-      animation: fadeIn 0.8s ease-in-out;
-    }
-    section.active { display: block; }
-    h2, h3 {
-      font-family: 'Playfair Display', serif;
-      color: #C39B6E;
-      text-align: center;
-    }
-    p {
-      line-height: 1.7;
-      margin: 10px 0;
-      text-align: justify;
-    }
-    .buttons a {
-      display: inline-block;
-      margin: 10px;
-      padding: 12px 20px;
-      background: #C39B6E;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 30px;
-      font-weight: bold;
-      transition: 0.3s;
-    }
-    .buttons a:hover { background: #2C2C2C; }
-    .social-icons a {
-      color: #2C2C2C;
-      font-size: 1.5em;
-      margin: 10px;
-      transition: transform 0.3s, color 0.3s;
-    }
-    .social-icons a:hover {
-      color: #C39B6E;
-      transform: scale(1.2);
-    }
-    .quiz-box {
-      background: #fff;
-      border-radius: 15px;
-      padding: 20px;
-      margin: 20px 0;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-  </style>
-</head>
-<body>
-  <!-- Full HTML file continued here with all sections as one file -->
+  }
+</script>
+
 </body>
 </html>
