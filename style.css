@@ -1,4 +1,4 @@
-/* Find Your Scent section styles */
+/* === Complete Final CSS for #games section === */
 
 #games {
   background: linear-gradient(135deg, #FAF8F1 0%, #EFE6DD 100%);
@@ -96,15 +96,29 @@
   box-shadow: 0 10px 25px rgba(194,162,112,0.5);
 }
 
-#games .center-tagline {
+/* Tagline style */
+#games .center-tagline b {
+  display: block;
   text-align: center;
-  margin-top: 40px;
-  margin-bottom: 20px;
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.2rem;
-  line-height: 1.7;
+  color: #C2A270;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2em;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
 }
 
+#games .center-tagline span {
+  display: block;
+  text-align: center;
+  color: #333;
+}
+
+/* Center buttons container */
+#games .buttons {
+  text-align: center;
+}
+
+/* Buttons style */
 #games .buttons a {
   display: inline-block;
   margin: 8px;
@@ -116,6 +130,13 @@
   font-weight: 600;
   transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
   box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Remove highlight on click/focus */
+#games .buttons a:focus,
+#games .buttons a:active {
+  outline: none;
+  box-shadow: none;
 }
 
 #games .buttons a:hover {
