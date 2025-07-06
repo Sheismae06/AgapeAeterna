@@ -1,10 +1,10 @@
-// Function to toggle navigation menu
+// Toggle Navigation Menu
 function toggleNav() {
   const nav = document.getElementById("nav");
   nav.classList.toggle("open");
 }
 
-// Function to toggle background music
+// Toggle Background Music
 function toggleMusic() {
   const music = document.getElementById("bg-music");
   if (music.paused) {
@@ -14,7 +14,7 @@ function toggleMusic() {
   }
 }
 
-// Function to show a specific section and hide the rest
+// Show Specific Section, Hide Others
 function openSection(sectionId) {
   const sections = document.querySelectorAll(".section");
   sections.forEach((section) => {
@@ -27,15 +27,20 @@ function openSection(sectionId) {
     }
   });
 
-  // Update URL hash without scrolling
-  history.pushState(null, null, `#${sectionId}`);
+  // Hide cover on section open
+  const cover = document.getElementById("cover");
+  const miniHeader = document.getElementById("mini-header");
 
-  // Close nav menu if open
-  const nav = document.getElementById("nav");
-  nav.classList.remove("open");
+  if (sectionId) {
+    cover.style.display = "none";
+    miniHeader.style.display = "flex";
+  }
+
+  // Close nav menu
+  document.getElementById("nav").classList.remove("open");
 }
 
-// On initial load: show section if hash exists in URL (e.g. #order)
+// On Page Load — Show cover only
 window.addEventListener("DOMContentLoaded", () => {
   const sections = document.querySelectorAll(".section");
   sections.forEach((section) => {
@@ -43,13 +48,14 @@ window.addEventListener("DOMContentLoaded", () => {
     section.classList.remove("fade-in");
   });
 
+  // Show cover, hide mini-header on initial load
+  document.getElementById("cover").style.display = "flex";
+  document.getElementById("mini-header").style.display = "none";
+
+  // Optional: If there's a hash in URL (like #order), open that section automatically
   const hash = window.location.hash;
   if (hash) {
-    const sectionId = hash.substring(1); // remove "#"
-    const target = document.getElementById(sectionId);
-    if (target) {
-      target.classList.add("active");
-      target.classList.add("fade-in");
-    }
+    const sectionId = hash.replace("#", "");
+    openSection(sectionId);
   }
 });
