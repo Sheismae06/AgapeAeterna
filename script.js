@@ -7,23 +7,29 @@ function toggleNav() {
 // Toggle Background Music
 function toggleMusic() {
   const music = document.getElementById("bg-music");
+  const icon = document.querySelector(".music-icon");
+
   if (music.paused) {
     music.play();
+    icon.textContent = "🔇";
   } else {
     music.pause();
+    icon.textContent = "♫";
   }
 }
 
 // Show Selected Section
 function openSection(id) {
-  // Hide cover
+  // Hide homepage
   document.getElementById("cover").style.display = "none";
 
   // Hide nav
   document.getElementById("nav").style.display = "none";
 
-  // Show mini header
+  // Show mini-header and home button
   document.getElementById("mini-header").style.display = "block";
+  document.getElementById("home-btn").style.display = "block";
+  document.querySelector(".music-icon").style.display = "block";
 
   // Hide all sections
   const sections = document.querySelectorAll(".section");
@@ -32,17 +38,14 @@ function openSection(id) {
     section.style.display = "none";
   });
 
-  // Show selected section
+  // Show selected section with fade-in
   const target = document.getElementById(id);
   if (target) {
     target.style.display = "block";
     setTimeout(() => {
       target.classList.add("show");
-    }, 10); // for fade-in transition
+    }, 10);
   }
-
-  // Show floating home button
-  document.getElementById("home-btn").style.display = "block";
 }
 
 // Return to Homepage
@@ -57,12 +60,13 @@ function returnToHome() {
   // Show homepage cover
   document.getElementById("cover").style.display = "flex";
 
-  // Hide mini header
+  // Hide mini-header, home button
   document.getElementById("mini-header").style.display = "none";
-
-  // Hide nav menu
-  document.getElementById("nav").style.display = "none";
-
-  // Hide home button
   document.getElementById("home-btn").style.display = "none";
+
+  // Keep music icon visible
+  document.querySelector(".music-icon").style.display = "block";
+
+  // Hide nav
+  document.getElementById("nav").style.display = "none";
 }
