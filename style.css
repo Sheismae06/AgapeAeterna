@@ -1,13 +1,13 @@
 /* === Font Imports === */
 @import url('https://fonts.googleapis.com/css2?family=Lato&family=Playfair+Display&family=Dancing+Script&family=Cormorant+Garamond&display=swap');
 
-/* === Global Reset & Base Styles === */
+/* === Reset & Base === */
 *, *::before, *::after {
   box-sizing: border-box;
-}
-body {
   margin: 0;
   padding: 0;
+}
+body {
   background: #FAF9F6;
   font-family: 'Lato', sans-serif;
   color: #1A1A1A;
@@ -25,11 +25,9 @@ a {
 }
 ul {
   list-style: none;
-  padding: 0;
-  margin: 0;
 }
 
-/* === Cover & Menu Icons === */
+/* === Header & Icons === */
 #cover {
   display: flex;
   justify-content: space-between;
@@ -47,7 +45,7 @@ ul {
   cursor: pointer;
 }
 
-/* === Navigation Menu === */
+/* === Navigation === */
 #nav {
   display: none;
   position: fixed;
@@ -67,9 +65,7 @@ ul {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-#nav li {
-  margin: 10px 0;
+  gap: 10px;
 }
 #nav a {
   font-size: 1.2em;
@@ -94,7 +90,7 @@ ul {
   z-index: 999;
 }
 
-/* === Sections & Transitions === */
+/* === Sections === */
 .section {
   display: none;
   padding: 60px 20px;
@@ -107,8 +103,11 @@ ul {
   opacity: 1;
   transform: translateY(0);
 }
-
-/* === Fade Classes === */
+.hidden {
+  display: none !important;
+  opacity: 0 !important;
+  transform: translateY(20px) !important;
+}
 .fade-in {
   opacity: 1 !important;
   transform: translateY(0) !important;
@@ -123,7 +122,7 @@ ul {
   max-width: 800px;
   margin: 40px auto;
   padding: 30px;
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.85);
   border-radius: 20px;
   text-align: center;
 }
@@ -142,6 +141,10 @@ ul {
 }
 
 /* === Buttons === */
+.buttons {
+  text-align: center;
+  margin-top: 20px;
+}
 .buttons a {
   display: inline-block;
   margin: 10px 8px;
@@ -158,16 +161,85 @@ ul {
   transform: translateY(-3px);
 }
 
-/* === Utility Classes === */
-.hidden {
-  display: none !important;
-  opacity: 0 !important;
-  transform: translateY(20px) !important;
+/* === Section Titles === */
+.section-title {
+  font-size: 2em;
+  color: #C2A270;
+  text-align: center;
+  margin-bottom: 30px;
+}
+.center-title {
+  text-align: center;
+}
+.center-sub {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.caps-title {
+  font-weight: bold;
+  text-transform: uppercase;
+  margin: 30px 0 10px;
 }
 
-/* === Responsive Adjustments === */
+/* === Games/Quiz === */
+.floating-box {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 20px;
+}
+.result-container,
+.scent-container {
+  margin-top: 20px;
+}
+.result-box,
+.scent-box {
+  background: #f8f6f2;
+  border-left: 5px solid #C2A270;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+}
+
+/* === Contact Section === */
+.contact-box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+.contact-box a {
+  background: #C2A270;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-size: 0.95em;
+  transition: background-color 0.3s ease;
+}
+.contact-box a:hover {
+  background: #2C2C2C;
+}
+
+/* === Reviews & FAQ === */
+.review-sub,
+.chat-sub,
+.contact-sub,
+.faq-text {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.circle-label {
+  margin-top: 30px;
+  text-align: center;
+  font-style: italic;
+}
+
+/* === Responsive Design === */
 @media screen and (max-width: 768px) {
-  .about-box {
+  .about-box,
+  .floating-box {
     padding: 20px;
   }
   .buttons a {
@@ -176,5 +248,8 @@ ul {
   }
   #nav ul {
     gap: 6px;
+  }
+  .contact-box a {
+    font-size: 0.85rem;
   }
 }
