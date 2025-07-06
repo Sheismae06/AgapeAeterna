@@ -1,293 +1,56 @@
-/* ========= Base Styles ========= */
-body {
-  margin: 0;
-  padding: 0;
-  background: #FAF9F6;
-  font-family: 'Lato', sans-serif;
-  color: #1A1A1A;
-  scroll-behavior: smooth;
-}
+/* Elegant Website CSS */
 
-h2, h3, h4 {
-  font-family: 'Playfair Display', serif;
-}
+/* ========= Base Styles ========= */ body { margin: 0; padding: 0; background: #FAF9F6; font-family: 'Lato', sans-serif; color: #1A1A1A; scroll-behavior: smooth; }
 
-p {
-  line-height: 1.6;
-}
+h2, h3, h4 { font-family: 'Playfair Display', serif; }
 
-a {
-  text-decoration: none;
-  color: inherit;
-}
+p { line-height: 1.6; }
 
-ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
+a { text-decoration: none; color: inherit; }
 
-/* ========= Cover & Menu ========= */
-#cover {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px;
-}
+ul { list-style: none; padding: 0; margin: 0; }
 
-.menu-btn {
-  font-size: 2em;
-  cursor: pointer;
-}
+/* ========= Cover & Menu ========= */ #cover { display: flex; justify-content: space-between; align-items: center; padding: 20px; }
 
-.music-icon {
-  font-size: 1.5em;
-  background: none;
-  border: none;
-  cursor: pointer;
-}
+.menu-btn { font-size: 2em; cursor: pointer; }
 
-/* ========= Navigation ========= */
-#nav {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background: rgba(255,255,255,0.95);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-  z-index: 999;
-  padding: 20px 0;
-}
+.music-icon { font-size: 1.5em; background: none; border: none; cursor: pointer; }
 
-#nav.open {
-  display: block;
-}
+/* ========= Navigation ========= */ #nav { display: none; position: fixed; top: 0; left: 0; width: 100%; background: rgba(255,255,255,0.95); box-shadow: 0 10px 30px rgba(0,0,0,0.1); z-index: 999; padding: 20px 0; transition: all 0.3s ease; }
 
-#nav ul {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+#nav.open { display: block; }
 
-#nav li {
-  margin: 10px 0;
-}
+#nav ul { display: flex; flex-direction: column; align-items: center; }
 
-#nav a {
-  font-size: 1.2em;
-  color: #C2A270;
-  transition: color 0.3s ease;
-}
+#nav li { margin: 10px 0; }
 
-#nav a:hover {
-  color: #2C2C2C;
-}
+#nav a { font-size: 1.2em; color: #C2A270; transition: color 0.3s ease; }
 
-/* ========= Mini Header ========= */
-#mini-header {
-  display: none;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background: rgba(255,255,255,0.95);
-  padding: 10px 20px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-  z-index: 999;
-}
+#nav a:hover, #nav a.active-link { color: #2C2C2C; font-weight: bold; }
 
-/* ========= About Section ========= */
-.about-box {
-  max-width: 800px;
-  margin: 40px auto;
-  padding: 30px;
-  background: rgba(255,255,255,0.8);
-  border-radius: 20px;
-  text-align: center;
-}
+/* ========= Mini Header ========= */ #mini-header { display: none; position: fixed; top: 0; width: 100%; background: rgba(255,255,255,0.95); padding: 10px 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); z-index: 999; }
 
-.about-title {
-  color: #C2A270;
-  margin-top: 20px;
-}
+/* ========= Sections ========= */ .section { display: none; padding: 60px 20px; opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
 
-.signature {
-  margin-top: 30px;
-  font-family: 'Dancing Script', cursive;
-  font-size: 1.5em;
-}
+.section.active { display: block; opacity: 1; transform: translateY(0); }
 
-.signature span {
-  font-family: 'Cormorant Garamond', serif;
-  font-weight: bold;
-}
+/* ========= About ========= */ .about-box { max-width: 800px; margin: 40px auto; padding: 30px; background: rgba(255,255,255,0.8); border-radius: 20px; text-align: center; }
 
-/* ========= Shop, Rewards, Signature ========= */
-section#order,
-section#discount,
-section#signature {
-  text-align: center;
-  padding: 60px 20px;
-}
+.about-title { color: #C2A270; margin-top: 20px; }
 
-section#order h2,
-section#discount h2,
-section#signature h2 {
-  color: #C2A270;
-}
+.signature { margin-top: 30px; font-family: 'Dancing Script', cursive; font-size: 1.5em; }
 
-section#order p,
-section#discount p,
-section#signature p {
-  max-width: 600px;
-  margin: 0 auto;
-}
+.signature span { font-family: 'Cormorant Garamond', serif; font-weight: bold; }
 
-/* ========= Buttons ========= */
-.buttons a {
-  display: inline-block;
-  margin: 10px 8px;
-  padding: 12px 25px;
-  background: #C2A270;
-  color: white;
-  border-radius: 30px;
-  font-weight: 600;
-  transition: all 0.4s ease;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-}
+/* ========= Buttons ========= */ .buttons a { display: inline-block; margin: 10px 8px; padding: 12px 25px; background: #C2A270; color: white; border-radius: 30px; font-weight: 600; transition: all 0.4s ease; box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
 
-.buttons a:hover {
-  background: #2C2C2C;
-  transform: translateY(-3px);
-}
+.buttons a:hover { background: #2C2C2C; transform: translateY(-3px); }
 
-/* ========= Quiz Section ========= */
-.center-title {
-  text-align: center;
-  color: #C2A270;
-  font-size: 2em;
-  margin-bottom: 20px;
-}
+/* ========= Utility ========= */ .hidden { display: none !important; opacity: 0 !important; transform: translateY(20px) !important; }
 
-.center-sub {
-  text-align: center;
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.1rem;
-  line-height: 1.7;
-  margin-bottom: 20px;
-}
+/* ========= Responsive ========= */ @media screen and (max-width: 768px) { .about-box { padding: 20px; }
 
-.caps-title {
-  text-align: center;
-  color: #C2A270;
-  text-transform: uppercase;
-  margin: 30px 0 10px;
-  letter-spacing: 1px;
-}
+.buttons a { padding: 10px 20px; font-size: 0.95rem; }
 
-.floating-box {
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(10px);
-  padding: 35px;
-  border-radius: 25px;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.2);
-  max-width: 950px;
-  margin: auto;
-  transition: all 0.5s ease;
-  animation: floatSlow 5s ease-in-out infinite alternate;
-}
+#nav ul { gap: 6px; } }
 
-.floating-box:hover {
-  box-shadow: 0 30px 80px rgba(0,0,0,0.3);
-  transform: translateY(-8px) scale(1.02);
-}
-
-@keyframes floatSlow {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(-10px); }
-}
-
-.result-container,
-.scent-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  justify-content: center;
-  margin: 20px 0;
-}
-
-.result-box,
-.scent-box {
-  flex: 1 1 180px;
-  background: rgba(255,255,255,0.7);
-  border: 2px solid #C2A270;
-  padding: 15px;
-  text-align: center;
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1rem;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.result-box:hover,
-.scent-box:hover {
-  background: #C2A270;
-  color: white;
-}
-
-/* ========= Testimonials & FAQ ========= */
-.review-sub,
-.contact-sub {
-  text-align: center;
-  max-width: 600px;
-  margin: 0 auto 20px;
-}
-
-.circle-label {
-  display: inline-block;
-  margin-top: 20px;
-  background: #C2A270;
-  color: white;
-  border-radius: 50%;
-  padding: 25px 30px;
-  font-weight: bold;
-  text-align: center;
-}
-
-/* ========= Contact ========= */
-.contact-box {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 15px;
-  margin-top: 30px;
-}
-
-.contact-box a {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  color: #2C2C2C;
-  font-size: 1em;
-  padding: 10px 18px;
-  border: 1px solid #C2A270;
-  border-radius: 30px;
-  transition: all 0.3s ease;
-}
-
-.contact-box a:hover {
-  background: #C2A270;
-  color: white;
-}
-
-/* ========= Chat ========= */
-#chat {
-  text-align: center;
-  padding: 60px 20px;
-}
-
-#chat p {
-  max-width: 500px;
-  margin: 0 auto;
-}
