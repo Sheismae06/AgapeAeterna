@@ -1,258 +1,253 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato&family=Playfair+Display&family=Dancing+Script&family=Cormorant+Garamond&display=swap');
-
-*, *::before, *::after {
-  box-sizing: border-box;
+/* === General Reset === */
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  background: #FAF9F6;
-  font-family: 'Lato', sans-serif;
-  color: #1A1A1A;
-  scroll-behavior: smooth;
-}
-
-h2, h3, h4 {
-  font-family: 'Playfair Display', serif;
-}
-
-p {
+  font-family: 'Lora', serif;
+  background-color: #fefefe;
+  color: #222;
   line-height: 1.6;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-ul {
-  list-style: none;
+  overflow-x: hidden;
 }
 
 /* === Homepage Cover === */
 #cover {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: #fff;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  z-index: 1000;
 }
 
-.menu-btn {
-  font-size: 2em;
-  cursor: pointer;
-}
-
+/* === Music Icon === */
 .music-icon {
-  font-size: 1.5em;
-  background: none;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1100;
+  background: transparent;
+  font-size: 24px;
   border: none;
+  color: #444;
   cursor: pointer;
 }
 
-/* === Navigation === */
-#nav {
+/* === Mini Header (when in section view) === */
+#mini-header {
   display: none;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  background: rgba(255, 255, 255, 0.95);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  background: #fff;
+  padding: 12px 20px;
   z-index: 999;
-  padding: 20px 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-#nav.open {
-  display: block;
-}
-
-#nav ul {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-}
-
-#nav a {
-  font-size: 1.2em;
-  color: #C2A270;
-  transition: color 0.3s ease;
-}
-
-#nav a:hover,
-#nav a.active-link {
-  color: #2C2C2C;
-  font-weight: bold;
-}
-
-/* === Mini Header === */
-#mini-header {
+/* === Navigation Menu === */
+#nav {
   display: none;
   position: fixed;
   top: 0;
-  width: 100%;
-  background: rgba(255, 255, 255, 0.95);
-  padding: 10px 20px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  z-index: 999;
+  right: 0;
+  width: 240px;
+  height: 100vh;
+  background: #fff;
+  z-index: 1050;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+  padding-top: 60px;
 }
 
-/* === Sections === */
-.section {
-  display: none;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+#nav ul {
+  list-style: none;
+  padding: 0;
 }
 
-.section.active {
-  display: block;
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.hidden {
-  display: none !important;
-  opacity: 0 !important;
-  transform: translateY(20px) !important;
-}
-
-.fade-in {
-  opacity: 1 !important;
-  transform: translateY(0) !important;
-}
-
-/* === About Section === */
-.about-box {
-  max-width: 800px;
-  margin: 40px auto;
-  padding: 30px;
-  background: rgba(255, 255, 255, 0.85);
-  border-radius: 20px;
+#nav li {
+  margin: 16px 0;
   text-align: center;
 }
 
+#nav a {
+  text-decoration: none;
+  color: #333;
+  font-size: 18px;
+  transition: 0.3s;
+}
+
+#nav a:hover {
+  color: #888;
+}
+
+/* === Menu Button === */
+.menu-btn {
+  font-size: 24px;
+  cursor: pointer;
+  padding: 20px;
+}
+
+/* === Section Styling === */
+.section {
+  display: none;
+  padding: 100px 20px 60px;
+  max-width: 900px;
+  margin: auto;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 28px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.about-box, .floating-box, .contact-box {
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 12px;
+  margin: 20px 0;
+}
+
 .about-title {
-  color: #C2A270;
+  font-size: 20px;
   margin-top: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .signature {
   margin-top: 30px;
-  font-family: 'Dancing Script', cursive;
-  font-size: 1.5em;
+  font-style: italic;
 }
 
 .signature span {
-  font-family: 'Cormorant Garamond', serif;
   font-weight: bold;
 }
 
-/* === Buttons === */
-.buttons {
-  text-align: center;
-  margin-top: 20px;
-}
-
-.buttons a {
-  display: inline-block;
-  margin: 10px 8px;
-  padding: 12px 25px;
-  background: #C2A270;
-  color: white;
-  border-radius: 30px;
-  font-weight: 600;
-  transition: background-color 0.4s ease, transform 0.4s ease;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-}
-
-.buttons a:hover {
-  background: #2C2C2C;
-  transform: translateY(-3px);
-}
-
-/* === Titles === */
-.section-title {
-  font-size: 2em;
-  color: #C2A270;
-  text-align: center;
-  margin-bottom: 30px;
-}
-
+/* === Quiz Section Styling === */
 .center-title {
   text-align: center;
+  font-size: 24px;
+  margin-bottom: 10px;
 }
 
 .center-sub {
-  text-align: center;
+  font-style: italic;
   margin-bottom: 20px;
 }
 
 .caps-title {
   font-weight: bold;
   text-transform: uppercase;
-  margin: 30px 0 10px;
+  margin: 20px 0 10px;
 }
 
-/* === Quiz Section === */
-.floating-box {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 30px;
-  background: rgba(255, 255, 255, 0.85);
-  border-radius: 20px;
+.result-container {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
-.result-container,
+.result-box {
+  padding: 12px;
+  background: #fff;
+  border-left: 4px solid #333;
+  text-align: left;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
 .scent-container {
-  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 10px;
+  margin-top: 10px;
 }
 
-.result-box,
 .scent-box {
-  background: #f8f6f2;
-  border-left: 5px solid #C2A270;
-  padding: 15px;
-  margin-bottom: 15px;
-  border-radius: 10px;
+  background: #fff;
+  padding: 10px;
+  border: 1px solid #eee;
+  border-radius: 8px;
 }
 
-/* === Contact Section === */
+/* === Buttons === */
+.buttons {
+  margin: 30px 0 10px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.buttons a {
+  background: #222;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.buttons a:hover {
+  background: #444;
+}
+
+.review-button {
+  background: #6a4caf;
+}
+
+.review-sub, .faq-text, .contact-sub {
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+.circle-label {
+  margin-top: 20px;
+  background: #eee;
+  display: inline-block;
+  padding: 8px 14px;
+  border-radius: 50px;
+  font-size: 14px;
+}
+
+/* === Contact Icons === */
 .contact-box {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 15px;
+  gap: 12px;
   margin-top: 20px;
 }
 
 .contact-box a {
-  background: #C2A270;
-  color: white;
-  padding: 10px 20px;
-  border-radius: 30px;
-  font-size: 0.95em;
-  transition: background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  background: #fff;
+  padding: 10px 16px;
+  border: 1px solid #ddd;
+  border-radius: 40px;
+  font-size: 14px;
+  color: #333;
+  transition: 0.3s;
 }
 
 .contact-box a:hover {
-  background: #2C2C2C;
-}
-
-/* === Others === */
-.review-sub,
-.chat-sub,
-.contact-sub,
-.faq-text {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.circle-label {
-  margin-top: 30px;
-  text-align: center;
-  font-style: italic;
+  background: #f1f1f1;
 }
 
 /* === Floating Home Button === */
@@ -260,40 +255,60 @@ ul {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background: #C2A270;
-  color: white;
+  background: #222;
+  color: #fff;
   border: none;
   border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  font-size: 1.5em;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  width: 44px;
+  height: 44px;
+  font-size: 18px;
   cursor: pointer;
-  display: none;
-  z-index: 1000;
+  z-index: 1100;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transition: background 0.3s;
 }
 
 #home-btn:hover {
-  background: #2C2C2C;
+  background: #444;
+}
+
+/* === Fade-in Animation === */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* === Responsive Design === */
-@media screen and (max-width: 768px) {
-  .about-box,
-  .floating-box {
-    padding: 20px;
+@media (max-width: 768px) {
+  .section {
+    padding: 80px 15px 50px;
+  }
+
+  .menu-btn {
+    padding: 15px;
+  }
+
+  .section-title {
+    font-size: 24px;
+  }
+
+  .scent-container {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   }
 
   .buttons a {
-    padding: 10px 20px;
-    font-size: 0.95rem;
+    font-size: 14px;
+    padding: 8px 16px;
   }
 
-  #nav ul {
-    gap: 6px;
-  }
-
-  .contact-box a {
-    font-size: 0.85rem;
+  #nav {
+    width: 100%;
+    padding-top: 100px;
   }
 }
