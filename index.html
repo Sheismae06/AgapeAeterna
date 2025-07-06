@@ -4,14 +4,25 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Agape Aeterna</title>
+  <link rel="icon" href="favicon.ico" />
   <link rel="stylesheet" href="style.css" />
+  <!-- Optional: Font Awesome for icons -->
+  <script src="https://kit.fontawesome.com/yourkit.js" crossorigin="anonymous"></script>
 </head>
 <body>
+
+  <!-- Homepage Cover -->
   <div id="cover">
     <div class="menu-btn" onclick="toggleNav()">☰</div>
     <button class="music-icon" onclick="toggleMusic()">♫</button>
   </div>
 
+  <!-- Mini Header for Sections -->
+  <div id="mini-header">
+    <div class="menu-btn" onclick="toggleNav()">☰</div>
+  </div>
+
+  <!-- Navigation Menu -->
   <nav id="nav">
     <ul>
       <li><a href="#" onclick="openSection('about')">About</a></li>
@@ -19,20 +30,18 @@
       <li><a href="#" onclick="openSection('order')">Shop Now</a></li>
       <li><a href="#" onclick="openSection('discount')">Rewards</a></li>
       <li><a href="#" onclick="openSection('games')">Find Your Scent</a></li>
+      <li><a href="#" onclick="openSection('testimonials')">Reviews</a></li>
       <li><a href="#" onclick="openSection('faq')">FAQs</a></li>
       <li><a href="#" onclick="openSection('contact')">Get in Touch</a></li>
     </ul>
   </nav>
 
-  <div id="mini-header">
-    <div class="menu-btn" onclick="toggleNav()">☰</div>
-  </div>
-
-  <!-- About Section -->
+  <!-- ABOUT -->
   <section id="about" class="section">
     <div class="about-box">
       <h2 class="about-title">ABOUT</h2>
-      <p>Agape Aeterna was born from a deep love for fragrances — not just any scent, but those that last, linger, and leave a mark. For me, perfume is more than just a fragrance. It is a reflection of one’s personality, a quiet statement, and a lasting memory left behind. The name <strong>Agape Aeterna</strong> means eternal, unconditional love — a reflection of who I am and what I want to share with the world.</p>
+      <p><strong>Agape Aeterna</strong> was born from a deep love for fragrances — not just any scent, but those that last, linger, and leave a mark. For me, perfume is more than just a fragrance. It is a reflection of one’s personality, a quiet statement, and a lasting memory left behind.</p>
+      <p>The name <strong>Agape Aeterna</strong> means eternal, unconditional love — a reflection of who I am and what I want to share with the world through every bottle.</p>
       <h2 class="about-title">MISSION</h2>
       <p>To craft a variety of signature scents that celebrate different personalities — making each one unforgettable, lovable, and soulfully created for everyone.</p>
       <h2 class="about-title">VISION</h2>
@@ -41,164 +50,161 @@
     </div>
   </section>
 
+  <!-- SCENTS -->
   <section id="signature" class="section hidden fade-in">
     <h2 class="section-title">Scents</h2>
     <p>Stay tuned for our formal perfume collection curated with love and elegance.</p>
   </section>
 
+  <!-- SHOP NOW -->
   <section id="order" class="section hidden fade-in">
-  <h2 class="section-title">Shop Now</h2>
-  <div class="shop-icon">🛍️</div>
-  <div class="buttons">
-    <a href="https://docs.google.com/forms/d/e/your-purchase-form" target="_blank">Purchase Here</a>
-  </div>
-</section>
-
-<section id="discount" class="section hidden fade-in">
-  <h2 class="section-title">Rewards</h2>
-  <p>Exclusive promos and discount offers await!</p>
-</section>
-
-<section id="games" class="section hidden fade-in">
-  <h2 class="section-title center-title">DISCOVER YOUR SIGNATURE SCENT</h2>
-  <div class="floating-box">
-    <h3 class="center-sub">Reveal the scent that whispers your story and leaves an eternal impression.</h3>
-
-    <h4 class="caps-title">How to Play</h4>
-    <p>Choose one letter (A, B, C, or D) per question. Keep track of your answers. After the quiz, check your result and explore the scent guide below.</p>
-
-    <!-- Quiz Questions -->
-    <h4 class="caps-title">Questions</h4>
-    <!-- Questions 1–7 here -->
-    <p>1. How do you usually feel in the morning?<br>
-      A. Focused and motivated<br>
-      B. Calm and centered<br>
-      C. Romantic and soft<br>
-      D. Excited and spontaneous</p>
-    <p>2. Your ideal evening vibe is:<br>
-      A. Sophisticated and mysterious<br>
-      B. Cozy and grounded<br>
-      C. Elegant and timeless<br>
-      D. Bold and unforgettable</p>
-    <p>3. What’s your go-to fashion style?<br>
-      A. Black, sleek, and tailored<br>
-      B. Earthy, breezy, and natural<br>
-      C. Feminine with soft colors<br>
-      D. Trendy, colorful, and expressive</p>
-    <p>4. Which dream destination speaks to you most?<br>
-      A. New York — powerful and modern<br>
-      B. Bali — peaceful and nature-filled<br>
-      C. Paris — romantic and classic<br>
-      D. Dubai — glamorous and exciting</p>
-    <p>5. Choose a quote that reflects you best:<br>
-      A. "Power is silent."<br>
-      B. "Simplicity is the ultimate sophistication."<br>
-      C. "Love is in the air."<br>
-      D. "I was born to stand out."</p>
-    <p>6. What kind of scent do you usually enjoy on others?<br>
-      A. Deep, woody, or spicy<br>
-      B. Clean, green, or airy<br>
-      C. Floral or powdery<br>
-      D. Fruity or sweet</p>
-    <p>7. Why do you wear perfume?<br>
-      A. To feel confident and empowered<br>
-      B. To stay fresh and light<br>
-      C. To feel romantic and beautiful<br>
-      D. To express my personality</p>
-
-    <!-- Results -->
-    <h4 class="caps-title">Results</h4>
-    <div class="result-container">
-      <div class="result-box"><b>Mostly A — The Sophisticated Scent</b><br>Woody, amber, spicy, oud.<br>Try: Creed Aventus, Tom Ford Oud Wood, Baccarat Rouge 540.</div>
-      <div class="result-box"><b>Mostly B — The Serene Scent</b><br>Green, fresh, aquatic, citrus.<br>Try: D&G Light Blue, Elizabeth Arden Green Tea, Acqua di Gioia.</div>
-      <div class="result-box"><b>Mostly C — The Romantic Scent</b><br>Floral, powdery, soft musk.<br>Try: Miss Dior, Chloe EDP, Daisy by Marc Jacobs.</div>
-      <div class="result-box"><b>Mostly D — The Playful Scent</b><br>Fruity, sweet, gourmand, tropical.<br>Try: YSL Mon Paris, Ariana Grande Cloud, Pink Sugar.</div>
-      <div class="result-box"><b>Tie or Mixed Answers</b> — You’re a Scent Explorer! Try layering or rotating fragrances by mood & season.</div>
-    </div>
-
-    <!-- Scent Guide -->
-    <h4 class="caps-title">Scent Family Guide</h4>
-    <div class="scent-container">
-      <div class="scent-box"><b>Woody:</b> Earthy, warm, elegant.</div>
-      <div class="scent-box"><b>Amber:</b> Resinous, rich, sensual.</div>
-      <div class="scent-box"><b>Spicy:</b> Bold, exotic, vibrant.</div>
-      <div class="scent-box"><b>Oud:</b> Deep, luxurious, smoky.</div>
-      <div class="scent-box"><b>Green:</b> Fresh, leafy, natural.</div>
-      <div class="scent-box"><b>Aquatic:</b> Clean, marine, breezy.</div>
-      <div class="scent-box"><b>Citrus:</b> Bright, zesty, energizing.</div>
-      <div class="scent-box"><b>Floral:</b> Soft, feminine, romantic.</div>
-      <div class="scent-box"><b>Powdery:</b> Soft, vintage, comforting.</div>
-      <div class="scent-box"><b>Fruity:</b> Sweet, playful, juicy.</div>
-      <div class="scent-box"><b>Gourmand:</b> Edible, sweet, cozy.</div>
-    </div>
-
-    <!-- Other Guides -->
-    <h4 class="caps-title">Understanding Perfume Concentrations</h4>
-    <p><b>Parfum / Extrait de Parfum</b> — 20–30% oil, 8–12+ hours. Deep, intense, luxurious. Best for special occasions.</p>
-    <p><b>Eau de Parfum (EDP)</b> — 15–20% oil, 6–8 hours. Balanced, long-lasting. Ideal for daily wear and evenings.</p>
-    <p><b>Eau de Toilette (EDT)</b> — 5–15% oil, 4–6 hours. Fresh, lighter scent. Good for hot weather or casual days.</p>
-    <p><b>Eau de Cologne (EDC)</b> — 2–5% oil, 2–4 hours. Very light. Great for layering or quick refresh.</p>
-    <p><b>Body Mist / Splash</b> — 1–3% oil, 1–2 hours. Gentle scent. Best for post-shower or bedtime.</p>
-
-    <h4 class="caps-title">Perfume Storage Tips</h4>
-    <p>▪︎ Store in a cool, dry place (away from sunlight and heat).<br>  
-    ▪︎ Don’t leave perfumes in humid areas like bathrooms.<br>  
-    ▪︎ Keep the cap tightly closed to prevent evaporation.</p>
-
-    <h4 class="caps-title">How to Make Perfume Last Longer</h4>
-    <p><b>On Skin:</b> Apply on pulse points (wrists, neck, behind ears, inner elbows). Moisturize first with unscented lotion. Don’t rub wrists together.</p>
-    <p><b>On Clothes:</b> Spray on fabric-safe areas like collars or sleeves. Avoid delicate fabrics. Let air dry naturally.</p>
-
-    <h4 class="caps-title">Bonus Tips</h4>
-    <p>Spray in your hairbrush (not directly on hair). Layer with matching body lotions or oils. Carry a travel-size atomizer.</p>
-
+    <h2 class="section-title">Shop Now</h2>
+    <div class="shop-icon">🛍️</div>
     <div class="buttons">
-      <a href="#" onclick="openSection('order')">Shop Now</a>
-      <a href="#" onclick="openSection('games')">Retake Quiz</a>
-      <a href="#" onclick="openSection('signature')">Scents</a>
+      <a href="https://docs.google.com/forms/d/e/your-purchase-form" target="_blank">Purchase Here</a>
     </div>
-  </div>
-</section>
+  </section>
 
-<section id="faq" class="section hidden fade-in">
-  <h2 class="section-title">FAQs</h2>
-  <p class="faq-text">Answers to your most asked questions — coming soon!</p>
-</section>
+  <!-- REWARDS -->
+  <section id="discount" class="section hidden fade-in">
+    <h2 class="section-title">Rewards</h2>
+    <p>Exclusive promos and discount offers await!</p>
+  </section>
 
-<section id="testimonials" class="section hidden fade-in">
-  <h2 class="section-title">Reviews</h2>
-  <p class="review-sub">We deeply value your words and love to hear your scent stories. Share your experience with us below.</p>
-  <div class="buttons">
-    <a href="https://docs.google.com/forms/d/e/your-feedback-form" target="_blank" class="review-button">Submit Your Review</a>
-  </div>
-  <div class="circle-label">Customer Reviews</div>
-</section>
+  <!-- FIND YOUR SCENT (QUIZ) -->
+    <section id="games" class="section hidden fade-in">
+    <h2 class="section-title center-title">DISCOVER YOUR SIGNATURE SCENT</h2>
+    <div class="floating-box">
+      <h3 class="center-sub">Reveal the scent that whispers your story and leaves an eternal impression.</h3>
 
-<section id="contact" class="section hidden fade-in">
-  <h2 class="section-title">Get in Touch</h2>
-  <p class="contact-sub">We'd love to hear from you. Choose your favorite way to connect below.</p>
-  <div class="contact-box">
-    <a href="sms:+63"><i class="fas fa-comment-dots"></i> Message</a>
-    <a href="viber://chat?number=%2B63"><i class="fab fa-viber"></i> Viber</a>
-    <a href="https://wa.me/63"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-    <a href="https://t.me/"><i class="fab fa-telegram"></i> Telegram</a>
-    <a href="mailto:agapeaeternaperfumeshop@gmail.com"><i class="fas fa-envelope"></i> Gmail</a>
-    <a href="mailto:agapeaeternaperfumeshop@outlook.com"><i class="fas fa-envelope-open-text"></i> Outlook</a>
-    <a href="https://www.facebook.com/share/1AhMby9z3U/"><i class="fab fa-facebook"></i> Facebook</a>
-    <a href="https://www.tiktok.com/@agapeaeterna"><i class="fab fa-tiktok"></i> TikTok</a>
-    <a href="https://www.instagram.com/yoursafe.spot"><i class="fab fa-instagram"></i> Instagram</a>
-  </div>
-</section>
+      <h4 class="caps-title">How to Play</h4>
+      <p>Choose one letter (A, B, C, or D) per question. Keep track of your answers. After the quiz, check your result and explore the scent guide below.</p>
 
-<section id="chat" class="section hidden fade-in">
-  <h2 class="section-title">Talk to Us</h2>
-  <p class="chat-sub">Click the chat bubble at the bottom-right to start a conversation.</p>
-</section>
+      <h4 class="caps-title">Questions</h4>
+      <p>1. How do you usually feel in the morning?<br>
+        A. Focused and motivated<br>
+        B. Calm and centered<br>
+        C. Romantic and soft<br>
+        D. Excited and spontaneous</p>
+      <p>2. Your ideal evening vibe is:<br>
+        A. Sophisticated and mysterious<br>
+        B. Cozy and grounded<br>
+        C. Elegant and timeless<br>
+        D. Bold and unforgettable</p>
+      <p>3. What’s your go-to fashion style?<br>
+        A. Black, sleek, and tailored<br>
+        B. Earthy, breezy, and natural<br>
+        C. Feminine with soft colors<br>
+        D. Trendy, colorful, and expressive</p>
+      <p>4. Which dream destination speaks to you most?<br>
+        A. New York — powerful and modern<br>
+        B. Bali — peaceful and nature-filled<br>
+        C. Paris — romantic and classic<br>
+        D. Dubai — glamorous and exciting</p>
+      <p>5. Choose a quote that reflects you best:<br>
+        A. "Power is silent."<br>
+        B. "Simplicity is the ultimate sophistication."<br>
+        C. "Love is in the air."<br>
+        D. "I was born to stand out."</p>
+      <p>6. What kind of scent do you usually enjoy on others?<br>
+        A. Deep, woody, or spicy<br>
+        B. Clean, green, or airy<br>
+        C. Floral or powdery<br>
+        D. Fruity or sweet</p>
+      <p>7. Why do you wear perfume?<br>
+        A. To feel confident and empowered<br>
+        B. To stay fresh and light<br>
+        C. To feel romantic and beautiful<br>
+        D. To express my personality</p>
 
-<audio id="bg-music" loop>
-  <source src="https://www.bensound.com/bensound-music/bensound-dreams.mp3" type="audio/mpeg">
-</audio>
+      <h4 class="caps-title">Results</h4>
+      <div class="result-container">
+        <div class="result-box"><b>Mostly A — The Sophisticated Scent</b><br>Woody, amber, spicy, oud.<br>Try: Creed Aventus, Tom Ford Oud Wood, Baccarat Rouge 540.</div>
+        <div class="result-box"><b>Mostly B — The Serene Scent</b><br>Green, fresh, aquatic, citrus.<br>Try: D&G Light Blue, Elizabeth Arden Green Tea, Acqua di Gioia.</div>
+        <div class="result-box"><b>Mostly C — The Romantic Scent</b><br>Floral, powdery, soft musk.<br>Try: Miss Dior, Chloe EDP, Daisy by Marc Jacobs.</div>
+        <div class="result-box"><b>Mostly D — The Playful Scent</b><br>Fruity, sweet, gourmand, tropical.<br>Try: YSL Mon Paris, Ariana Grande Cloud, Pink Sugar.</div>
+        <div class="result-box"><b>Tie or Mixed Answers</b> — You’re a Scent Explorer! Try layering or rotating fragrances by mood & season.</div>
+      </div>
 
-<script src="script.js" defer></script>
+      <h4 class="caps-title">Scent Family Guide</h4>
+      <div class="scent-container">
+        <div class="scent-box"><b>Woody:</b> Earthy, warm, elegant.</div>
+        <div class="scent-box"><b>Amber:</b> Resinous, rich, sensual.</div>
+        <div class="scent-box"><b>Spicy:</b> Bold, exotic, vibrant.</div>
+        <div class="scent-box"><b>Oud:</b> Deep, luxurious, smoky.</div>
+        <div class="scent-box"><b>Green:</b> Fresh, leafy, natural.</div>
+        <div class="scent-box"><b>Aquatic:</b> Clean, marine, breezy.</div>
+        <div class="scent-box"><b>Citrus:</b> Bright, zesty, energizing.</div>
+        <div class="scent-box"><b>Floral:</b> Soft, feminine, romantic.</div>
+        <div class="scent-box"><b>Powdery:</b> Soft, vintage, comforting.</div>
+        <div class="scent-box"><b>Fruity:</b> Sweet, playful, juicy.</div>
+        <div class="scent-box"><b>Gourmand:</b> Edible, sweet, cozy.</div>
+      </div>
+
+      <h4 class="caps-title">Understanding Perfume Concentrations</h4>
+      <p><b>Parfum / Extrait de Parfum</b> — 20–30% oil, 8–12+ hours. Deep, intense, luxurious. Best for special occasions.</p>
+      <p><b>Eau de Parfum (EDP)</b> — 15–20% oil, 6–8 hours. Balanced, long-lasting. Ideal for daily wear and evenings.</p>
+      <p><b>Eau de Toilette (EDT)</b> — 5–15% oil, 4–6 hours. Fresh, lighter scent. Good for hot weather or casual days.</p>
+      <p><b>Eau de Cologne (EDC)</b> — 2–5% oil, 2–4 hours. Very light. Great for layering or quick refresh.</p>
+      <p><b>Body Mist / Splash</b> — 1–3% oil, 1–2 hours. Gentle scent. Best for post-shower or bedtime.</p>
+
+      <h4 class="caps-title">Perfume Storage Tips</h4>
+      <p>▪︎ Store in a cool, dry place (away from sunlight and heat).<br>▪︎ Don’t leave perfumes in humid areas like bathrooms.<br>▪︎ Keep the cap tightly closed to prevent evaporation.</p>
+
+      <h4 class="caps-title">How to Make Perfume Last Longer</h4>
+      <p><b>On Skin:</b> Apply on pulse points (wrists, neck, behind ears, inner elbows). Moisturize first with unscented lotion. Don’t rub wrists together.</p>
+      <p><b>On Clothes:</b> Spray on fabric-safe areas like collars or sleeves. Avoid delicate fabrics. Let air dry naturally.</p>
+
+      <h4 class="caps-title">Bonus Tips</h4>
+      <p>Spray in your hairbrush (not directly on hair). Layer with matching body lotions or oils. Carry a travel-size atomizer.</p>
+
+      <div class="buttons">
+        <a href="#" onclick="openSection('order')">Shop Now</a>
+        <a href="#" onclick="openSection('games')">Retake Quiz</a>
+        <a href="#" onclick="openSection('signature')">Scents</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section id="testimonials" class="section hidden fade-in">
+    <h2 class="section-title">Reviews</h2>
+    <p class="review-sub">We deeply value your words and love to hear your scent stories. Share your experience with us below.</p>
+    <div class="buttons">
+      <a href="https://docs.google.com/forms/d/e/your-feedback-form" target="_blank" class="review-button">Submit Your Review</a>
+    </div>
+    <div class="circle-label">Customer Reviews</div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="section hidden fade-in">
+    <h2 class="section-title">FAQs</h2>
+    <p class="faq-text">Answers to your most asked questions — coming soon!</p>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section hidden fade-in">
+    <h2 class="section-title">Get in Touch</h2>
+    <p class="contact-sub">We'd love to hear from you. Choose your favorite way to connect below.</p>
+    <div class="contact-box">
+      <a href="sms:+63"><i class="fas fa-comment-dots"></i> Message</a>
+      <a href="viber://chat?number=%2B63"><i class="fab fa-viber"></i> Viber</a>
+      <a href="https://wa.me/63"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+      <a href="https://t.me/"><i class="fab fa-telegram"></i> Telegram</a>
+      <a href="mailto:agapeaeternaperfumeshop@gmail.com"><i class="fas fa-envelope"></i> Gmail</a>
+      <a href="mailto:agapeaeternaperfumeshop@outlook.com"><i class="fas fa-envelope-open-text"></i> Outlook</a>
+      <a href="https://www.facebook.com/share/1AhMby9z3U/"><i class="fab fa-facebook"></i> Facebook</a>
+      <a href="https://www.tiktok.com/@agapeaeterna"><i class="fab fa-tiktok"></i> TikTok</a>
+      <a href="https://www.instagram.com/yoursafe.spot"><i class="fab fa-instagram"></i> Instagram</a>
+    </div>
+  </section>
+
+  <!-- Music -->
+  <audio id="bg-music" loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-dreams.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- JS -->
+  <script src="script.js" defer></script>
 </body>
 </html>
