@@ -5,18 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Agape Aeterna</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="icon" href="favicon.ico" type="image/x-icon" />
 </head>
-
 <body>
-  <!-- Fullscreen Cover with Menu and Music Icon -->
   <div id="cover">
     <div class="menu-btn" onclick="toggleNav()">☰</div>
     <button class="music-icon" onclick="toggleMusic()">♫</button>
   </div>
 
-  <!-- Navigation Menu -->
-  <nav id="nav" class="hidden">
+  <nav id="nav">
     <ul>
       <li><a href="#" onclick="openSection('about')">About</a></li>
       <li><a href="#" onclick="openSection('signature')">Scents</a></li>
@@ -28,8 +24,7 @@
     </ul>
   </nav>
 
-  <!-- Mini Header -->
-  <div id="mini-header" class="hidden">
+  <div id="mini-header">
     <div class="menu-btn" onclick="toggleNav()">☰</div>
   </div>
 
