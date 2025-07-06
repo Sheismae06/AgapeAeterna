@@ -27,7 +27,7 @@ function openSection(sectionId) {
     }
   });
 
-  // Hide cover on section open
+  // Hide homepage cover, show mini-header
   const cover = document.getElementById("cover");
   const miniHeader = document.getElementById("mini-header");
 
@@ -38,6 +38,9 @@ function openSection(sectionId) {
 
   // Close nav menu
   document.getElementById("nav").classList.remove("open");
+
+  // Scroll to top
+  window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
 // On Page Load — Show cover only
@@ -52,7 +55,7 @@ window.addEventListener("DOMContentLoaded", () => {
   document.getElementById("cover").style.display = "flex";
   document.getElementById("mini-header").style.display = "none";
 
-  // Optional: If there's a hash in URL (like #order), open that section automatically
+  // If there's a hash in the URL (like #order), open that section
   const hash = window.location.hash;
   if (hash) {
     const sectionId = hash.replace("#", "");
