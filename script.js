@@ -27,14 +27,10 @@ function openSection(sectionId) {
     }
   });
 
-  // Hide homepage cover, show mini-header
-  const cover = document.getElementById("cover");
-  const miniHeader = document.getElementById("mini-header");
-
-  if (sectionId) {
-    cover.style.display = "none";
-    miniHeader.style.display = "flex";
-  }
+  // Hide homepage cover, show mini-header and home button
+  document.getElementById("cover").style.display = "none";
+  document.getElementById("mini-header").style.display = "flex";
+  document.getElementById("home-btn").style.display = "block";
 
   // Close nav menu
   document.getElementById("nav").classList.remove("open");
@@ -43,23 +39,30 @@ function openSection(sectionId) {
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
-// On Page Load — Show cover only or open section if hash exists
-window.addEventListener("DOMContentLoaded", () => {
+// Return to Home Cover
+function returnToHome() {
   const sections = document.querySelectorAll(".section");
   sections.forEach((section) => {
     section.classList.remove("active");
     section.classList.remove("fade-in");
   });
 
-  const cover = document.getElementById("cover");
-  const miniHeader = document.getElementById("mini-header");
+  document.getElementById("cover").style.display = "flex";
+  document.getElementById("mini-header").style.display = "none";
+  document.getElementById("home-btn").style.display = "none";
 
+  // Scroll to top
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+// On Page Load — Show cover only or open section if hash exists
+window.addEventListener("DOMContentLoaded", () => {
   const hash = window.location.hash;
   if (hash) {
-    const sectionId = hash.replace("#", "");
-    openSection(sectionId);
+    openSection(hash.replace("#", ""));
   } else {
-    cover.style.display = "flex";
-    miniHeader.style.display = "none";
+    document.getElementById("cover").style.display = "flex";
+    document.getElementById("mini-header").style.display = "none";
+    document.getElementById("home-btn").style.display = "none";
   }
 });
