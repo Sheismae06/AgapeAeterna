@@ -5,7 +5,6 @@ body {
   color: #1A1A1A;
   scroll-behavior: smooth;
 }
-
 #cover {
   height: 100vh;
   background: url('file_00000000d35461f79683e3cc6f46380f.png') no-repeat center center/cover;
@@ -16,7 +15,6 @@ body {
   align-items: center;
   text-align: center;
 }
-
 .menu-btn {
   position: absolute;
   top: 20px;
@@ -29,7 +27,6 @@ body {
   border-radius: 5px;
   padding: 5px 10px;
 }
-
 .music-icon {
   position: absolute;
   top: 20px;
@@ -43,7 +40,6 @@ body {
   cursor: pointer;
   z-index: 1001;
 }
-
 nav {
   position: fixed;
   top: 0;
@@ -57,7 +53,6 @@ nav {
   z-index: 1000;
   overflow-y: auto;
 }
-
 nav.open { right: 0; }
 nav ul { list-style: none; padding: 0; margin: 0; }
 nav a {
@@ -70,7 +65,6 @@ nav a {
   font-family: 'Playfair Display', serif;
 }
 nav a:hover { background: #444; }
-
 #mini-header {
   display: none;
   position: fixed;
@@ -85,7 +79,6 @@ nav a:hover { background: #444; }
   z-index: 999;
   justify-content: flex-end;
 }
-
 #mini-header .menu-btn {
   color: #fff;
   background: #2C2C2C;
@@ -93,7 +86,6 @@ nav a:hover { background: #444; }
   padding: 5px 10px;
   font-size: 1.7em;
 }
-
 section {
   display: none;
   padding: 80px 20px 20px;
@@ -103,23 +95,19 @@ section {
   border-radius: 10px;
   animation: fadeIn 0.7s ease-in-out;
 }
-
 section.active { display: block; }
-
 h2 {
   font-family: 'Playfair Display', serif;
   font-size: 1.7em;
   margin-bottom: 10px;
   color: #C39B6E;
 }
-
 .divider {
   height: 2px;
   background: #C39B6E;
   margin: 30px 0;
   border: none;
 }
-
 .buttons a {
   display: inline-block;
   margin: 10px;
@@ -134,7 +122,6 @@ h2 {
 .buttons a:hover {
   background: #2C2C2C;
 }
-
 .circle-label {
   display: inline-block;
   margin-top: 20px;
@@ -145,14 +132,12 @@ h2 {
   font-weight: bold;
   text-align: center;
 }
-
 .social-icons {
   display: flex;
   flex-direction: column;
   gap: 12px;
   margin-top: 20px;
 }
-
 .social-icons a {
   color: #2C2C2C;
   font-size: 1.4em;
@@ -165,7 +150,6 @@ h2 {
   font-size: 1.6em;
   min-width: 30px;
 }
-
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
