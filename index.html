@@ -16,25 +16,25 @@
   </div>
 
   <!-- Navigation Menu -->
-  <nav id="nav">
-  <ul>
-    <li><a href="#" onclick="openSection('about')">About</a></li>
-    <li><a href="#" onclick="openSection('signature')">Scents</a></li>
-    <li><a href="#" onclick="openSection('order')">Shop Now</a></li>
-    <li><a href="#" onclick="openSection('discount')">Rewards</a></li>
-    <li><a href="#" onclick="openSection('games')">Find Your Scent</a></li> <!-- ✅ ADD THIS -->
-    <li><a href="#" onclick="openSection('faq')">FAQs</a></li>
-    <li><a href="#" onclick="openSection('contact')">Get in Touch</a></li>
-  </ul>
-</nav>
+  <nav id="nav" class="hidden">
+    <ul>
+      <li><a href="#" onclick="openSection('about')">About</a></li>
+      <li><a href="#" onclick="openSection('signature')">Scents</a></li>
+      <li><a href="#" onclick="openSection('order')">Shop Now</a></li>
+      <li><a href="#" onclick="openSection('discount')">Rewards</a></li>
+      <li><a href="#" onclick="openSection('games')">Find Your Scent</a></li>
+      <li><a href="#" onclick="openSection('faq')">FAQs</a></li>
+      <li><a href="#" onclick="openSection('contact')">Get in Touch</a></li>
+    </ul>
+  </nav>
 
   <!-- Mini Header -->
-  <div id="mini-header">
+  <div id="mini-header" class="hidden">
     <div class="menu-btn" onclick="toggleNav()">☰</div>
   </div>
 
   <!-- About Section -->
-  <section id="about" class="section active fade-in">
+  <section id="about" class="section hidden fade-in">
     <div class="about-box">
       <h2 class="about-title">ABOUT</h2>
       <p>Agape Aeterna was born from a deep love for fragrances — not just any scent, but those that last, linger, and leave a mark. For me, perfume is more than just a fragrance. It is a reflection of one’s personality, a quiet statement, and a lasting memory left behind. The name <strong>Agape Aeterna</strong> means eternal, unconditional love — a reflection of who I am and what I want to share with the world.</p>
@@ -46,25 +46,25 @@
     </div>
   </section>
 
-  <section id="signature" class="section fade-in">
+  <section id="signature" class="section hidden fade-in">
     <h2 class="section-title">Scents</h2>
     <p>Stay tuned for our formal perfume collection curated with love and elegance.</p>
   </section>
 
-  <section id="order" class="section fade-in">
-    <h2 class="section-title">Shop Now</h2>
-    <div class="shop-icon">🛍️</div>
-    <div class="buttons">
-      <a href="https://docs.google.com/forms/d/e/your-purchase-form" target="_blank">Purchase Here</a>
-    </div>
-  </section>
+  <section id="order" class="section hidden fade-in">
+  <h2 class="section-title">Shop Now</h2>
+  <div class="shop-icon">🛍️</div>
+  <div class="buttons">
+    <a href="https://docs.google.com/forms/d/e/your-purchase-form" target="_blank">Purchase Here</a>
+  </div>
+</section>
 
-  <section id="discount" class="section fade-in">
-    <h2 class="section-title">Rewards</h2>
-    <p>Exclusive promos and discount offers await!</p>
-  </section>
+<section id="discount" class="section hidden fade-in">
+  <h2 class="section-title">Rewards</h2>
+  <p>Exclusive promos and discount offers await!</p>
+</section>
 
-<section id="games" class="section fade-in">
+<section id="games" class="section hidden fade-in">
   <h2 class="section-title center-title">DISCOVER YOUR SIGNATURE SCENT</h2>
   <div class="floating-box">
     <h3 class="center-sub">Reveal the scent that whispers your story and leaves an eternal impression.</h3>
@@ -72,49 +72,46 @@
     <h4 class="caps-title">How to Play</h4>
     <p>Choose one letter (A, B, C, or D) per question. Keep track of your answers. After the quiz, check your result and explore the scent guide below.</p>
 
+    <!-- Quiz Questions -->
     <h4 class="caps-title">Questions</h4>
+    <!-- Questions 1–7 here -->
     <p>1. How do you usually feel in the morning?<br>
       A. Focused and motivated<br>
       B. Calm and centered<br>
       C. Romantic and soft<br>
       D. Excited and spontaneous</p>
-
     <p>2. Your ideal evening vibe is:<br>
       A. Sophisticated and mysterious<br>
       B. Cozy and grounded<br>
       C. Elegant and timeless<br>
       D. Bold and unforgettable</p>
-
     <p>3. What’s your go-to fashion style?<br>
       A. Black, sleek, and tailored<br>
       B. Earthy, breezy, and natural<br>
       C. Feminine with soft colors<br>
       D. Trendy, colorful, and expressive</p>
-
     <p>4. Which dream destination speaks to you most?<br>
       A. New York — powerful and modern<br>
       B. Bali — peaceful and nature-filled<br>
       C. Paris — romantic and classic<br>
       D. Dubai — glamorous and exciting</p>
-
     <p>5. Choose a quote that reflects you best:<br>
       A. "Power is silent."<br>
       B. "Simplicity is the ultimate sophistication."<br>
       C. "Love is in the air."<br>
       D. "I was born to stand out."</p>
-
     <p>6. What kind of scent do you usually enjoy on others?<br>
       A. Deep, woody, or spicy<br>
       B. Clean, green, or airy<br>
       C. Floral or powdery<br>
       D. Fruity or sweet</p>
-
     <p>7. Why do you wear perfume?<br>
       A. To feel confident and empowered<br>
       B. To stay fresh and light<br>
       C. To feel romantic and beautiful<br>
       D. To express my personality</p>
 
+    <!-- Results -->
     <h4 class="caps-title">Results</h4>
     <div class="result-container">
       <div class="result-box"><b>Mostly A — The Sophisticated Scent</b><br>Woody, amber, spicy, oud.<br>Try: Creed Aventus, Tom Ford Oud Wood, Baccarat Rouge 540.</div>
@@ -124,6 +121,7 @@
       <div class="result-box"><b>Tie or Mixed Answers</b> — You’re a Scent Explorer! Try layering or rotating fragrances by mood & season.</div>
     </div>
 
+    <!-- Scent Guide -->
     <h4 class="caps-title">Scent Family Guide</h4>
     <div class="scent-container">
       <div class="scent-box"><b>Woody:</b> Earthy, warm, elegant.</div>
@@ -139,6 +137,7 @@
       <div class="scent-box"><b>Gourmand:</b> Edible, sweet, cozy.</div>
     </div>
 
+    <!-- Other Guides -->
     <h4 class="caps-title">Understanding Perfume Concentrations</h4>
     <p><b>Parfum / Extrait de Parfum</b> — 20–30% oil, 8–12+ hours. Deep, intense, luxurious. Best for special occasions.</p>
     <p><b>Eau de Parfum (EDP)</b> — 15–20% oil, 6–8 hours. Balanced, long-lasting. Ideal for daily wear and evenings.</p>
@@ -149,17 +148,14 @@
     <h4 class="caps-title">Perfume Storage Tips</h4>
     <p>▪︎ Store in a cool, dry place (away from sunlight and heat).<br>  
     ▪︎ Don’t leave perfumes in humid areas like bathrooms.<br>  
-    ▪︎ Keep the cap tightly closed to prevent evaporation.<br>  
-    ❄️ Optional: Refrigerate only if your room gets too warm — but avoid sudden temperature changes.</p>
+    ▪︎ Keep the cap tightly closed to prevent evaporation.</p>
 
     <h4 class="caps-title">How to Make Perfume Last Longer</h4>
-    <p><b>On Skin:</b> Apply on pulse points (wrists, neck, behind ears, inner elbows). Moisturize first with unscented lotion or petroleum jelly. Don’t rub wrists together. Spray from 6–8 inches away.</p>  
-    <p><b>On Clothes:</b> Spray on fabric-safe areas like collars or sleeves. Avoid delicate fabrics like silk — test first. Let air dry naturally — no rubbing.</p>  
+    <p><b>On Skin:</b> Apply on pulse points (wrists, neck, behind ears, inner elbows). Moisturize first with unscented lotion. Don’t rub wrists together.</p>
+    <p><b>On Clothes:</b> Spray on fabric-safe areas like collars or sleeves. Avoid delicate fabrics. Let air dry naturally.</p>
 
     <h4 class="caps-title">Bonus Tips</h4>
-    <p>Spray a bit in your hairbrush (not directly on hair). Layer using matching body lotions or oils. Carry a travel-size atomizer for touch-ups.</p>
-
-    <p>Your scent is more than fragrance — it’s your signature.</p>
+    <p>Spray in your hairbrush (not directly on hair). Layer with matching body lotions or oils. Carry a travel-size atomizer.</p>
 
     <div class="buttons">
       <a href="#" onclick="openSection('order')">Shop Now</a>
@@ -167,14 +163,14 @@
       <a href="#" onclick="openSection('signature')">Scents</a>
     </div>
   </div>
-</section>    
-  
-<section id="faq" class="section fade-in">
+</section>
+
+<section id="faq" class="section hidden fade-in">
   <h2 class="section-title">FAQs</h2>
   <p class="faq-text">Answers to your most asked questions — coming soon!</p>
 </section>
 
-<section id="testimonials" class="section fade-in">
+<section id="testimonials" class="section hidden fade-in">
   <h2 class="section-title">Reviews</h2>
   <p class="review-sub">We deeply value your words and love to hear your scent stories. Share your experience with us below.</p>
   <div class="buttons">
@@ -183,7 +179,7 @@
   <div class="circle-label">Customer Reviews</div>
 </section>
 
-<section id="contact" class="section fade-in">
+<section id="contact" class="section hidden fade-in">
   <h2 class="section-title">Get in Touch</h2>
   <p class="contact-sub">We'd love to hear from you. Choose your favorite way to connect below.</p>
   <div class="contact-box">
@@ -194,12 +190,12 @@
     <a href="mailto:agapeaeternaperfumeshop@gmail.com"><i class="fas fa-envelope"></i> Gmail</a>
     <a href="mailto:agapeaeternaperfumeshop@outlook.com"><i class="fas fa-envelope-open-text"></i> Outlook</a>
     <a href="https://www.facebook.com/share/1AhMby9z3U/"><i class="fab fa-facebook"></i> Facebook</a>
-    <a href="https://www.tiktok.com/@agapeaeterna?_t=ZS-8xk9f1XaSKw&_r=1"><i class="fab fa-tiktok"></i> TikTok</a>
-    <a href="https://www.instagram.com/yoursafe.spot?igsh=NTJhNHA0eXd6YnF0"><i class="fab fa-instagram"></i> Instagram</a>
+    <a href="https://www.tiktok.com/@agapeaeterna"><i class="fab fa-tiktok"></i> TikTok</a>
+    <a href="https://www.instagram.com/yoursafe.spot"><i class="fab fa-instagram"></i> Instagram</a>
   </div>
 </section>
 
-<section id="chat" class="section fade-in">
+<section id="chat" class="section hidden fade-in">
   <h2 class="section-title">Talk to Us</h2>
   <p class="chat-sub">Click the chat bubble at the bottom-right to start a conversation.</p>
 </section>
@@ -209,5 +205,3 @@
 </audio>
 
 <script src="script.js" defer></script>
-</body>
-</html>
