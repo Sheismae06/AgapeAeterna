@@ -1,56 +1,202 @@
-/* Elegant Website CSS */
+/* === Font Imports === */
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Playfair+Display&family=Dancing+Script&family=Cormorant+Garamond&display=swap');
 
-/* ========= Base Styles ========= */ body { margin: 0; padding: 0; background: #FAF9F6; font-family: 'Lato', sans-serif; color: #1A1A1A; scroll-behavior: smooth; }
+/* === Global Reset & Base === */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
-h2, h3, h4 { font-family: 'Playfair Display', serif; }
+body {
+  margin: 0;
+  padding: 0;
+  background: #FAF9F6;
+  font-family: 'Lato', sans-serif;
+  color: #1A1A1A;
+  scroll-behavior: smooth;
+}
 
-p { line-height: 1.6; }
+h2, h3, h4 {
+  font-family: 'Playfair Display', serif;
+}
 
-a { text-decoration: none; color: inherit; }
+p {
+  line-height: 1.6;
+}
 
-ul { list-style: none; padding: 0; margin: 0; }
+a {
+  text-decoration: none;
+  color: inherit;
+}
 
-/* ========= Cover & Menu ========= */ #cover { display: flex; justify-content: space-between; align-items: center; padding: 20px; }
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
 
-.menu-btn { font-size: 2em; cursor: pointer; }
+/* === Cover & Menu === */
+#cover {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
 
-.music-icon { font-size: 1.5em; background: none; border: none; cursor: pointer; }
+.menu-btn {
+  font-size: 2em;
+  cursor: pointer;
+}
 
-/* ========= Navigation ========= */ #nav { display: none; position: fixed; top: 0; left: 0; width: 100%; background: rgba(255,255,255,0.95); box-shadow: 0 10px 30px rgba(0,0,0,0.1); z-index: 999; padding: 20px 0; transition: all 0.3s ease; }
+.music-icon {
+  font-size: 1.5em;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
 
-#nav.open { display: block; }
+/* === Navigation === */
+#nav {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(255,255,255,0.95);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  z-index: 999;
+  padding: 20px 0;
+  transition: all 0.3s ease;
+}
 
-#nav ul { display: flex; flex-direction: column; align-items: center; }
+#nav.open {
+  display: block;
+}
 
-#nav li { margin: 10px 0; }
+#nav ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-#nav a { font-size: 1.2em; color: #C2A270; transition: color 0.3s ease; }
+#nav li {
+  margin: 10px 0;
+}
 
-#nav a:hover, #nav a.active-link { color: #2C2C2C; font-weight: bold; }
+#nav a {
+  font-size: 1.2em;
+  color: #C2A270;
+  transition: color 0.3s ease;
+}
 
-/* ========= Mini Header ========= */ #mini-header { display: none; position: fixed; top: 0; width: 100%; background: rgba(255,255,255,0.95); padding: 10px 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); z-index: 999; }
+#nav a:hover,
+#nav a.active-link {
+  color: #2C2C2C;
+  font-weight: bold;
+}
 
-/* ========= Sections ========= */ .section { display: none; padding: 60px 20px; opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+/* === Mini Header === */
+#mini-header {
+  display: none;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(255,255,255,0.95);
+  padding: 10px 20px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  z-index: 999;
+}
 
-.section.active { display: block; opacity: 1; transform: translateY(0); }
+/* === Sections === */
+.section {
+  display: none;
+  padding: 60px 20px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
 
-/* ========= About ========= */ .about-box { max-width: 800px; margin: 40px auto; padding: 30px; background: rgba(255,255,255,0.8); border-radius: 20px; text-align: center; }
+.section.active {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
 
-.about-title { color: #C2A270; margin-top: 20px; }
+.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
 
-.signature { margin-top: 30px; font-family: 'Dancing Script', cursive; font-size: 1.5em; }
+.fade-out {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
 
-.signature span { font-family: 'Cormorant Garamond', serif; font-weight: bold; }
+/* === About Section === */
+.about-box {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 30px;
+  background: rgba(255,255,255,0.8);
+  border-radius: 20px;
+  text-align: center;
+}
 
-/* ========= Buttons ========= */ .buttons a { display: inline-block; margin: 10px 8px; padding: 12px 25px; background: #C2A270; color: white; border-radius: 30px; font-weight: 600; transition: all 0.4s ease; box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+.about-title {
+  color: #C2A270;
+  margin-top: 20px;
+}
 
-.buttons a:hover { background: #2C2C2C; transform: translateY(-3px); }
+.signature {
+  margin-top: 30px;
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.5em;
+}
 
-/* ========= Utility ========= */ .hidden { display: none !important; opacity: 0 !important; transform: translateY(20px) !important; }
+.signature span {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: bold;
+}
 
-/* ========= Responsive ========= */ @media screen and (max-width: 768px) { .about-box { padding: 20px; }
+/* === Buttons === */
+.buttons a {
+  display: inline-block;
+  margin: 10px 8px;
+  padding: 12px 25px;
+  background: #C2A270;
+  color: white;
+  border-radius: 30px;
+  font-weight: 600;
+  transition: all 0.4s ease;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
 
-.buttons a { padding: 10px 20px; font-size: 0.95rem; }
+.buttons a:hover {
+  background: #2C2C2C;
+  transform: translateY(-3px);
+}
 
-#nav ul { gap: 6px; } }
+/* === Utility === */
+.hidden {
+  display: none !important;
+  opacity: 0 !important;
+  transform: translateY(20px) !important;
+}
 
+/* === Responsive === */
+@media screen and (max-width: 768px) {
+  .about-box {
+    padding: 20px;
+  }
+
+  .buttons a {
+    padding: 10px 20px;
+    font-size: 0.95rem;
+  }
+
+  #nav ul {
+    gap: 6px;
+  }
+}
