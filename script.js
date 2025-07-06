@@ -43,7 +43,7 @@ function openSection(sectionId) {
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
-// On Page Load — Show cover only
+// On Page Load — Show cover only or open section if hash exists
 window.addEventListener("DOMContentLoaded", () => {
   const sections = document.querySelectorAll(".section");
   sections.forEach((section) => {
@@ -51,14 +51,15 @@ window.addEventListener("DOMContentLoaded", () => {
     section.classList.remove("fade-in");
   });
 
-  // Show cover, hide mini-header on initial load
-  document.getElementById("cover").style.display = "flex";
-  document.getElementById("mini-header").style.display = "none";
+  const cover = document.getElementById("cover");
+  const miniHeader = document.getElementById("mini-header");
 
-  // If there's a hash in the URL (like #order), open that section
   const hash = window.location.hash;
   if (hash) {
     const sectionId = hash.replace("#", "");
     openSection(sectionId);
+  } else {
+    cover.style.display = "flex";
+    miniHeader.style.display = "none";
   }
 });
