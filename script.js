@@ -1,14 +1,16 @@
-// === TOGGLE NAVIGATION MENU ===
+// Toggle Navigation
 function toggleNav() {
   document.getElementById('nav').classList.toggle('open');
 }
 
-// === OPEN SPECIFIC SECTION ===
+// Open Section Function
 function openSection(id) {
   document.getElementById('nav').classList.remove('open');
 
-  // Remove active-link from all
-  document.querySelectorAll('#nav a').forEach(link => link.classList.remove('active-link'));
+  // Remove active-link class from all nav links
+  document.querySelectorAll('#nav a').forEach(link => {
+    link.classList.remove('active-link');
+  });
 
   // Hide all sections with fade-out
   document.querySelectorAll('section').forEach(section => {
@@ -18,12 +20,12 @@ function openSection(id) {
   });
 
   // Show selected section with fade-in
-  const target = document.getElementById(id);
-  if (target) {
+  const targetSection = document.getElementById(id);
+  if (targetSection) {
     setTimeout(() => {
-      target.classList.remove('fade-out');
-      target.classList.add('active');
-      target.classList.add('fade-in');
+      targetSection.classList.remove('fade-out');
+      targetSection.classList.add('active');
+      targetSection.classList.add('fade-in');
     }, 400);
   }
 
@@ -34,7 +36,7 @@ function openSection(id) {
     }
   });
 
-  // Cover / Mini-header toggle
+  // Toggle between cover and mini-header
   if (id === 'home') {
     document.getElementById('cover').style.display = 'flex';
     document.getElementById('mini-header').style.display = 'none';
@@ -44,34 +46,37 @@ function openSection(id) {
   }
 }
 
-// === MUSIC TOGGLE ===
+// Music Toggle
 const music = document.getElementById('bg-music');
 music.volume = 1.0;
 let playing = false;
 
 function toggleMusic() {
-  const icon = document.querySelector('.music-icon');
   if (!playing) {
     music.play();
-    icon.innerText = '✖';
+    document.querySelector('.music-icon').innerText = '✖';
   } else {
     music.pause();
-    icon.innerText = '♫';
+    document.querySelector('.music-icon').innerText = '♫';
   }
   playing = !playing;
 }
 
-// === ON PAGE LOAD ===
+// On Page Load
 window.addEventListener('load', () => {
   document.getElementById('cover').style.display = 'flex';
   document.getElementById('mini-header').style.display = 'none';
 
+  // Hide all sections
   document.querySelectorAll('section').forEach(s => {
     s.classList.remove('active', 'fade-in', 'fade-out');
   });
 
-  const about = document.getElementById('about');
-  if (about) {
-    about.classList.add('active', 'fade-in');
+  // Open section based on URL hash
+  const hash = window.location.hash.replace('#', '');
+  if (hash && document.getElementById(hash)) {
+    openSection(hash);
+  } else {
+    openSection('about');
   }
 });
