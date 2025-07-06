@@ -5,36 +5,44 @@
   margin: 0;
   padding: 0;
 }
+
 body {
   background: #FAF9F6;
   font-family: 'Lato', sans-serif;
   color: #1A1A1A;
   scroll-behavior: smooth;
 }
+
 h2, h3, h4 {
   font-family: 'Playfair Display', serif;
 }
+
 p {
   line-height: 1.6;
 }
+
 a {
   text-decoration: none;
   color: inherit;
 }
+
 ul {
   list-style: none;
 }
 
+/* === Homepage Cover === */
 #cover {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 20px;
 }
+
 .menu-btn {
   font-size: 2em;
   cursor: pointer;
 }
+
 .music-icon {
   font-size: 1.5em;
   background: none;
@@ -42,6 +50,7 @@ ul {
   cursor: pointer;
 }
 
+/* === Navigation === */
 #nav {
   display: none;
   position: fixed;
@@ -53,26 +62,31 @@ ul {
   z-index: 999;
   padding: 20px 0;
 }
+
 #nav.open {
   display: block;
 }
+
 #nav ul {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 10px;
 }
+
 #nav a {
   font-size: 1.2em;
   color: #C2A270;
   transition: color 0.3s ease;
 }
+
 #nav a:hover,
 #nav a.active-link {
   color: #2C2C2C;
   font-weight: bold;
 }
 
+/* === Mini Header === */
 #mini-header {
   display: none;
   position: fixed;
@@ -84,13 +98,14 @@ ul {
   z-index: 999;
 }
 
-/* === Section === */
+/* === Sections === */
 .section {
   display: none;
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.6s ease, transform 0.6s ease;
 }
+
 .section.active {
   display: block;
   opacity: 1;
@@ -102,12 +117,13 @@ ul {
   opacity: 0 !important;
   transform: translateY(20px) !important;
 }
+
 .fade-in {
   opacity: 1 !important;
   transform: translateY(0) !important;
 }
 
-/* === About === */
+/* === About Section === */
 .about-box {
   max-width: 800px;
   margin: 40px auto;
@@ -116,15 +132,18 @@ ul {
   border-radius: 20px;
   text-align: center;
 }
+
 .about-title {
   color: #C2A270;
   margin-top: 20px;
 }
+
 .signature {
   margin-top: 30px;
   font-family: 'Dancing Script', cursive;
   font-size: 1.5em;
 }
+
 .signature span {
   font-family: 'Cormorant Garamond', serif;
   font-weight: bold;
@@ -135,6 +154,7 @@ ul {
   text-align: center;
   margin-top: 20px;
 }
+
 .buttons a {
   display: inline-block;
   margin: 10px 8px;
@@ -146,6 +166,7 @@ ul {
   transition: background-color 0.4s ease, transform 0.4s ease;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
+
 .buttons a:hover {
   background: #2C2C2C;
   transform: translateY(-3px);
@@ -158,20 +179,23 @@ ul {
   text-align: center;
   margin-bottom: 30px;
 }
+
 .center-title {
   text-align: center;
 }
+
 .center-sub {
   text-align: center;
   margin-bottom: 20px;
 }
+
 .caps-title {
   font-weight: bold;
   text-transform: uppercase;
   margin: 30px 0 10px;
 }
 
-/* === Quiz === */
+/* === Quiz Section === */
 .floating-box {
   max-width: 800px;
   margin: 0 auto;
@@ -179,10 +203,12 @@ ul {
   background: rgba(255, 255, 255, 0.85);
   border-radius: 20px;
 }
+
 .result-container,
 .scent-container {
   margin-top: 20px;
 }
+
 .result-box,
 .scent-box {
   background: #f8f6f2;
@@ -192,7 +218,7 @@ ul {
   border-radius: 10px;
 }
 
-/* === Contact === */
+/* === Contact Section === */
 .contact-box {
   display: flex;
   flex-wrap: wrap;
@@ -200,6 +226,7 @@ ul {
   gap: 15px;
   margin-top: 20px;
 }
+
 .contact-box a {
   background: #C2A270;
   color: white;
@@ -208,6 +235,7 @@ ul {
   font-size: 0.95em;
   transition: background-color 0.3s ease;
 }
+
 .contact-box a:hover {
   background: #2C2C2C;
 }
@@ -220,25 +248,51 @@ ul {
   text-align: center;
   margin-bottom: 20px;
 }
+
 .circle-label {
   margin-top: 30px;
   text-align: center;
   font-style: italic;
 }
 
-/* === Responsive === */
+/* === Floating Home Button === */
+#home-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #C2A270;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 1.5em;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  cursor: pointer;
+  display: none;
+  z-index: 1000;
+}
+
+#home-btn:hover {
+  background: #2C2C2C;
+}
+
+/* === Responsive Design === */
 @media screen and (max-width: 768px) {
   .about-box,
   .floating-box {
     padding: 20px;
   }
+
   .buttons a {
     padding: 10px 20px;
     font-size: 0.95rem;
   }
+
   #nav ul {
     gap: 6px;
   }
+
   .contact-box a {
     font-size: 0.85rem;
   }
