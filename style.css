@@ -1,13 +1,10 @@
 /* === Font Imports === */
 @import url('https://fonts.googleapis.com/css2?family=Lato&family=Playfair+Display&family=Dancing+Script&family=Cormorant+Garamond&display=swap');
 
-/* === Global Reset & Base === */
-*,
-*::before,
-*::after {
+/* === Global Reset & Base Styles === */
+*, *::before, *::after {
   box-sizing: border-box;
 }
-
 body {
   margin: 0;
   padding: 0;
@@ -16,82 +13,41 @@ body {
   color: #1A1A1A;
   scroll-behavior: smooth;
 }
-
 h2, h3, h4 {
   font-family: 'Playfair Display', serif;
 }
+p { line-height: 1.6; }
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; padding: 0; margin: 0; }
 
-p {
-  line-height: 1.6;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-/* === Cover & Menu === */
+/* === Cover & Menu Icons === */
 #cover {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: flex; justify-content: space-between; align-items: center;
   padding: 20px;
 }
+.menu-btn { font-size: 2em; cursor: pointer; }
+.music-icon { font-size: 1.5em; background: none; border: none; cursor: pointer; }
 
-.menu-btn {
-  font-size: 2em;
-  cursor: pointer;
-}
-
-.music-icon {
-  font-size: 1.5em;
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-/* === Navigation === */
+/* === Navigation Menu === */
 #nav {
   display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
+  position: fixed; top: 0; left: 0;
   width: 100%;
   background: rgba(255,255,255,0.95);
   box-shadow: 0 10px 30px rgba(0,0,0,0.1);
   z-index: 999;
   padding: 20px 0;
-  transition: all 0.3s ease;
+  transition: opacity 0.3s ease;
 }
-
-#nav.open {
-  display: block;
-}
-
-#nav ul {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-#nav li {
-  margin: 10px 0;
-}
-
+#nav.open { display: block; }
+#nav ul { display: flex; flex-direction: column; align-items: center; }
+#nav li { margin: 10px 0; }
 #nav a {
   font-size: 1.2em;
   color: #C2A270;
   transition: color 0.3s ease;
 }
-
-#nav a:hover,
-#nav a.active-link {
+#nav a:hover, #nav a.active-link {
   color: #2C2C2C;
   font-weight: bold;
 }
@@ -99,16 +55,14 @@ ul {
 /* === Mini Header === */
 #mini-header {
   display: none;
-  position: fixed;
-  top: 0;
-  width: 100%;
+  position: fixed; top: 0; width: 100%;
   background: rgba(255,255,255,0.95);
   padding: 10px 20px;
   box-shadow: 0 5px 15px rgba(0,0,0,0.1);
   z-index: 999;
 }
 
-/* === Sections === */
+/* === Sections & Transitions === */
 .section {
   display: none;
   padding: 60px 20px;
@@ -116,22 +70,20 @@ ul {
   transform: translateY(20px);
   transition: opacity 0.6s ease, transform 0.6s ease;
 }
-
 .section.active {
   display: block;
   opacity: 1;
   transform: translateY(0);
 }
 
+/* Fade classes */
 .fade-in {
-  opacity: 1;
-  transform: translateY(0);
+  opacity: 1 !important;
+  transform: translateY(0) !important;
 }
-
 .fade-out {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.4s ease, transform 0.4s ease;
+  opacity: 0 !important;
+  transform: translateY(20px) !important;
 }
 
 /* === About Section === */
@@ -143,18 +95,12 @@ ul {
   border-radius: 20px;
   text-align: center;
 }
-
-.about-title {
-  color: #C2A270;
-  margin-top: 20px;
-}
-
+.about-title { color: #C2A270; margin-top: 20px; }
 .signature {
   margin-top: 30px;
   font-family: 'Dancing Script', cursive;
   font-size: 1.5em;
 }
-
 .signature span {
   font-family: 'Cormorant Garamond', serif;
   font-weight: bold;
@@ -169,34 +115,27 @@ ul {
   color: white;
   border-radius: 30px;
   font-weight: 600;
-  transition: all 0.4s ease;
+  transition: background-color 0.4s ease, transform 0.4s ease;
   box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
-
 .buttons a:hover {
   background: #2C2C2C;
   transform: translateY(-3px);
 }
 
-/* === Utility === */
+/* === Utility Classes === */
 .hidden {
   display: none !important;
   opacity: 0 !important;
   transform: translateY(20px) !important;
 }
 
-/* === Responsive === */
+/* === Responsive Adjustments === */
 @media screen and (max-width: 768px) {
-  .about-box {
-    padding: 20px;
-  }
-
+  .about-box { padding: 20px; }
   .buttons a {
     padding: 10px 20px;
     font-size: 0.95rem;
   }
-
-  #nav ul {
-    gap: 6px;
-  }
+  #nav ul { gap: 6px; }
 }
