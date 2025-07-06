@@ -1,50 +1,58 @@
-<!DOCTYPE html>
-<html lang="en">
+<!-- index.html (Home Page) --><!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agape Aeterna</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Lato&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body style="background: black; min-height: 100vh;">
+  <!-- Home page is just the background image, handled in CSS or inline -->
+</body>
+</html><!-- essence.html --><!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>AURELÉA</title>
-  <link href="style.css" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <title>Essence</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Lato&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
-<body>
-  <div id="cover">
-    <div class="menu-btn" onclick="toggleNav()">☰</div>
-    <button class="music-icon" onclick="toggleMusic()">♫</button>
-  </div>
-
-  <nav id="nav">
-    <ul>
-      <li><a href="#" onclick="openSection('home')">Home</a></li>
-      <li><a href="#" onclick="openSection('about')">About</a></li>
-      <li><a href="#" onclick="openSection('signature')">Scents</a></li>
-      <li><a href="#" onclick="openSection('order')">Shop Now</a></li>
-      <li><a href="#" onclick="openSection('discount')">Rewards</a></li>
-      <li><a href="#" onclick="openSection('games')">Find your Scent</a></li>
-      <li><a href="#" onclick="openSection('faq')">FAQs</a></li>
-      <li><a href="#" onclick="openSection('testimonials')">Reviews</a></li>
-      <li><a href="#" onclick="openSection('contact')">Get in Touch</a></li>
-      <li><a href="#" onclick="openSection('chat')">Talk to Us</a></li>
-    </ul>
-  </nav>
-
-  <div id="mini-header"><div class="menu-btn" onclick="toggleNav()">☰</div></div>
-
-  <section id="about"><h2>About</h2><p>Agape Aeterna was born...</p></section>
-  <section id="signature"><h2>Scents</h2><p>Coming soon...</p></section>
-  <section id="order"><h2>Shop Now</h2><div class="buttons"><a href="#">Purchase</a></div></section>
-  <section id="discount"><h2>Rewards</h2><p>Exclusive promos...</p></section>
-  <section id="games"><h2>Find your Scent</h2><p>Coming soon...</p></section>
-  <section id="faq"><h2>FAQs</h2><p>Answers coming soon!</p></section>
-  <section id="testimonials"><h2>Reviews</h2><div class="buttons"><a href="#">Feedback</a></div></section>
-  <section id="contact"><h2>Get in Touch</h2><div class="social-icons"><a href="#"><i class="fas fa-envelope"></i> Email</a></div></section>
-  <section id="chat"><h2>Talk to Us</h2><p>Click chat bubble...</p></section>
-
-  <audio id="bg-music" loop>
-    <source src="https://www.bensound.com/bensound-music/bensound-dreams.mp3" type="audio/mpeg">
-  </audio>
-
-  <script src="script.js"></script>
+<body style="background:#fdfaf6;">
+  <section class="essence-section">
+    <h1 class="slide-up">The Heart of Agape</h1>
+    <p class="fade-in">Agape Aeterna was born from a deep love for fragrance — not just any scent, but the kind that lingers, speaks softly, and leaves a lasting impression.</p>
+    <p class="fade-in">For me, perfume is more than just something you wear. It’s a quiet reflection of who you are — a memory, a mood, a presence that stays even after you’ve left the room.</p>
+    <p class="fade-in">The name <span class="highlight">Agape Aeterna</span> means eternal, unconditional love. It reflects who I am and what I hope to share through this brand. I want every scent to make people feel special, confident, and remembered — even without saying a word.</p>
+  </section>
 </body>
-</html>
+</html><!-- Placeholder pages (collection.html, rewards.html, etc.) --><!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page Title</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body style="background: #fff; min-height: 100vh;">
+</body>
+</html>/* style.css */ body { margin: 0; padding: 0; font-family: 'Lora', serif; transition: all 0.5s ease; min-height: 100vh; }
+
+.essence-section { padding: 60px 20px; background-color: #fdfaf6; font-family: 'Lato', sans-serif; color: #2e2e2e; line-height: 1.6; }
+
+.essence-section h1 { font-family: 'Playfair Display', serif; font-size: 32px; margin-bottom: 20px; color: #1a1a1a; }
+
+.essence-section p { margin-bottom: 20px; font-size: 17px; }
+
+.highlight { color: #bfa26b; font-style: italic; }
+
+/* Animations */ .fade-in { opacity: 0; animation: fadeIn 1.2s ease-out forwards; }
+
+@keyframes fadeIn { to { opacity: 1; } }
+
+.slide-up { opacity: 0; transform: translateY(20px); animation: slideUpFade 1s ease-out forwards; }
+
+@keyframes slideUpFade { to { opacity: 1; transform: translateY(0); } }
+
+a, button { transition: all 0.3s ease-in-out; }
+
+/* No JS used here unless music/menu logic needed */
+
