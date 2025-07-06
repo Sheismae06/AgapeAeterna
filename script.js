@@ -1,82 +1,78 @@
-// Toggle Navigation
+// Toggle navigation menu
 function toggleNav() {
   document.getElementById('nav').classList.toggle('open');
 }
 
-// Open Section Function
+// Open a specific section
 function openSection(id) {
+  // Close menu when a link is clicked
   document.getElementById('nav').classList.remove('open');
 
-  // Remove active-link class from all nav links
+  // Remove highlight from all links
   document.querySelectorAll('#nav a').forEach(link => {
     link.classList.remove('active-link');
+    if (link.getAttribute('onclick')?.includes(id)) {
+      link.classList.add('active-link');
+    }
   });
 
-  // Hide all sections with fade-out
+  // Hide all sections
   document.querySelectorAll('section').forEach(section => {
     section.classList.remove('fade-in');
     section.classList.add('fade-out');
     setTimeout(() => section.classList.remove('active'), 400);
   });
 
-  // Show selected section with fade-in
-  const targetSection = document.getElementById(id);
-  if (targetSection) {
+  // Show the selected section
+  const target = document.getElementById(id);
+  if (target) {
     setTimeout(() => {
-      targetSection.classList.remove('fade-out');
-      targetSection.classList.add('active');
-      targetSection.classList.add('fade-in');
+      target.classList.remove('fade-out');
+      target.classList.add('active', 'fade-in');
     }, 400);
   }
 
-  // Highlight active nav link
-  document.querySelectorAll('#nav a').forEach(link => {
-    if (link.getAttribute('onclick')?.includes(id)) {
-      link.classList.add('active-link');
-    }
-  });
-
-  // Toggle between cover and mini-header
+  // Toggle cover and mini-header
+  const cover = document.getElementById('cover');
+  const miniHeader = document.getElementById('mini-header');
   if (id === 'home') {
-    document.getElementById('cover').style.display = 'flex';
-    document.getElementById('mini-header').style.display = 'none';
+    cover.style.display = 'flex';
+    miniHeader.style.display = 'none';
   } else {
-    document.getElementById('cover').style.display = 'none';
-    document.getElementById('mini-header').style.display = 'flex';
+    cover.style.display = 'none';
+    miniHeader.style.display = 'flex';
   }
 }
 
-// Music Toggle
+// Music toggle functionality
 const music = document.getElementById('bg-music');
 music.volume = 1.0;
 let playing = false;
 
 function toggleMusic() {
+  const icon = document.querySelector('.music-icon');
   if (!playing) {
     music.play();
-    document.querySelector('.music-icon').innerText = '✖';
+    icon.innerText = '✖';
   } else {
     music.pause();
-    document.querySelector('.music-icon').innerText = '♫';
+    icon.innerText = '♫';
   }
   playing = !playing;
 }
 
-// On Page Load
+// Initial page load
 window.addEventListener('load', () => {
   document.getElementById('cover').style.display = 'flex';
   document.getElementById('mini-header').style.display = 'none';
 
-  // Hide all sections
+  // Remove active/fade states from all sections
   document.querySelectorAll('section').forEach(s => {
     s.classList.remove('active', 'fade-in', 'fade-out');
   });
 
-  // Open section based on URL hash
+  // Handle URL hash or default to About section
   const hash = window.location.hash.replace('#', '');
-  if (hash && document.getElementById(hash)) {
-    openSection(hash);
-  } else {
-    openSection('about');
-  }
+  const initial = hash && document.getElementById(hash) ? hash : 'about';
+  openSection(initial);
 });
