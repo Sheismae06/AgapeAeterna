@@ -27,16 +27,29 @@ function openSection(sectionId) {
     }
   });
 
-  // Close the nav after clicking
+  // Update URL hash without scrolling
+  history.pushState(null, null, `#${sectionId}`);
+
+  // Close nav menu if open
   const nav = document.getElementById("nav");
   nav.classList.remove("open");
 }
 
-// Hide all sections on page load (plain homepage)
+// On initial load: show section if hash exists in URL (e.g. #order)
 window.addEventListener("DOMContentLoaded", () => {
   const sections = document.querySelectorAll(".section");
   sections.forEach((section) => {
     section.classList.remove("active");
     section.classList.remove("fade-in");
   });
+
+  const hash = window.location.hash;
+  if (hash) {
+    const sectionId = hash.substring(1); // remove "#"
+    const target = document.getElementById(sectionId);
+    if (target) {
+      target.classList.add("active");
+      target.classList.add("fade-in");
+    }
+  }
 });
