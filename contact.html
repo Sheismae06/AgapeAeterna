@@ -2,101 +2,126 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact Us | Agape Aeterna</title>
+  <title>Whispers of Connection</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Lora&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
     body {
       background-color: #f8f1e7;
-      color: #333;
       font-family: 'Lora', serif;
+      color: #333;
       margin: 0;
       padding: 0;
-    }.contact-container {
-  max-width: 800px;
-  margin: 120px auto 60px auto;
-  padding: 0 20px;
-  text-align: center;
-  animation: fadeSlide 1.5s ease-out forwards;
+    }.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background-color: #1a1a1a;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 25px;
+  z-index: 1000;
 }
 
-h1.contact-title {
+.section {
+  max-width: 700px;
+  margin: 110px auto 40px auto;
+  padding: 20px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  animation: fadeSlide 1.5s ease-out forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.section-title {
   font-family: 'Playfair Display', serif;
   font-size: 2.4rem;
-  color: #caa75c;
+  color: #d4af37;
   margin-bottom: 10px;
+  text-align: center;
 }
 
-.contact-intro {
-  font-size: 0.95rem;
-  margin-bottom: 40px;
-  color: #444;
-}
-
-.contact-section {
-  margin-bottom: 40px;
-}
-
-.section-label {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.1rem;
-  color: #caa75c;
-  margin-bottom: 10px;
-}
-
-.contact-icons {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  flex-wrap: wrap;
-}
-
-.contact-icons a {
-  color: #444;
-  text-decoration: none;
+.section-subtitle {
+  text-align: center;
   font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 30px;
+}
+
+.section h2 {
+  font-family: 'Playfair Display', serif;
+  color: #d4af37;
+  font-size: 1.2rem;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+.contact-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+}
+
+.contact-info a {
+  color: #000;
+  text-decoration: none;
+}
+
+.icon-row {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin: 10px 0;
+}
+
+.icon-row a {
+  display: inline-block;
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-.contact-icons a:hover {
-  transform: scale(1.15);
-  opacity: 0.85;
+.icon-row a:hover {
+  transform: scale(1.1);
+  opacity: 0.8;
 }
 
-.contact-icons svg {
-  width: 26px;
-  height: 26px;
-  transition: transform 0.3s ease, fill 0.3s ease;
+.icon {
+  width: 30px;
+  height: 30px;
 }
 
-.contact-icons svg:hover {
-  transform: scale(1.2);
-  fill: #caa75c;
+.live-chat-button {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
 }
 
-.contact-link {
-  margin-top: 8px;
-  color: #000;
-  display: block;
+.live-chat-button button {
+  background-color: #1a1a1a;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
   font-size: 0.9rem;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background 0.3s ease;
 }
 
-/* Animations */
+.live-chat-button button:hover {
+  background-color: #d4af37;
+  color: #1a1a1a;
+}
+
 @keyframes fadeSlide {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
   to {
     opacity: 1;
     transform: translateY(0);
-  }
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .contact-icons {
-    gap: 20px;
   }
 }
 
@@ -104,64 +129,46 @@ h1.contact-title {
 </head>
 <body>
   <div class="navbar">
-    <div class="nav-left music-toggle">
-      <svg id="piano-icon" class="piano-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="white">
-        <path d="M5 3C3.9 3 3 3.9 3 5v14a2 2 0 002 2h14a2 2 0 002-2V5c0-1.1-.9-2-2-2H5zm0 2h14v14H5V5zm2 2v10h2V7H7zm4 0v10h2V7h-2zm4 0v10h2V7h-2z" />
-        <line id="piano-slash" x1="4" y1="4" x2="20" y2="20" stroke="gold" stroke-width="2" style="display: none;" />
-      </svg>
-    </div>
-    <div class="nav-right">
-      <button class="hamburger" id="hamburger">☰</button>
-      <div class="nav-links" id="nav-links">
-        <a href="index.html">Home</a>
-        <a href="essence.html">Essence</a>
-        <a href="collection.html">Collection</a>
-        <a href="rewards.html">Rewards</a>
-        <a href="testimonials.html">Testimonials</a>
-        <a href="contact.html">Contact Us</a>
-      </div>
-    </div>
-  </div>  <div class="contact-container">
-    <h1 class="contact-title">WHISPERS OF CONNECTION</h1>
-    <p class="contact-intro">
-      Thank you for visiting Agape Aeterna.<br />
-      We’re delighted to connect with you. Below are the channels where you can reach us—feel free to send us a message anytime, and we’ll respond as soon as we can.<br />
-      Let’s stay beautifully connected.
-    </p><div class="contact-section">
-  <div class="section-label">TEXT OR EMAIL US</div>
-  <div class="contact-icons">
-    <a href="sms:+639*********">
-      📱<span class="contact-link">+639*********</span>
-    </a>
-    <a href="mailto:agapeaeternaperfumeshop@gmail.com">
-      ✉️<span class="contact-link">agapeaeternaperfumeshop@gmail.com</span>
-    </a>
-  </div>
+    <!-- Reuse your navbar code here if needed -->
+  </div>  <section class="section">
+    <h1 class="section-title">WHISPERS OF CONNECTION</h1>
+    <p class="section-subtitle">
+      Thank you for visiting Agape Aeterna.<br>
+      We’re delighted to connect with you. Below are the channels where you can reach us—feel free to send us a message anytime, and we’ll respond as soon as we can. Let’s stay beautifully connected.
+    </p><h2>Text or Email Us</h2>
+<div class="contact-info">
+  📱 <a href="sms:+639*********">+639*********</a>
+</div>
+<div class="contact-info">
+  📧 <a href="mailto:agapeaeternaperfumeshop@gmail.com">agapeaeternaperfumeshop@gmail.com</a>
 </div>
 
-<div class="contact-section">
-  <div class="section-label">FOLLOW US</div>
-  <div class="contact-icons">
-    <a href="https://www.facebook.com/share/1AhMby9z3U/" target="_blank" aria-label="Facebook">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Facebook_icon.svg" alt="Facebook" width="26" height="26" />
-    </a>
-    <a href="https://www.tiktok.com/@agapeaeterna?_t=ZS-8xk9f1XaSKw&_r=1" target="_blank" aria-label="TikTok">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/TikTok_logo.svg" alt="TikTok" width="26" height="26" />
-    </a>
-    <a href="https://www.instagram.com/yoursafe.spot?igsh=NTJhNHA0eXd6YnF0" target="_blank" aria-label="Instagram">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" width="26" height="26" />
-    </a>
-  </div>
+<h2>Follow Us</h2>
+<div class="icon-row">
+  <a href="https://www.facebook.com/share/1AhMby9z3U/" target="_blank" rel="noopener">
+    <img src="facebook.svg" alt="Facebook" class="icon" />
+  </a>
+  <a href="https://www.tiktok.com/@agapeaeterna?_t=ZS-8xk9f1XaSKw&_r=1" target="_blank" rel="noopener">
+    <img src="tiktok.svg" alt="TikTok" class="icon" />
+  </a>
+  <a href="https://www.instagram.com/yoursafe.spot?igsh=NTJhNHA0eXd6YnF0" target="_blank" rel="noopener">
+    <img src="instagram.svg" alt="Instagram" class="icon" />
+  </a>
 </div>
 
-<div class="contact-section">
-  <div class="section-label">LET’S CHAT</div>
-  <div class="contact-icons">
-    <a href="#" onclick="$crisp.push(['do', 'chat:open']); return false;">
-      💬<span class="contact-link">Open Live Chat</span>
-    </a>
-  </div>
+<div class="live-chat-button">
+  <button onclick="$crisp.push(['do', 'chat:open'])">Start Live Chat</button>
 </div>
 
-  </div>  <script src="script.js"></script>  <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="9441e2e2-d7b3-4e29-bf1f-496bc3dfad92";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script></body>
+  </section>  <!-- Crisp Chat Widget -->  <script type="text/javascript">
+    window.$crisp=[];
+    window.CRISP_WEBSITE_ID="9441e2e2-d7b3-4e29-bf1f-496bc3dfad92";
+    (function(){
+      d=document;
+      s=d.createElement("script");
+      s.src="https://client.crisp.chat/l.js";
+      s.async=1;
+      d.getElementsByTagName("head")[0].appendChild(s);
+    })();
+  </script></body>
 </html>
