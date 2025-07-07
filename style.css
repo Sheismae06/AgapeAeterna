@@ -136,3 +136,17 @@ body {
     transform: none;
   }
 }
+
+/* Elegant Fade + Slide Animation for Sections */
+.fade-slide {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeSlide 1.5s ease-out forwards;
+}
+
+@keyframes fadeSlide {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
