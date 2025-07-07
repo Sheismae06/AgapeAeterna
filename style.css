@@ -1,52 +1,66 @@
-/* 🔳 Elegant Navbar - Original Layout + Requested Changes */
+/* === GENERAL STYLES === */
+body {
+  margin: 0;
+  font-family: 'Playfair Display', serif;
+  background-color: #fff;
+  color: #222;
+}
+
+a {
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+/* === NAVBAR === */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.4rem 1.2rem;
-  background-color: #1a1a1a; /* Dark espresso/black */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  padding: 0.5rem 1.5rem;
+  background-color: #1e1f26; /* Midnight Blue */
   position: sticky;
   top: 0;
   z-index: 1000;
-  height: 48px; /* Mas manipis ng konti */
+  height: 50px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
 }
 
-/* 🔈 Music Icon (black) */
 .music-toggle svg {
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
+  fill: #ffffff; /* White speaker icon */
   cursor: pointer;
-  fill: #000000; /* Black */
 }
 
-/* ☰ Hamburger Icon (gold) */
+/* === HAMBURGER ICON === */
 .hamburger {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   background: none;
   border: none;
   cursor: pointer;
-  color: #d4af37; /* Gold */
-  font-family: 'Playfair Display', serif;
-  padding: 0;
-  line-height: 1;
+  color: #ffffff; /* Default white */
+  transition: color 0.3s ease;
 }
 
-/* 📄 Mobile Dropdown Menu */
+.hamburger.active {
+  color: #d4af37; /* Gold when clicked */
+}
+
+/* === NAV LINKS (Mobile Dropdown) === */
 .nav-links {
   display: none;
   flex-direction: column;
-  gap: 0.6rem;
-  background-color: #2a2a2a;
+  gap: 0.7rem;
+  background-color: #2c2c34;
   position: absolute;
-  top: 48px;
+  top: 50px;
   right: 20px;
-  padding: 0.6rem 1rem;
+  padding: 0.8rem 1rem;
   border: 1px solid #444;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.4);
   opacity: 0;
   transform: translateY(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .nav-links.open {
@@ -56,12 +70,10 @@
 }
 
 .nav-links a {
-  text-decoration: none;
   color: #f5f5f5;
-  font-family: 'Playfair Display', serif;
   font-size: 1rem;
+  padding-bottom: 2px;
   position: relative;
-  padding-bottom: 3px;
 }
 
 .nav-links a:hover {
@@ -73,8 +85,8 @@
   position: absolute;
   left: 0;
   bottom: 0;
-  height: 1.5px;
   width: 0;
+  height: 1.5px;
   background-color: #d4af37;
   transition: width 0.3s ease;
 }
@@ -83,7 +95,15 @@
   width: 100%;
 }
 
-/* 💻 Desktop View */
+/* === HERO IMAGE === */
+.hero {
+  height: 100vh;
+  background: url('https://raw.githubusercontent.com/Sheismae06/AgapeAeterna/main/file_00000000d35461f79683e3cc6f46380f.webp') center/cover no-repeat;
+  background-attachment: fixed;
+  margin-bottom: 30px; /* Konting gap sa baba */
+}
+
+/* === DESKTOP NAV === */
 @media screen and (min-width: 768px) {
   .hamburger {
     display: none;
