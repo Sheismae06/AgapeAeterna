@@ -1,71 +1,86 @@
-/* Reset and Base Styles */
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact | Agape Aeterna</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Lora&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+  <script src="script.js" defer></script>
+</head>
 
-{ margin: 0; padding: 0; box-sizing: border-box; }
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="nav-left">
+      <div class="music-toggle" onclick="toggleMusic()">
+        <svg id="piano-icon" class="piano-icon" viewBox="0 0 64 64" fill="white">
+          <rect width="64" height="64" rx="8" ry="8"/>
+          <path d="M16 16h4v32h-4zm14 0h4v32h-4zm14 0h4v32h-4z" fill="#1a1a1a"/>
+          <line id="piano-slash" x1="10" y1="10" x2="54" y2="54" style="display: none"/>
+        </svg>
+      </div>
+    </div>
+    <div class="nav-right">
+      <button class="hamburger" onclick="toggleMenu()">☰</button>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="essence.html">Essence</a>
+        <a href="collection.html">Collection</a>
+        <a href="testimonials.html">Testimonials</a>
+        <a href="rewards.html">Rewards</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
 
+  <!-- Page Title -->
+  <h1 class="section-title">Whispers of Connection</h1>
 
-body { font-family: 'Lora', serif; background-color: #1a1a1a; color: #f5f5f5; line-height: 1.7; }
+  <main class="page-content">
 
-/* Navbar */ .navbar { position: fixed; top: 0; left: 0; right: 0; height: 60px; background-color: #1a1a1a; display: flex; justify-content: space-between; align-items: center; padding: 0 25px; z-index: 1000; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3); }
+    <p style="text-align: center; margin-bottom: 30px;">
+      Thank you for visiting Agape Aeterna.<br>
+      We’re delighted to connect with you. Below are the channels where you can reach us—feel free to send us a message anytime, and we’ll respond as soon as we can. Let’s stay beautifully connected.
+    </p>
 
-.navbar .nav-left, .navbar .nav-right { display: flex; align-items: center; }
+    <!-- Text or Email -->
+    <div class="section-spaced">
+      <h2 class="section-title" style="margin-top: 20px; font-size: 1.5rem;">Text or Email Us</h2>
+      <p style="text-align: center; margin: 10px 0;">
+        <a href="sms:+639*********" class="elegant-button">+63 9*********</a><br><br>
+        <a href="mailto:agapeaeternaperfumeshop@gmail.com" class="elegant-button">agapeaeternaperfumeshop@gmail.com</a>
+      </p>
+    </div>
 
-.music-toggle { cursor: pointer; }
+    <!-- Follow Us -->
+    <div class="section-spaced">
+      <h2 class="section-title" style="margin-top: 30px; font-size: 1.5rem;">Follow Us</h2>
+      <div style="text-align: center;">
+        <a href="https://www.facebook.com/share/1AhMby9z3U/" class="elegant-button" target="_blank">Facebook</a>
+        <a href="https://www.instagram.com/yoursafe.spot?igsh=NTJhNHA0eXd6YnF0" class="elegant-button" target="_blank">Instagram</a>
+        <a href="https://www.tiktok.com/@agapeaeterna?_t=ZS-8xk9f1XaSKw&_r=1" class="elegant-button" target="_blank">TikTok</a>
+      </div>
+    </div>
 
-.piano-icon { width: 20px; height: 20px; transition: transform 0.3s ease; }
+    <!-- Live Chat -->
+    <div class="section-spaced" style="text-align: center;">
+      <a onclick="$crisp.push(['do', 'chat:open'])" class="elegant-button">Start Live Chat</a>
+    </div>
 
-.piano-icon.playing { animation: playPulse 2s infinite ease-in-out; }
+  </main>
 
-@keyframes playPulse { 0% { transform: scale(1); fill: #d4af7f; } 50% { transform: scale(1.1); fill: #e2c799; } 100% { transform: scale(1); fill: #d4af7f; } }
-
-#piano-slash { stroke: #d4af7f; stroke-width: 2; }
-
-.hamburger { font-size: 22px; background: none; border: none; color: white; cursor: pointer; padding: 8px; margin-left: 10px; transition: color 0.3s ease; }
-
-.hamburger.active { color: #d4af7f; }
-
-.nav-links { display: none; flex-direction: column; position: absolute; top: 60px; right: 25px; background-color: #1a1a1a; padding: 15px 20px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6); }
-
-.nav-links a { color: #f5f5f5; text-decoration: none; margin: 8px 0; font-family: 'Playfair Display', serif; font-size: 16px; transition: color 0.3s ease; }
-
-.nav-links a:hover { color: #d4af7f; }
-
-.nav-links.open { display: flex; }
-
-/* Hero Section */ .hero { margin-top: 60px; min-height: calc(100vh - 60px); background: url('https://raw.githubusercontent.com/Sheismae06/AgapeAeterna/main/file_00000000d35461f79683e3cc6f46380f.webp') center/110% no-repeat; background-attachment: fixed; background-color: #1a1a1a; display: flex; align-items: flex-end; justify-content: center; padding-bottom: 30px; }
-
-.tagline { font-family: 'Playfair Display', serif; color: #f5f5f5; font-size: 22px; background-color: rgba(26, 26, 26, 0.6); padding: 10px 20px; border-radius: 8px; text-align: center; }
-
-/* Contact Page Specific */ .contact-page { padding: 100px 20px 60px 20px; max-width: 800px; margin: 0 auto; color: #f5f5f5; animation: fadeSlide 1.5s ease-out forwards; }
-
-.contact-title { text-align: center; font-family: 'Playfair Display', serif; font-size: 2.5rem; color: #d4af7f; margin-bottom: 30px; }
-
-.contact-section { margin-bottom: 40px; }
-
-.contact-section h2 { font-size: 1.2rem; color: #d4af7f; margin-bottom: 10px; }
-
-.contact-section p, .contact-section a { font-size: 0.95rem; color: #f5f5f5; text-decoration: none; }
-
-.contact-section a:hover { color: #d4af7f; }
-
-.contact-icons { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 10px; }
-
-.contact-icons svg { width: 28px; height: 28px; fill: #f5f5f5; transition: transform 0.3s ease, fill 0.3s ease; }
-
-.contact-icons svg:hover { transform: scale(1.1); fill: #d4af7f; }
-
-.contact-button { display: flex; justify-content: center; margin-top: 30px; }
-
-.contact-button button { background-color: transparent; border: 2px solid #d4af7f; color: #d4af7f; padding: 10px 25px; font-family: 'Lora', serif; font-size: 0.95rem; border-radius: 30px; transition: all 0.3s ease; }
-
-.contact-button button:hover { background-color: #d4af7f; color: #1a1a1a; }
-
-/* Animations */ .fade-slide { opacity: 0; transform: translateY(20px); animation: fadeSlide 1.5s ease-out forwards; }
-
-@keyframes fadeSlide { to { opacity: 1; transform: translateY(0); } }
-
-/* Responsive */ @media (min-width: 768px) { .nav-links { display: flex; position: static; flex-direction: row; background: none; box-shadow: none; padding: 0; }
-
-.nav-links a { margin: 0 15px; }
-
-.hamburger { display: none; } }
-
+  <!-- Crisp Chat Widget -->
+  <script type="text/javascript">
+    window.$crisp = [];
+    window.CRISP_WEBSITE_ID = "9441e2e2-d7b3-4e29-bf1f-496bc3dfad92";
+    (function () {
+      var d = document;
+      var s = d.createElement("script");
+      s.src = "https://client.crisp.chat/l.js";
+      s.async = 1;
+      d.getElementsByTagName("head")[0].appendChild(s);
+    })();
+  </script>
+</body>
+</html>
