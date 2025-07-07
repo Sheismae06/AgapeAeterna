@@ -1,91 +1,89 @@
+/* General styles */
 body {
   margin: 0;
-  padding: 0;
   font-family: 'Lora', serif;
-  transition: all 0.5s ease;
-  min-height: 100vh;
-  background-color: #000;
+  background-color: #fefefe;
+  color: #333;
 }
 
+/* Navbar */
 .navbar {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background: rgba(0,0,0,0.3);
-  backdrop-filter: blur(10px);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 16px;
-  z-index: 999;
+  padding: 1rem 2rem;
+  background-color: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
-.nav-left, .nav-right {
-  display: flex;
-  align-items: center;
+/* Music icons */
+.music-toggle svg {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  fill: #333;
 }
 
+/* Hamburger menu */
 .hamburger {
-  font-size: 24px;
+  font-size: 2rem;
   background: none;
   border: none;
-  color: white;
   cursor: pointer;
-  z-index: 1001;
-  margin-right: 8px;
+  display: block;
 }
 
-.hamburger:hover {
-  color: #d4af37;
-}
-
+/* Nav links */
 .nav-links {
-  position: fixed;
-  top: 60px;
-  right: 10px;
-  background: rgba(0, 0, 0, 0.85);
-  padding: 10px 15px;
-  border-radius: 10px;
   display: none;
   flex-direction: column;
-  animation: fadeSlide 0.5s ease forwards;
-  font-family: 'Playfair Display', serif;
-  z-index: 998;
+  gap: 1rem;
+  background-color: #fff;
+  position: absolute;
+  top: 60px;
+  right: 20px;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
+.nav-links a {
+  text-decoration: none;
+  color: #333;
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+}
+
+/* Show menu when open */
 .nav-links.open {
   display: flex;
 }
 
-.nav-links a {
-  color: white;
-  padding: 8px 0;
-  text-decoration: none;
-  transition: color 0.3s ease;
+/* Hero section */
+.hero {
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
 }
 
-.nav-links a:hover {
-  color: #d4af37;
-}
+/* Desktop view */
+@media screen and (min-width: 768px) {
+  .hamburger {
+    display: none;
+  }
 
-.music-toggle {
-  display: flex;
-  align-items: center;
-  margin-right: 12px;
-}
-
-.music-toggle svg {
-  width: 20px;
-  height: 20px;
-  cursor: pointer;
-  fill: white;
-}
-
-.music-toggle svg:hover {
-  fill: #ffffff;
-}
-
-@keyframes fadeSlide {
-  from {opacity: 0; transform: translateY(-10px);}
-  to {opacity: 1; transform: translateY(0);}
+  .nav-links {
+    display: flex !important;
+    flex-direction: row;
+    position: static;
+    gap: 2rem;
+    border: none;
+    box-shadow: none;
+    background: none;
+    padding: 0;
+  }
 }
