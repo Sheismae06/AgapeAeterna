@@ -13,7 +13,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  background-color: #fff;
+  background-color: #f8f3eb; /* Elegant champagne */
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   position: sticky;
   top: 0;
@@ -35,6 +35,8 @@ body {
   border: none;
   cursor: pointer;
   display: block;
+  color: #222; /* Luxurious dark gray */
+  font-family: 'Playfair Display', serif;
 }
 
 /* Nav Links (Hidden by default on mobile) */
@@ -61,17 +63,34 @@ body {
   transform: translateY(0);
 }
 
-/* Menu Links Styling */
+/* Nav Link Styling */
 .nav-links a {
   text-decoration: none;
   color: #333;
   font-family: 'Playfair Display', serif;
   font-size: 1rem;
+  position: relative;
+  padding-bottom: 4px;
 }
 
+/* Hover Effect with Underline */
 .nav-links a:hover {
-  color: #555;
-  border-bottom: 2px solid #555;
+  color: #000;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 0;
+  background-color: #c7a17a; /* Soft gold underline */
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
 }
 
 /* Hero Section with Fixed Background */
@@ -79,8 +98,7 @@ body {
   height: 100vh;
   background: url('https://raw.githubusercontent.com/Sheismae06/AgapeAeterna/main/file_00000000d35461f79683e3cc6f46380f.webp') center/cover no-repeat;
   background-attachment: fixed;
-  transform: none;
-  transition: none;
+  background-size: cover;
   animation: fadeIn 1.5s ease-in-out forwards;
 }
 
@@ -90,7 +108,7 @@ body {
   to { opacity: 1; }
 }
 
-/* Section Content Placeholder Styling */
+/* Section Content Styling */
 .page-section {
   padding: 4rem 2rem;
   max-width: 900px;
@@ -99,7 +117,7 @@ body {
   text-align: center;
 }
 
-/* Responsive Styles for Desktop */
+/* Responsive Desktop Nav */
 @media screen and (min-width: 768px) {
   .hamburger {
     display: none;
