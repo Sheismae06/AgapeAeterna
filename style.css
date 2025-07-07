@@ -5,15 +5,19 @@
   box-sizing: border-box;
 }
 
-body {
-  font-family: 'Lora', serif;
-  background-color: #1a1a1a; /* Charcoal gray */
-  color: #f5f5f5;
-  line-height: 1.6;
+html, body {
+  height: 100%;
   overflow-x: hidden;
 }
 
-/* Home page override */
+body {
+  font-family: 'Lora', serif;
+  background-color: #1a1a1a;
+  color: #f5f5f5;
+  line-height: 1.6;
+}
+
+/* Home page background */
 body.home {
   background: url('https://raw.githubusercontent.com/Sheismae06/AgapeAeterna/main/file_00000000d35461f79683e3cc6f46380f.webp') center/110% no-repeat;
   background-attachment: fixed;
@@ -22,6 +26,7 @@ body.home {
   align-items: flex-end;
   justify-content: center;
   padding-bottom: 30px;
+  height: 100vh;
 }
 
 /* Navbar */
@@ -46,29 +51,44 @@ body.home {
   align-items: center;
 }
 
-/* Piano icon */
+/* Piano Music Icon */
 .music-toggle {
   cursor: pointer;
+  position: relative;
+  width: 24px;
+  height: 24px;
 }
+
 .piano-icon {
   width: 20px;
   height: 20px;
   transition: transform 0.3s ease;
+  fill: white;
 }
+
 .piano-icon.playing {
   animation: playPulse 2s infinite ease-in-out;
+  fill: #c9a96b;
 }
+
 @keyframes playPulse {
   0% { transform: scale(1); fill: #c9a96b; }
   50% { transform: scale(1.1); fill: #e3c48f; }
   100% { transform: scale(1); fill: #c9a96b; }
 }
+
 #piano-slash {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
   stroke: #c9a96b;
   stroke-width: 2;
+  display: none;
 }
 
-/* Hamburger menu */
+/* Hamburger */
 .hamburger {
   font-size: 22px;
   background: none;
@@ -80,11 +100,12 @@ body.home {
   margin-right: 0;
   transition: color 0.3s ease;
 }
+
 .hamburger.active {
   color: #c9a96b;
 }
 
-/* Nav links */
+/* Nav Links */
 .nav-links {
   display: none;
   flex-direction: column;
@@ -96,6 +117,7 @@ body.home {
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
 }
+
 .nav-links a {
   color: #f5f5f5;
   text-decoration: none;
@@ -104,14 +126,16 @@ body.home {
   font-size: 15px;
   transition: color 0.3s ease;
 }
+
 .nav-links a:hover {
   color: #c9a96b;
 }
+
 .nav-links.open {
   display: flex;
 }
 
-/* Titles */
+/* Section Titles */
 .section-title {
   text-align: center;
   font-family: 'Playfair Display', serif;
@@ -124,7 +148,7 @@ body.home {
   transform: translateY(20px);
 }
 
-/* Page content */
+/* Page Content */
 .page-content {
   max-width: 800px;
   margin: 0 auto 60px auto;
@@ -147,6 +171,7 @@ body.home {
   text-decoration: none;
   transition: all 0.3s ease;
 }
+
 .elegant-button:hover {
   background-color: #c9a96b;
   color: #1a1a1a;
@@ -160,7 +185,7 @@ body.home {
   }
 }
 
-/* Responsive nav */
+/* Responsive Navbar */
 @media (min-width: 768px) {
   .nav-links {
     display: flex;
@@ -170,25 +195,28 @@ body.home {
     box-shadow: none;
     padding: 0;
   }
+
   .nav-links a {
     margin: 0 12px;
   }
+
   .hamburger {
     display: none;
   }
 }
 
-/* Icon hover effect */
+/* Icon Hover Effect */
 .icon-hover svg {
   transition: transform 0.3s ease, opacity 0.3s ease;
   opacity: 0.8;
 }
+
 .icon-hover svg:hover {
   transform: scale(1.1);
   opacity: 1;
 }
 
-/* Spacing helper */
+/* Utility Spacing */
 .section-spaced {
   margin-top: 40px;
   margin-bottom: 30px;
