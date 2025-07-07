@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
   music.loop = true;
   music.volume = 1.0;
 
+  // Auto-resume based on session
   if (isMusicPlaying) {
     music.play();
     pianoIcon.classList.add('playing');
