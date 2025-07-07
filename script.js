@@ -3,28 +3,28 @@ document.addEventListener('DOMContentLoaded', function () {
   const navLinks = document.getElementById('nav-links');
   const speakerOn = document.getElementById('speaker-on');
   const speakerOff = document.getElementById('speaker-off');
+
+  // Music setup
   let isMusicPlaying = sessionStorage.getItem('musicPlaying') === 'true';
-
-  // Elegant piano music from Pixabay (no credit needed)
-  let music = new Audio("https://cdn.pixabay.com/download/audio/2022/03/15/audio_9956c18c9a.mp3?filename=emotional-soft-piano-10957.mp3");
+  let music = new Audio("https://cdn.pixabay.com/download/audio/2023/05/23/audio_9991e44547.mp3?filename=elegant-logo-intro-145076.mp3");
   music.loop = true;
-  music.volume = 1.0;
+  music.volume = 0.6;
 
-  // Toggle hamburger menu
+  // Toggle mobile menu
   hamburger.addEventListener('click', () => {
     navLinks.classList.toggle('open');
+    hamburger.classList.toggle('active'); // This adds the gold color
   });
 
-  // Auto-play if music was playing previously
+  // Auto-play music if user already turned it on
   if (isMusicPlaying) {
     music.play();
     speakerOn.style.display = "none";
     speakerOff.style.display = "inline-block";
   }
 
-  // Toggle music and icon
+  // Toggle music playback
   function toggleMusic() {
-    sessionStorage.setItem('musicPlaying', !isMusicPlaying);
     if (isMusicPlaying) {
       music.pause();
       speakerOn.style.display = "inline-block";
@@ -35,6 +35,7 @@ document.addEventListener('DOMContentLoaded', function () {
       speakerOff.style.display = "inline-block";
     }
     isMusicPlaying = !isMusicPlaying;
+    sessionStorage.setItem('musicPlaying', isMusicPlaying);
   }
 
   speakerOn.addEventListener('click', toggleMusic);
