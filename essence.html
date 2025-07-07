@@ -1,1 +1,76 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Heart of Agape</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Lora&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .fade-slide {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeSlide 1.5s ease-out forwards;
+    }
+
+    @keyframes fadeSlide {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <div class="navbar">
+    <!-- Music Toggle -->
+    <div class="nav-left music-toggle">
+      <svg id="speaker-on" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#333" width="24px" height="24px">
+        <path d="M5 9v6h4l5 5V4L9 9H5z"/>
+      </svg>
+
+      <svg id="speaker-off" style="display:none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#333" width="24px" height="24px">
+        <path d="M16.5 12c0-1.77-.77-3.37-2-4.47v8.94c1.23-1.1 2-2.7 2-4.47zM5 9v6h4l5 5V4L9 9H5z"/>
+        <line x1="3" y1="3" x2="21" y2="21" stroke="red" stroke-width="2"/>
+      </svg>
+    </div>
+
+    <!-- Hamburger + Links -->
+    <div class="nav-right">
+      <button class="hamburger" id="hamburger">☰</button>
+      <div class="nav-links" id="nav-links">
+        <a href="index.html">Home</a>
+        <a href="essence.html">Essence</a>
+        <a href="collection.html">Collection</a>
+        <a href="rewards.html">Rewards</a>
+        <a href="testimonials.html">Testimonials</a>
+        <a href="contact.html">Contact Us</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Content -->
+  <section class="page-section fade-slide">
+    <h1 style="font-family:'Playfair Display', serif; font-size:2.2rem; color:#333;">The Heart of Agape</h1>
+    <p style="max-width:700px; margin:auto; font-size:1.1rem; line-height:1.7; color:#444; padding-top:1rem;">
+      Agape Aeterna was born from a deep love for fragrance — not just any scent, but the kind that lingers, speaks softly, and leaves a lasting impression.
+    </p>
+    <p style="max-width:700px; margin:auto; font-size:1.1rem; line-height:1.7; color:#444; padding-top:1rem;">
+      For me, perfume is more than just something you wear. It’s a quiet reflection of who you are — a memory, a mood, a presence that stays even after you’ve left the room.
+    </p>
+    <p style="max-width:700px; margin:auto; font-size:1.1rem; line-height:1.7; color:#444; padding-top:1rem;">
+      The name <strong>Agape Aeterna</strong> means eternal, unconditional love. It reflects who I am and what I hope to share through this brand. I want every scent to make people feel special, confident, and remembered — even without saying a word.
+    </p>
+  </section>
+
+  <!-- JS -->
+  <script src="script.js"></script>
+</body>
+</html>
