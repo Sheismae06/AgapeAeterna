@@ -1,43 +1,50 @@
 document.addEventListener('DOMContentLoaded', function () {
   const hamburger = document.getElementById('hamburger');
   const navLinks = document.getElementById('nav-links');
-  const speakerOn = document.getElementById('speaker-on');
-  const speakerOff = document.getElementById('speaker-off');
+  const pianoIcon = document.getElementById('piano-icon');
+  const pianoSlash = document.getElementById('piano-slash');
 
-  // Music setup
-  let isMusicPlaying = sessionStorage.getItem('musicPlaying') === 'true';
+  // Set up the audio
   let music = new Audio("https://www.bensound.com/bensound-music/bensound-tenderness.mp3");
   music.loop = true;
-  music.volume = 0.6;
+  music.volume = 1.0;
 
-  // Toggle mobile menu
-  hamburger.addEventListener('click', () => {
-    navLinks.classList.toggle('open');
-    hamburger.classList.toggle('active'); // Adds gold color to hamburger when active
-  });
+  // Check session storage
+  let isMusicPlaying = sessionStorage.getItem('musicPlaying') === 'true';
 
-  // Auto-play if session remembers music is playing
+  // Apply the saved state
   if (isMusicPlaying) {
     music.play();
-    speakerOn.style.display = "none";
-    speakerOff.style.display = "inline-block";
+    pianoIcon.classList.add('playing');
+    pianoIcon.classList.remove('muted');
+    pianoSlash.style.display = 'none';
+  } else {
+    pianoIcon.classList.remove('playing');
+    pianoIcon.classList.add('muted');
+    pianoSlash.style.display = 'block';
   }
 
-  // Toggle music playback
-  function toggleMusic() {
-    if (isMusicPlaying) {
-      music.pause();
-      speakerOn.style.display = "inline-block";
-      speakerOff.style.display = "none";
-    } else {
-      music.play();
-      speakerOn.style.display = "none";
-      speakerOff.style.display = "inline-block";
-    }
+  // Music toggle
+  pianoIcon.addEventListener('click', () => {
     isMusicPlaying = !isMusicPlaying;
     sessionStorage.setItem('musicPlaying', isMusicPlaying);
-  }
 
-  speakerOn.addEventListener('click', toggleMusic);
-  speakerOff.addEventListener('click', toggleMusic);
+    if (isMusicPlaying) {
+      music.play();
+      pianoIcon.classList.add('playing');
+      pianoIcon.classList.remove('muted');
+      pianoSlash.style.display = 'none';
+    } else {
+      music.pause();
+      pianoIcon.classList.remove('playing');
+      pianoIcon.classList.add('muted');
+      pianoSlash.style.display = 'block';
+    }
+  });
+
+  // Hamburger menu toggle
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+    hamburger.classList.toggle('active');
+  });
 });
