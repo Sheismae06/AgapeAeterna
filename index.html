@@ -4,26 +4,20 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Agape Aeterna</title>
-
-  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Lora&display=swap" rel="stylesheet">
-  
-  <!-- Main CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Navbar -->
   <div class="navbar">
     <div class="nav-left music-toggle">
-      <!-- 🎹 Piano Icon with slash (for mute) -->
+      <!-- 🎹 Smaller Piano Icon with slash -->
       <svg id="piano-icon" class="piano-icon" xmlns="http://www.w3.org/2000/svg"
-           width="24" height="24" viewBox="0 0 24 24" fill="white">
+           width="20" height="20" viewBox="0 0 24 24" fill="white">
         <path d="M5 3C3.9 3 3 3.9 3 5v14a2 2 0 002 2h14a2 2 0 002-2V5c0-1.1-.9-2-2-2H5zm0 2h14v14H5V5zm2 2v10h2V7H7zm4 0v10h2V7h-2zm4 0v10h2V7h-2z"/>
-        <!-- Slash (only shown when muted) -->
+        <!-- Slash line -->
         <line id="piano-slash" x1="4" y1="4" x2="20" y2="20" stroke="gold" stroke-width="2" style="display: none;" />
       </svg>
     </div>
-
     <div class="nav-right">
       <button class="hamburger" id="hamburger">☰</button>
       <div class="nav-links" id="nav-links">
@@ -37,10 +31,8 @@
     </div>
   </div>
 
-  <!-- Hero Section with Background -->
-  <section class="hero" style="height:100vh; background: url('https://raw.githubusercontent.com/Sheismae06/AgapeAeterna/main/file_00000000d35461f79683e3cc6f46380f.webp') center/120% no-repeat;"></section>
+  <section class="hero" style="height:100vh; background: url('https://raw.githubusercontent.com/Sheismae06/AgapeAeterna/main/file_00000000d35461f79683e3cc6f46380f.webp') center/cover no-repeat;"></section>
 
-  <!-- JavaScript -->
   <script src="script.js"></script>
 </body>
 </html>
