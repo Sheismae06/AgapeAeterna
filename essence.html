@@ -6,21 +6,57 @@
   <title>The Heart of Agape</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Lora&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background-color: #f8f1e7; /* Champagne background */
+      color: #333;
+      font-family: 'Lora', serif;
+    }
+
+    .page-content {
+      max-width: 800px;
+      margin: 140px auto 60px auto;
+      padding: 0 20px;
+      font-size: 1.1rem;
+      line-height: 1.8;
+      animation: fadeSlide 1.5s ease-out forwards;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .section-title {
+      text-align: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 2.4rem;
+      color: #d4af37; /* Gold title */
+      margin-bottom: 25px;
+    }
+
+    @keyframes fadeSlide {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
 </head>
 <body>
+  <!-- Navbar -->
   <div class="navbar">
     <div class="nav-left music-toggle">
+      <!-- 🎹 Piano Icon -->
       <svg id="piano-icon" class="piano-icon" xmlns="http://www.w3.org/2000/svg"
            width="24" height="24" viewBox="0 0 24 24" fill="white">
         <path d="M5 3C3.9 3 3 3.9 3 5v14a2 2 0 002 2h14a2 2 0 002-2V5c0-1.1-.9-2-2-2H5zm0 2h14v14H5V5zm2 2v10h2V7H7zm4 0v10h2V7h-2zm4 0v10h2V7h-2z"/>
         <line id="piano-slash" x1="4" y1="4" x2="20" y2="20" stroke="gold" stroke-width="2" style="display: none;" />
       </svg>
     </div>
+
     <div class="nav-right">
       <button class="hamburger" id="hamburger">☰</button>
       <div class="nav-links" id="nav-links">
         <a href="index.html">Home</a>
-        <a href="essence.html" class="active">Essence</a>
+        <a href="essence.html">Essence</a>
         <a href="collection.html">Collection</a>
         <a href="rewards.html">Rewards</a>
         <a href="testimonials.html">Testimonials</a>
@@ -29,22 +65,19 @@
     </div>
   </div>
 
-  <section class="content fade-slide">
+  <!-- Essence Content -->
+  <section class="page-content">
     <h1 class="section-title">The Heart of Agape</h1>
-    <p class="section-body">
+    <p>
       Agape Aeterna was born from a deep love for fragrance — not just any scent, but the kind that lingers, speaks softly, and leaves a lasting impression.
-      <br><br>
+    </p>
+    <p>
       For me, perfume is more than just something you wear. It’s a quiet reflection of who you are — a memory, a mood, a presence that stays even after you’ve left the room.
-      <br><br>
-      The name <strong>Agape Aeterna</strong> means eternal, unconditional love. It reflects who I am and what I hope to share through this brand. I want every scent to make people feel special, confident, and remembered — even without saying a word.
+    </p>
+    <p>
+      The name Agape Aeterna means eternal, unconditional love. It reflects who I am and what I hope to share through this brand. I want every scent to make people feel special, confident, and remembered — even without saying a word.
     </p>
   </section>
-
-  <div class="essence-buttons fade-slide">
-    <a href="faqs.html" class="essence-btn">FAQs</a>
-    <a href="discover.html" class="essence-btn">Discover Perfume</a>
-    <a href="find.html" class="essence-btn">Find Your Scent</a>
-  </div>
 
   <script src="script.js"></script>
 </body>
