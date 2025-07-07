@@ -9,7 +9,6 @@ document.addEventListener('DOMContentLoaded', function () {
   music.loop = true;
   music.volume = 1.0;
 
-  // Set initial music state
   if (isMusicPlaying) {
     music.play();
     pianoIcon.classList.add('playing');
@@ -18,7 +17,6 @@ document.addEventListener('DOMContentLoaded', function () {
     pianoSlash.style.display = "block";
   }
 
-  // Toggle music on icon click
   pianoIcon.addEventListener('click', function () {
     if (isMusicPlaying) {
       music.pause();
@@ -33,13 +31,12 @@ document.addEventListener('DOMContentLoaded', function () {
     sessionStorage.setItem('musicPlaying', isMusicPlaying);
   });
 
-  // Hamburger toggle
   hamburger.addEventListener('click', function () {
     hamburger.classList.toggle('active');
     navLinks.classList.toggle('open');
   });
 
-  // Highlight active nav link
+  // Highlight active link
   const currentPage = window.location.pathname.split('/').pop();
   const navItems = document.querySelectorAll('.nav-links a');
   navItems.forEach(link => {
