@@ -95,7 +95,8 @@ body {
   transition: color 0.3s ease;
 }
 
-.nav-links a:hover {
+.nav-links a:hover,
+.nav-links a.active {
   color: gold;
 }
 
@@ -103,7 +104,7 @@ body {
   display: flex;
 }
 
-/* Hero Section with Tagline */
+/* Hero Section */
 .hero {
   margin-top: 60px;
   min-height: calc(100vh - 60px);
@@ -116,7 +117,6 @@ body {
   padding-bottom: 30px;
 }
 
-/* Tagline Styling */
 .tagline {
   font-family: 'Playfair Display', serif;
   color: #f5f5f5;
