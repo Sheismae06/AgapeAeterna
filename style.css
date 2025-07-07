@@ -1,116 +1,156 @@
-/* Base styles */
+/* Global Styles */
 body {
   margin: 0;
   padding: 0;
   font-family: 'Lora', serif;
-  background-color: #fff;
+  background-color: #f8f1e7; /* Soft champagne background */
   color: #333;
 }
 
-/* Navbar styling */
+/* Navbar */
 .navbar {
   position: fixed;
   top: 0;
   width: 100%;
-  background-color: #0c1a33; /* Midnight Blue */
+  height: 60px;
+  background-color: #0d1a2d; /* Midnight Blue */
+  color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 25px;
-  z-index: 999;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  padding: 0 25px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  z-index: 1000;
 }
 
-/* Music Icon */
-.piano-icon {
+.nav-left,
+.nav-right {
+  display: flex;
+  align-items: center;
+}
+
+.music-toggle svg {
   cursor: pointer;
-  transition: transform 0.3s ease, fill 0.3s ease;
+  width: 24px;
+  height: 24px;
+  transition: transform 0.3s ease;
 }
 
-.piano-icon.playing {
-  fill: gold;
-  animation: pianoPulse 2s infinite ease-in-out;
+.music-toggle svg.playing {
+  animation: pianoPulse 1.5s ease-in-out infinite;
 }
 
-.piano-icon.muted {
-  fill: white;
-}
-
-#piano-slash {
-  transition: opacity 0.3s ease;
-}
-
-/* Pulse animation for when music is playing */
 @keyframes pianoPulse {
-  0%, 100% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.1); opacity: 0.9; }
+  0% { transform: scale(1); fill: gold; }
+  50% { transform: scale(1.05); fill: #e6c065; }
+  100% { transform: scale(1); fill: gold; }
+}
+
+/* Piano slash line */
+#piano-slash {
+  pointer-events: none;
 }
 
 /* Hamburger Menu */
 .hamburger {
-  font-size: 26px;
+  font-size: 1.6rem;
   background: none;
   border: none;
   color: white;
   cursor: pointer;
+  margin-left: 15px;
   transition: color 0.3s ease;
 }
 
-.hamburger.active {
+.hamburger:active,
+.hamburger:focus {
+  outline: none;
   color: gold;
 }
 
-/* Navigation links */
+/* Nav Links */
 .nav-links {
   display: none;
   flex-direction: column;
   position: absolute;
   top: 60px;
   right: 25px;
-  background-color: #0c1a33;
-  border: 1px solid gold;
-  padding: 15px;
-  border-radius: 10px;
+  background-color: #0d1a2d;
+  border-radius: 0 0 8px 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  padding: 12px 20px;
+  font-size: 1rem;
+  transition: background 0.3s ease, color 0.3s ease;
+  font-family: 'Lora', serif;
+}
+
+.nav-links a:hover {
+  background-color: #1b2b42;
+  color: gold;
+}
+
+/* Nav Open State */
 .nav-links.open {
   display: flex;
 }
 
-.nav-links a {
-  text-decoration: none;
-  color: white;
-  padding: 8px 0;
-  font-family: 'Playfair Display', serif;
-  transition: color 0.3s ease;
-}
-
-.nav-links a:hover {
-  color: gold;
-}
-
-/* Hero image section */
+/* Hero Section */
 .hero {
   margin-top: 60px;
   height: 100vh;
-  background-size: cover;
   background-position: center;
-  position: relative;
+  background-repeat: no-repeat;
+  background-size: 120%;
+  background-attachment: fixed;
 }
 
-/* Responsive adjustments */
+/* Page Content (like Essence page) */
+.page-content {
+  max-width: 800px;
+  margin: 140px auto 60px auto;
+  padding: 0 20px;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  animation: fadeSlide 1.5s ease-out forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+/* Section Title (like The Heart of Agape) */
+.section-title {
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 2.4rem;
+  color: #d4af37; /* Elegant gold */
+  margin-bottom: 25px;
+}
+
+/* Fade In Slide Up Animation */
+@keyframes fadeSlide {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Tweaks */
 @media (min-width: 768px) {
   .nav-links {
-    display: flex !important;
-    flex-direction: row;
     position: static;
+    flex-direction: row;
     background: none;
-    border: none;
-    padding: 0;
+    box-shadow: none;
+    display: flex !important;
   }
 
   .nav-links a {
-    margin-left: 25px;
+    padding: 10px 15px;
+    font-size: 1rem;
   }
 
   .hamburger {
