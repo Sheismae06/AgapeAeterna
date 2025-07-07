@@ -3,7 +3,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Lora', serif;
-  background-color: #f8f1e7; /* Soft champagne background */
+  background-color: #f8f1e7;
   color: #333;
 }
 
@@ -13,12 +13,12 @@ body {
   top: 0;
   width: 100%;
   height: 60px;
-  background-color: #0d1a2d; /* Midnight Blue */
+  background-color: #1a1a1a; /* Reverted to dark charcoal */
   color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 25px;
+  padding: 0 20px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   z-index: 1000;
 }
@@ -46,7 +46,6 @@ body {
   100% { transform: scale(1); fill: gold; }
 }
 
-/* Piano slash line */
 #piano-slash {
   pointer-events: none;
 }
@@ -58,7 +57,7 @@ body {
   border: none;
   color: white;
   cursor: pointer;
-  margin-left: 15px;
+  margin-left: 20px; /* Slightly more inward */
   transition: color 0.3s ease;
 }
 
@@ -74,8 +73,8 @@ body {
   flex-direction: column;
   position: absolute;
   top: 60px;
-  right: 25px;
-  background-color: #0d1a2d;
+  right: 20px;
+  background-color: #1a1a1a;
   border-radius: 0 0 8px 8px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
@@ -90,11 +89,10 @@ body {
 }
 
 .nav-links a:hover {
-  background-color: #1b2b42;
+  background-color: #333;
   color: gold;
 }
 
-/* Nav Open State */
 .nav-links.open {
   display: flex;
 }
@@ -105,11 +103,11 @@ body {
   height: 100vh;
   background-position: center;
   background-repeat: no-repeat;
-  background-size: 120%;
+  background-size: cover;
   background-attachment: fixed;
 }
 
-/* Page Content (like Essence page) */
+/* Page Content (Essence, etc.) */
 .page-content {
   max-width: 800px;
   margin: 140px auto 60px auto;
@@ -121,16 +119,16 @@ body {
   transform: translateY(20px);
 }
 
-/* Section Title (like The Heart of Agape) */
+/* Section Titles */
 .section-title {
   text-align: center;
   font-family: 'Playfair Display', serif;
   font-size: 2.4rem;
-  color: #d4af37; /* Elegant gold */
+  color: #d4af37;
   margin-bottom: 25px;
 }
 
-/* Fade In Slide Up Animation */
+/* Animation */
 @keyframes fadeSlide {
   to {
     opacity: 1;
@@ -138,7 +136,7 @@ body {
   }
 }
 
-/* Responsive Tweaks */
+/* Responsive */
 @media (min-width: 768px) {
   .nav-links {
     position: static;
