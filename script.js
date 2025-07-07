@@ -4,8 +4,8 @@ document.addEventListener('DOMContentLoaded', function () {
   const pianoIcon = document.getElementById('piano-icon');
   const pianoSlash = document.getElementById('piano-slash');
   let isMusicPlaying = sessionStorage.getItem('musicPlaying') === 'true';
-
   const music = new Audio("https://www.bensound.com/bensound-music/bensound-tenderness.mp3");
+
   music.loop = true;
   music.volume = 1.0;
 
@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
     pianoSlash.style.display = "block";
   }
 
-  pianoIcon.addEventListener('click', function () {
+  function toggleMusic() {
     if (isMusicPlaying) {
       music.pause();
       pianoSlash.style.display = "block";
@@ -29,17 +29,12 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     isMusicPlaying = !isMusicPlaying;
     sessionStorage.setItem('musicPlaying', isMusicPlaying);
-  });
+  }
+
+  pianoIcon.addEventListener('click', toggleMusic);
 
   hamburger.addEventListener('click', function () {
     hamburger.classList.toggle('active');
     navLinks.classList.toggle('open');
-  });
-
-  const currentPage = window.location.pathname.split('/').pop();
-  document.querySelectorAll('.nav-links a').forEach(link => {
-    if (link.getAttribute('href') === currentPage) {
-      link.classList.add('active');
-    }
   });
 });
