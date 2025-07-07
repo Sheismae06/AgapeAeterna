@@ -1,12 +1,13 @@
-/* General styles */
+/* General Body Styling */
 body {
   margin: 0;
   font-family: 'Lora', serif;
   background-color: #fefefe;
   color: #333;
+  scroll-behavior: smooth;
 }
 
-/* Navbar */
+/* Sticky Navbar */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -19,7 +20,7 @@ body {
   z-index: 1000;
 }
 
-/* Music icons */
+/* Music Icon Styling */
 .music-toggle svg {
   width: 24px;
   height: 24px;
@@ -27,7 +28,7 @@ body {
   fill: #333;
 }
 
-/* Hamburger menu */
+/* Hamburger Menu Button */
 .hamburger {
   font-size: 2rem;
   background: none;
@@ -36,7 +37,7 @@ body {
   display: block;
 }
 
-/* Nav links */
+/* Nav Links (Hidden by default on mobile) */
 .nav-links {
   display: none;
   flex-direction: column;
@@ -48,8 +49,19 @@ body {
   padding: 1rem;
   border: 1px solid #ccc;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  opacity: 0;
+  transform: translateY(-10px);
 }
 
+/* Show menu when open */
+.nav-links.open {
+  display: flex;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Menu Links Styling */
 .nav-links a {
   text-decoration: none;
   color: #333;
@@ -57,20 +69,37 @@ body {
   font-size: 1rem;
 }
 
-/* Show menu when open */
-.nav-links.open {
-  display: flex;
+.nav-links a:hover {
+  color: #555;
+  border-bottom: 2px solid #555;
 }
 
-/* Hero section */
+/* Hero Section with Fixed Background */
 .hero {
-  width: 100%;
   height: 100vh;
-  background-size: cover;
-  background-position: center;
+  background: url('https://raw.githubusercontent.com/Sheismae06/AgapeAeterna/main/file_00000000d35461f79683e3cc6f46380f.webp') center/cover no-repeat;
+  background-attachment: fixed;
+  transform: none;
+  transition: none;
+  animation: fadeIn 1.5s ease-in-out forwards;
 }
 
-/* Desktop view */
+/* Fade In Animation */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Section Content Placeholder Styling */
+.page-section {
+  padding: 4rem 2rem;
+  max-width: 900px;
+  margin: auto;
+  font-family: 'Lora', serif;
+  text-align: center;
+}
+
+/* Responsive Styles for Desktop */
 @media screen and (min-width: 768px) {
   .hamburger {
     display: none;
@@ -85,5 +114,7 @@ body {
     box-shadow: none;
     background: none;
     padding: 0;
+    opacity: 1;
+    transform: none;
   }
 }
