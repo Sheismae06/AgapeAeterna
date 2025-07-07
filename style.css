@@ -1,133 +1,137 @@
-/* Reset and Base Styles */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
+/* General Fonts and Setup */
 body {
+  margin: 0;
   font-family: 'Lora', serif;
-  background-color: #1a1a1a;
-  color: #f5f5f5;
+  background-color: #fefefe;
+  color: #1a1a1a;
 }
 
 /* Navbar */
 .navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 60px;
-  background-color: #1a1a1a;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 25px;
-  z-index: 1000;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  background-color: #1a1a1a;
+  padding: 0.7rem 1.5rem;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
 }
 
-.navbar .nav-left,
-.navbar .nav-right {
+.nav-left, .nav-right {
   display: flex;
   align-items: center;
 }
 
-.music-toggle {
-  cursor: pointer;
-}
-
-.piano-icon {
-  width: 20px;
-  height: 20px;
-  transition: transform 0.3s ease;
-}
-
-.piano-icon.playing {
-  animation: playPulse 2s infinite ease-in-out;
-}
-
-@keyframes playPulse {
-  0% { transform: scale(1); fill: gold; }
-  50% { transform: scale(1.1); fill: #ffd700; }
-  100% { transform: scale(1); fill: gold; }
-}
-
-#piano-slash {
-  stroke: gold;
-  stroke-width: 2;
-}
-
-/* Hamburger Menu */
 .hamburger {
   font-size: 22px;
   background: none;
   border: none;
   color: white;
   cursor: pointer;
-  padding: 8px;
-  margin-left: 10px;
-  transition: color 0.3s ease;
-}
-
-.hamburger.active {
-  color: gold;
 }
 
 .nav-links {
-  display: none;
-  flex-direction: column;
-  position: absolute;
-  top: 60px;
-  right: 25px;
-  background-color: #1a1a1a;
-  padding: 15px 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+  display: flex;
+  gap: 1rem;
+  margin-left: 1.5rem;
 }
 
 .nav-links a {
-  color: #f5f5f5;
+  color: white;
   text-decoration: none;
-  margin: 8px 0;
-  font-family: 'Playfair Display', serif;
-  font-size: 16px;
+  font-weight: 500;
   transition: color 0.3s ease;
 }
 
-.nav-links a:hover {
+.nav-links a.active {
   color: gold;
+  font-weight: 600;
 }
 
 .nav-links.open {
   display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 60px;
+  right: 20px;
+  background-color: #1a1a1a;
+  padding: 1rem;
+  border-radius: 8px;
 }
 
-/* Hero Section with Tagline */
+/* Piano Icon */
+.piano-icon {
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.piano-icon.playing {
+  animation: pianoPlay 1.2s infinite ease-in-out;
+  fill: gold;
+}
+
+@keyframes pianoPlay {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+}
+
+/* Hero Image */
 .hero {
   margin-top: 60px;
-  min-height: calc(100vh - 60px);
-  background: url('https://raw.githubusercontent.com/Sheismae06/AgapeAeterna/main/file_00000000d35461f79683e3cc6f46380f.webp') center/110% no-repeat;
-  background-attachment: fixed;
-  background-color: #1a1a1a;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  padding-bottom: 30px;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
 }
 
-/* Tagline Styling */
-.tagline {
+/* Content Section */
+.content {
+  max-width: 800px;
+  margin: 120px auto 60px;
+  padding: 0 20px;
+  font-family: 'Lora', serif;
+}
+
+.section-title {
   font-family: 'Playfair Display', serif;
-  color: #f5f5f5;
-  font-size: 22px;
-  background-color: rgba(26, 26, 26, 0.6);
-  padding: 10px 20px;
-  border-radius: 8px;
+  font-size: 2.5rem;
   text-align: center;
+  color: #1a1a1a;
 }
 
-/* Animations */
+.section-body {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-top: 1.5rem;
+}
+
+/* Buttons */
+.essence-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 60px 0;
+}
+
+.essence-btn {
+  padding: 12px 20px;
+  background-color: #1a1a1a;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.essence-btn:hover {
+  background-color: gold;
+  color: #1a1a1a;
+  transform: translateY(-3px);
+}
+
+/* Animation */
 .fade-slide {
   opacity: 0;
   transform: translateY(20px);
@@ -142,21 +146,17 @@ body {
 }
 
 /* Responsive */
-@media (min-width: 768px) {
+@media (max-width: 768px) {
   .nav-links {
-    display: flex;
-    position: static;
-    flex-direction: row;
-    background: none;
-    box-shadow: none;
-    padding: 0;
-  }
-
-  .nav-links a {
-    margin: 0 15px;
-  }
-
-  .hamburger {
     display: none;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .essence-buttons {
+    flex-direction: column;
+    align-items: center;
   }
 }
