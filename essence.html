@@ -3,82 +3,49 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>The Heart of Agape</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Lora&display=swap" rel="stylesheet">
+  <title>Essence | Agape Aeterna</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lora&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <style>
-    body {
-      background-color: #f8f1e7; /* Champagne background */
-      color: #333;
-      font-family: 'Lora', serif;
-    }
-
-    .page-content {
-      max-width: 800px;
-      margin: 140px auto 60px auto;
-      padding: 0 20px;
-      font-size: 1.1rem;
-      line-height: 1.8;
-      animation: fadeSlide 1.5s ease-out forwards;
-      opacity: 0;
-      transform: translateY(20px);
-    }
-
-    .section-title {
-      text-align: center;
-      font-family: 'Playfair Display', serif;
-      font-size: 2.4rem;
-      color: #d4af37; /* Gold title */
-      margin-bottom: 25px;
-    }
-
-    @keyframes fadeSlide {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-  </style>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
   <!-- Navbar -->
-  <div class="navbar">
-    <div class="nav-left music-toggle">
-      <!-- 🎹 Piano Icon -->
-      <svg id="piano-icon" class="piano-icon" xmlns="http://www.w3.org/2000/svg"
-           width="24" height="24" viewBox="0 0 24 24" fill="white">
-        <path d="M5 3C3.9 3 3 3.9 3 5v14a2 2 0 002 2h14a2 2 0 002-2V5c0-1.1-.9-2-2-2H5zm0 2h14v14H5V5zm2 2v10h2V7H7zm4 0v10h2V7h-2zm4 0v10h2V7h-2z"/>
-        <line id="piano-slash" x1="4" y1="4" x2="20" y2="20" stroke="gold" stroke-width="2" style="display: none;" />
-      </svg>
+  <nav class="navbar">
+    <div class="nav-left">
+      <div class="music-toggle" onclick="toggleMusic()">
+        <svg id="piano-icon" class="piano-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white">
+          <path d="M5 3v18h14V3H5zm2 2h2v6h1V5h2v6h1V5h2v6h1V5h2v14H7V5z"/>
+        </svg>
+        <svg id="piano-slash" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="white" style="display: none; position: absolute; width: 20px; height: 20px;">
+          <line x1="1" y1="1" x2="23" y2="23" />
+        </svg>
+      </div>
     </div>
-
     <div class="nav-right">
-      <button class="hamburger" id="hamburger">☰</button>
-      <div class="nav-links" id="nav-links">
+      <button class="hamburger" onclick="toggleMenu()">☰</button>
+      <div class="nav-links">
         <a href="index.html">Home</a>
         <a href="essence.html">Essence</a>
         <a href="collection.html">Collection</a>
         <a href="rewards.html">Rewards</a>
         <a href="testimonials.html">Testimonials</a>
-        <a href="contact.html">Contact Us</a>
+        <a href="contact.html">Contact</a>
       </div>
     </div>
-  </div>
+  </nav>
 
-  <!-- Essence Content -->
+  <!-- Page Title -->
+  <h1 class="section-title">The Essence of Agape Aeterna</h1>
+
+  <!-- Page Content -->
   <section class="page-content">
-    <h1 class="section-title">The Heart of Agape</h1>
-    <p>
-      Agape Aeterna was born from a deep love for fragrance — not just any scent, but the kind that lingers, speaks softly, and leaves a lasting impression.
-    </p>
-    <p>
-      For me, perfume is more than just something you wear. It’s a quiet reflection of who you are — a memory, a mood, a presence that stays even after you’ve left the room.
-    </p>
-    <p>
-      The name Agape Aeterna means eternal, unconditional love. It reflects who I am and what I hope to share through this brand. I want every scent to make people feel special, confident, and remembered — even without saying a word.
-    </p>
+    <p>Agape Aeterna isn't just a fragrance—it's a timeless feeling. Our scents are carefully crafted to linger gracefully, capturing the essence of unforgettable memories and moments that matter.</p>
+    <p>We blend classic elegance with modern minimalism, creating perfumes that complement every chapter of your journey. Discover the soul of each bottle and let it whisper your story.</p>
   </section>
 
+  <audio id="bg-music" loop>
+    <source src="https://files.freemusicarchive.org/storage-freemusicarchive-org/music/ccCommunity/Komiku/Its_time_for_adventure/Komiku_-_04_-_The_Beginning.mp3" type="audio/mpeg">
+  </audio>
   <script src="script.js"></script>
 </body>
 </html>
