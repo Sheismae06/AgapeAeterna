@@ -85,28 +85,7 @@ body {
   background-position: center;
 }
 
-/* Content Section */
-.content {
-  max-width: 800px;
-  margin: 120px auto 60px;
-  padding: 0 20px;
-  font-family: 'Lora', serif;
-}
-
-.section-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 2.5rem;
-  text-align: center;
-  color: #1a1a1a;
-}
-
-.section-body {
-  font-size: 1.1rem;
-  line-height: 1.7;
-  margin-top: 1.5rem;
-}
-
-/* Buttons */
+/* Button Styles */
 .essence-buttons {
   display: flex;
   justify-content: center;
