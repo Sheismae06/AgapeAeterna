@@ -8,10 +8,12 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- Navbar -->
   <div class="navbar">
     <div class="nav-left music-toggle">
+      <!-- Piano Icon with gold slash on mute -->
       <svg id="piano-icon" class="piano-icon" xmlns="http://www.w3.org/2000/svg"
-           width="24" height="24" viewBox="0 0 24 24" fill="white">
+           width="20" height="20" viewBox="0 0 24 24" fill="white">
         <path d="M5 3C3.9 3 3 3.9 3 5v14a2 2 0 002 2h14a2 2 0 002-2V5c0-1.1-.9-2-2-2H5zm0 2h14v14H5V5zm2 2v10h2V7H7zm4 0v10h2V7h-2zm4 0v10h2V7h-2z"/>
         <line id="piano-slash" x1="4" y1="4" x2="20" y2="20" stroke="gold" stroke-width="2" style="display: none;" />
       </svg>
@@ -19,7 +21,7 @@
     <div class="nav-right">
       <button class="hamburger" id="hamburger">☰</button>
       <div class="nav-links" id="nav-links">
-        <a href="index.html" class="active">Home</a>
+        <a href="index.html">Home</a>
         <a href="essence.html">Essence</a>
         <a href="collection.html">Collection</a>
         <a href="rewards.html">Rewards</a>
@@ -29,8 +31,14 @@
     </div>
   </div>
 
-  <section class="hero"></section>
+  <!-- Hero Section with Welcome Message -->
+  <section class="hero">
+    <div class="tagline fade-slide">
+      Welcome to <strong>Agape Aeterna</strong>
+    </div>
+  </section>
 
+  <!-- JavaScript -->
   <script src="script.js"></script>
 </body>
 </html>
