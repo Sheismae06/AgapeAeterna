@@ -1,81 +1,162 @@
-body {
+/* Reset and Base Styles */
+* {
   margin: 0;
-  font-family: 'Lora', serif;
-  background-color: #fefefe;
-  color: #1a1a1a;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+body {
+  font-family: 'Lora', serif;
+  background-color: #1a1a1a;
+  color: #f5f5f5;
+}
+
+/* Navbar */
 .navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background-color: #1a1a1a;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #1a1a1a;
-  padding: 0.7rem 1.5rem;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 999;
+  padding: 0 25px;
+  z-index: 1000;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
 
-.nav-left, .nav-right {
+.navbar .nav-left,
+.navbar .nav-right {
   display: flex;
   align-items: center;
 }
 
+.music-toggle {
+  cursor: pointer;
+}
+
+.piano-icon {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.3s ease;
+}
+
+.piano-icon.playing {
+  animation: playPulse 2s infinite ease-in-out;
+}
+
+@keyframes playPulse {
+  0% { transform: scale(1); fill: gold; }
+  50% { transform: scale(1.1); fill: #ffd700; }
+  100% { transform: scale(1); fill: gold; }
+}
+
+#piano-slash {
+  stroke: gold;
+  stroke-width: 2;
+}
+
+/* Hamburger Menu */
 .hamburger {
   font-size: 22px;
   background: none;
   border: none;
   color: white;
   cursor: pointer;
-}
-
-.nav-links {
-  display: flex;
-  gap: 1rem;
-  margin-left: 1.5rem;
-}
-
-.nav-links a {
-  color: white;
-  text-decoration: none;
-  font-weight: 500;
+  padding: 8px;
+  margin-left: 10px;
   transition: color 0.3s ease;
 }
 
-.nav-links a.active {
+.hamburger.active {
   color: gold;
-  font-weight: 600;
+}
+
+.nav-links {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 60px;
+  right: 25px;
+  background-color: #1a1a1a;
+  padding: 15px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+}
+
+.nav-links a {
+  color: #f5f5f5;
+  text-decoration: none;
+  margin: 8px 0;
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: gold;
 }
 
 .nav-links.open {
   display: flex;
-  flex-direction: column;
-  position: absolute;
-  top: 60px;
-  right: 20px;
-  background-color: #1a1a1a;
-  padding: 1rem;
-  border-radius: 8px;
 }
 
-.piano-icon {
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-
-.piano-icon.playing {
-  animation: pianoPlay 1.2s infinite ease-in-out;
-  fill: gold;
-}
-
-@keyframes pianoPlay {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.15); }
-}
-
+/* Hero Section with Tagline */
 .hero {
   margin-top: 60px;
-  height: 100vh;
-  background: url('https://raw.githubusercontent.com/Sheismae06/AgapeAeterna/main/file_00000000d35461f79683e3cc6f46380f.webp') center/cover no-repeat;
+  min-height: calc(100vh - 60px);
+  background: url('https://raw.githubusercontent.com/Sheismae06/AgapeAeterna/main/file_00000000d35461f79683e3cc6f46380f.webp') center/110% no-repeat;
+  background-attachment: fixed;
+  background-color: #1a1a1a;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 30px;
+}
+
+/* Tagline Styling */
+.tagline {
+  font-family: 'Playfair Display', serif;
+  color: #f5f5f5;
+  font-size: 22px;
+  background-color: rgba(26, 26, 26, 0.6);
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+/* Animations */
+.fade-slide {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeSlide 1.5s ease-out forwards;
+}
+
+@keyframes fadeSlide {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (min-width: 768px) {
+  .nav-links {
+    display: flex;
+    position: static;
+    flex-direction: row;
+    background: none;
+    box-shadow: none;
+    padding: 0;
+  }
+
+  .nav-links a {
+    margin: 0 15px;
+  }
+
+  .hamburger {
+    display: none;
+  }
 }
