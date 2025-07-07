@@ -4,20 +4,25 @@ document.addEventListener('DOMContentLoaded', function () {
   const speakerOn = document.getElementById('speaker-on');
   const speakerOff = document.getElementById('speaker-off');
   let isMusicPlaying = sessionStorage.getItem('musicPlaying') === 'true';
-  let music = new Audio("https://www.bensound.com/bensound-music/bensound-sunny.mp3");
+
+  // Elegant piano music from Pixabay (no credit needed)
+  let music = new Audio("https://cdn.pixabay.com/download/audio/2022/03/15/audio_9956c18c9a.mp3?filename=emotional-soft-piano-10957.mp3");
   music.loop = true;
   music.volume = 1.0;
 
+  // Toggle hamburger menu
   hamburger.addEventListener('click', () => {
     navLinks.classList.toggle('open');
   });
 
+  // Auto-play if music was playing previously
   if (isMusicPlaying) {
     music.play();
     speakerOn.style.display = "none";
     speakerOff.style.display = "inline-block";
   }
 
+  // Toggle music and icon
   function toggleMusic() {
     sessionStorage.setItem('musicPlaying', !isMusicPlaying);
     if (isMusicPlaying) {
