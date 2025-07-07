@@ -36,10 +36,8 @@ document.addEventListener('DOMContentLoaded', function () {
     navLinks.classList.toggle('open');
   });
 
-  // Highlight active link
   const currentPage = window.location.pathname.split('/').pop();
-  const navItems = document.querySelectorAll('.nav-links a');
-  navItems.forEach(link => {
+  document.querySelectorAll('.nav-links a').forEach(link => {
     if (link.getAttribute('href') === currentPage) {
       link.classList.add('active');
     }
