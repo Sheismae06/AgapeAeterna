@@ -1,124 +1,119 @@
-/* === GENERAL STYLES === */
+/* Base styles */
 body {
   margin: 0;
-  font-family: 'Playfair Display', serif;
+  padding: 0;
+  font-family: 'Lora', serif;
   background-color: #fff;
-  color: #222;
+  color: #333;
 }
 
-a {
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-
-/* === NAVBAR === */
+/* Navbar styling */
 .navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #0c1a33; /* Midnight Blue */
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.5rem 1.5rem;
-  background-color: #1e1f26; /* Midnight Blue */
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  height: 50px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  padding: 10px 25px;
+  z-index: 999;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
 }
 
-.music-toggle svg {
-  width: 22px;
-  height: 22px;
-  fill: #ffffff; /* White speaker icon */
+/* Music Icon */
+.piano-icon {
   cursor: pointer;
+  transition: transform 0.3s ease, fill 0.3s ease;
 }
 
-/* === HAMBURGER ICON === */
+.piano-icon.playing {
+  fill: gold;
+  animation: pianoPulse 2s infinite ease-in-out;
+}
+
+.piano-icon.muted {
+  fill: white;
+}
+
+#piano-slash {
+  transition: opacity 0.3s ease;
+}
+
+/* Pulse animation for when music is playing */
+@keyframes pianoPulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.1); opacity: 0.9; }
+}
+
+/* Hamburger Menu */
 .hamburger {
-  font-size: 1.6rem;
+  font-size: 26px;
   background: none;
   border: none;
+  color: white;
   cursor: pointer;
-  color: #ffffff; /* Default white */
   transition: color 0.3s ease;
 }
 
 .hamburger.active {
-  color: #d4af37; /* Gold when clicked */
+  color: gold;
 }
 
-/* === NAV LINKS (Mobile Dropdown) === */
+/* Navigation links */
 .nav-links {
   display: none;
   flex-direction: column;
-  gap: 0.7rem;
-  background-color: #2c2c34;
   position: absolute;
-  top: 50px;
-  right: 20px;
-  padding: 0.8rem 1rem;
-  border: 1px solid #444;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.4);
-  opacity: 0;
-  transform: translateY(-10px);
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  top: 60px;
+  right: 25px;
+  background-color: #0c1a33;
+  border: 1px solid gold;
+  padding: 15px;
+  border-radius: 10px;
 }
 
 .nav-links.open {
   display: flex;
-  opacity: 1;
-  transform: translateY(0);
 }
 
 .nav-links a {
-  color: #f5f5f5;
-  font-size: 1rem;
-  padding-bottom: 2px;
-  position: relative;
+  text-decoration: none;
+  color: white;
+  padding: 8px 0;
+  font-family: 'Playfair Display', serif;
+  transition: color 0.3s ease;
 }
 
 .nav-links a:hover {
-  color: #d4af37;
+  color: gold;
 }
 
-.nav-links a::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 0;
-  height: 1.5px;
-  background-color: #d4af37;
-  transition: width 0.3s ease;
-}
-
-.nav-links a:hover::after {
-  width: 100%;
-}
-
-/* === HERO IMAGE === */
+/* Hero image section */
 .hero {
+  margin-top: 60px;
   height: 100vh;
-  background: url('https://raw.githubusercontent.com/Sheismae06/AgapeAeterna/main/file_00000000d35461f79683e3cc6f46380f.webp') center/cover no-repeat;
-  background-attachment: fixed;
-  margin-bottom: 30px; /* Konting gap sa baba */
+  background-size: cover;
+  background-position: center;
+  position: relative;
 }
 
-/* === DESKTOP NAV === */
-@media screen and (min-width: 768px) {
-  .hamburger {
-    display: none;
-  }
-
+/* Responsive adjustments */
+@media (min-width: 768px) {
   .nav-links {
     display: flex !important;
     flex-direction: row;
     position: static;
-    gap: 1.5rem;
     background: none;
     border: none;
-    box-shadow: none;
     padding: 0;
-    opacity: 1;
-    transform: none;
+  }
+
+  .nav-links a {
+    margin-left: 25px;
+  }
+
+  .hamburger {
+    display: none;
   }
 }
