@@ -4,30 +4,21 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>The Heart of Agape</title>
-
-  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Lora&display=swap" rel="stylesheet">
-
-  <!-- Styles -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
   <!-- Navbar -->
   <div class="navbar">
-    <!-- Music Toggle -->
     <div class="nav-left music-toggle">
-      <svg id="speaker-on" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#333" width="24px" height="24px">
-        <path d="M5 9v6h4l5 5V4L9 9H5z"/>
-      </svg>
-
-      <svg id="speaker-off" style="display:none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#333" width="24px" height="24px">
-        <path d="M16.5 12c0-1.77-.77-3.37-2-4.47v8.94c1.23-1.1 2-2.7 2-4.47zM5 9v6h4l5 5V4L9 9H5z"/>
-        <line x1="3" y1="3" x2="21" y2="21" stroke="red" stroke-width="2"/>
+      <!-- 🎹 Piano Icon -->
+      <svg id="piano-icon" class="piano-icon" xmlns="http://www.w3.org/2000/svg"
+           width="24" height="24" viewBox="0 0 24 24" fill="white">
+        <path d="M5 3C3.9 3 3 3.9 3 5v14a2 2 0 002 2h14a2 2 0 002-2V5c0-1.1-.9-2-2-2H5zm0 2h14v14H5V5zm2 2v10h2V7H7zm4 0v10h2V7h-2zm4 0v10h2V7h-2z"/>
+        <line id="piano-slash" x1="4" y1="4" x2="20" y2="20" stroke="gold" stroke-width="2" style="display: none;" />
       </svg>
     </div>
 
-    <!-- Hamburger + Links -->
     <div class="nav-right">
       <button class="hamburger" id="hamburger">☰</button>
       <div class="nav-links" id="nav-links">
@@ -42,16 +33,16 @@
   </div>
 
   <!-- Essence Content -->
-  <section class="page-section fade-slide">
-    <h1 style="font-family:'Playfair Display', serif; font-size:2.2rem; color:#333;">The Heart of Agape</h1>
-    <p style="max-width:700px; margin:auto; font-size:1.1rem; line-height:1.7; color:#444; padding-top:1rem;">
+  <section class="page-content fade-slide">
+    <h1 class="section-title">The Heart of Agape</h1>
+    <p>
       Agape Aeterna was born from a deep love for fragrance — not just any scent, but the kind that lingers, speaks softly, and leaves a lasting impression.
     </p>
-    <p style="max-width:700px; margin:auto; font-size:1.1rem; line-height:1.7; color:#444; padding-top:1rem;">
+    <p>
       For me, perfume is more than just something you wear. It’s a quiet reflection of who you are — a memory, a mood, a presence that stays even after you’ve left the room.
     </p>
-    <p style="max-width:700px; margin:auto; font-size:1.1rem; line-height:1.7; color:#444; padding-top:1rem;">
-      The name <strong>Agape Aeterna</strong> means eternal, unconditional love. It reflects who I am and what I hope to share through this brand. I want every scent to make people feel special, confident, and remembered — even without saying a word.
+    <p>
+      The name Agape Aeterna means eternal, unconditional love. It reflects who I am and what I hope to share through this brand. I want every scent to make people feel special, confident, and remembered — even without saying a word.
     </p>
   </section>
 
