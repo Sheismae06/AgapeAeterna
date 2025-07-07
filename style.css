@@ -1,15 +1,15 @@
-/* Elegant Sticky Navbar */
+/* Elegant Dark Navbar */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.6rem 1.5rem; /* Sleeker padding */
-  background-color: #f4e7d2; /* Soft warm beige */
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  padding: 0.5rem 1.5rem;
+  background-color: #1c1b1b; /* Deep espresso/dark brown */
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
   position: sticky;
   top: 0;
   z-index: 1000;
-  height: 60px; /* Controlled height */
+  height: 55px;
 }
 
 /* Music Icon */
@@ -17,16 +17,16 @@
   width: 22px;
   height: 22px;
   cursor: pointer;
-  fill: #5a4c3b; /* Muted dark brown */
+  fill: #d4af37; /* Gold */
 }
 
-/* Hamburger Button */
+/* Hamburger Icon (3 lines) */
 .hamburger {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   background: none;
   border: none;
   cursor: pointer;
-  color: #5a4c3b; /* Match with icon */
+  color: #d4af37; /* Gold */
   font-family: 'Playfair Display', serif;
   padding: 0;
   line-height: 1;
@@ -37,13 +37,13 @@
   display: none;
   flex-direction: column;
   gap: 0.8rem;
-  background-color: #fff;
+  background-color: #2c2c2c;
   position: absolute;
-  top: 60px;
+  top: 55px;
   right: 20px;
   padding: 0.8rem 1rem;
-  border: 1px solid #ddd;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #444;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
   transition: opacity 0.3s ease, transform 0.3s ease;
   opacity: 0;
   transform: translateY(-10px);
@@ -55,10 +55,9 @@
   transform: translateY(0);
 }
 
-/* Nav Link Text */
 .nav-links a {
   text-decoration: none;
-  color: #5a4c3b;
+  color: #f0e6d2; /* Light gold/off-white */
   font-family: 'Playfair Display', serif;
   font-size: 1rem;
   position: relative;
@@ -66,7 +65,7 @@
 }
 
 .nav-links a:hover {
-  color: #3d2f23;
+  color: #d4af37;
 }
 
 .nav-links a::after {
@@ -76,7 +75,7 @@
   bottom: 0;
   height: 2px;
   width: 0;
-  background-color: #c7a17a;
+  background-color: #d4af37;
   transition: width 0.3s ease;
 }
 
@@ -84,7 +83,7 @@
   width: 100%;
 }
 
-/* Responsive Horizontal Menu */
+/* Desktop Navbar */
 @media screen and (min-width: 768px) {
   .hamburger {
     display: none;
@@ -102,4 +101,4 @@
     opacity: 1;
     transform: none;
   }
-}
+    }
