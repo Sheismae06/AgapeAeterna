@@ -1,26 +1,26 @@
-/* 🔳 Elegant Minimalist Dark Navbar */
+/* 🔳 Elegant Navbar - Original Layout + Requested Changes */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0.4rem 1.2rem;
-  background-color: #1a1a1a; /* Deep dark espresso */
+  background-color: #1a1a1a; /* Dark espresso/black */
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   position: sticky;
   top: 0;
   z-index: 1000;
-  height: 50px; /* Slightly taller, still elegant */
+  height: 48px; /* Mas manipis ng konti */
 }
 
-/* 🎵 Music Icon */
+/* 🔈 Music Icon (black) */
 .music-toggle svg {
   width: 20px;
   height: 20px;
   cursor: pointer;
-  fill: #d4af37; /* Elegant gold */
+  fill: #000000; /* Black */
 }
 
-/* ☰ Hamburger Icon */
+/* ☰ Hamburger Icon (gold) */
 .hamburger {
   font-size: 1.5rem;
   background: none;
@@ -30,17 +30,16 @@
   font-family: 'Playfair Display', serif;
   padding: 0;
   line-height: 1;
-  letter-spacing: 1px;
 }
 
-/* 🧾 Dropdown Menu */
+/* 📄 Mobile Dropdown Menu */
 .nav-links {
   display: none;
   flex-direction: column;
   gap: 0.6rem;
   background-color: #2a2a2a;
   position: absolute;
-  top: 50px;
+  top: 48px;
   right: 20px;
   padding: 0.6rem 1rem;
   border: 1px solid #444;
@@ -60,9 +59,9 @@
   text-decoration: none;
   color: #f5f5f5;
   font-family: 'Playfair Display', serif;
-  font-size: 0.95rem; /* Smaller & elegant */
+  font-size: 1rem;
   position: relative;
-  padding-bottom: 2px;
+  padding-bottom: 3px;
 }
 
 .nav-links a:hover {
@@ -84,7 +83,7 @@
   width: 100%;
 }
 
-/* 🖥️ Desktop Layout */
+/* 💻 Desktop View */
 @media screen and (min-width: 768px) {
   .hamburger {
     display: none;
