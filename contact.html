@@ -1,1 +1,151 @@
 
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Whispers of Connection</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Lora&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background-color: #f8f1e7;
+      color: #333;
+      font-family: 'Lora', serif;
+    }.page-content {
+  max-width: 900px;
+  margin: 140px auto 60px auto;
+  padding: 0 20px;
+  animation: fadeSlide 1.5s ease-out forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+h1.section-title {
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 2.6rem;
+  color: gold;
+  margin-bottom: 40px;
+}
+
+.contact-block {
+  margin-bottom: 45px;
+  text-align: center;
+}
+
+.contact-block p {
+  margin-top: 10px;
+  font-size: 1rem;
+}
+
+.contact-icons a {
+  display: inline-block;
+  margin: 10px;
+  text-decoration: none;
+  font-size: 1.5rem;
+  color: #1a1a1a;
+  transition: color 0.3s ease;
+}
+
+.contact-icons a:hover {
+  color: gold;
+}
+
+.chat-launch {
+  display: inline-block;
+  padding: 14px 26px;
+  font-size: 1rem;
+  border-radius: 30px;
+  background-color: #1a1a1a;
+  color: white;
+  text-decoration: none;
+  transition: background 0.3s ease, transform 0.2s ease;
+  margin-top: 20px;
+}
+
+.chat-launch:hover {
+  background-color: gold;
+  color: #1a1a1a;
+  transform: translateY(-3px);
+}
+
+@keyframes fadeSlide {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <div class="navbar">
+    <div class="nav-left music-toggle">
+      <svg id="piano-icon" class="piano-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="white">
+        <path d="M5 3C3.9 3 3 3.9 3 5v14a2 2 0 002 2h14a2 2 0 002-2V5c0-1.1-.9-2-2-2H5zm0 2h14v14H5V5zm2 2v10h2V7H7zm4 0v10h2V7h-2zm4 0v10h2V7h-2z"/>
+        <line id="piano-slash" x1="4" y1="4" x2="20" y2="20" stroke="gold" stroke-width="2" style="display: none;" />
+      </svg>
+    </div>
+    <div class="nav-right">
+      <button class="hamburger" id="hamburger">☰</button>
+      <div class="nav-links" id="nav-links">
+        <a href="index.html">Home</a>
+        <a href="essence.html">Essence</a>
+        <a href="collection.html">Collection</a>
+        <a href="rewards.html">Rewards</a>
+        <a href="testimonials.html">Testimonials</a>
+        <a href="contact.html" class="active">Contact Us</a>
+      </div>
+    </div>
+  </div>  <section class="page-content">
+    <h1 class="section-title">Whispers of Connection</h1><div class="contact-block fade-slide">
+  <h3>Reach Us Your Way</h3>
+  <div class="contact-icons">
+    <a href="sms:+639*********" title="Send SMS">✉️</a>
+    <a href="mailto:agapeaeternaperfumeshop@gmail.com" title="Send Email">📧</a>
+  </div>
+  <p>Your message matters. Choose your preferred way to connect.</p>
+</div>
+
+<div class="contact-block fade-slide">
+  <h3>Prefer a Form?</h3>
+  <div class="contact-icons">
+    <a href="#" title="Google Form">🗃️</a>
+  </div>
+  <p>Let us know how you'd like to be contacted. Fill out our form and we’ll reach out to you.</p>
+</div>
+
+<div class="contact-block fade-slide">
+  <h3>Find Us on Social Media</h3>
+  <div class="contact-icons">
+    <a href="https://www.facebook.com/share/1AhMby9z3U/" target="_blank" title="Facebook">💍</a>
+    <a href="https://www.tiktok.com/@agapeaeterna?_t=ZS-8xk9f1XaSKw&_r=1" target="_blank" title="TikTok">🕺</a>
+    <a href="https://www.instagram.com/yoursafe.spot?igsh=NTJhNHA0eXd6YnF0" target="_blank" title="Instagram">📸</a>
+  </div>
+  <p>Follow our journey and send us a DM anytime.</p>
+</div>
+
+<div class="contact-block fade-slide">
+  <h3>Talk to Us in Real Time</h3>
+  <p>Hi, I'm Mae, Agape’s assistant. Chat with us live for real-time help. Click the button below to begin:</p>
+  <button class="chat-launch" onclick="launchCrisp()">💬 Let's Talk</button>
+</div>
+
+  </section>  <script>
+    let crispScriptLoaded = false;
+    function launchCrisp() {
+      if (!crispScriptLoaded) {
+        window.$crisp = [];
+        window.CRISP_WEBSITE_ID = "9441e2e2-d7b3-4e29-bf1f-496bc3dfad92";
+        const d = document;
+        const s = d.createElement("script");
+        s.src = "https://client.crisp.chat/l.js";
+        s.async = 1;
+        d.getElementsByTagName("head")[0].appendChild(s);
+        crispScriptLoaded = true;
+        alert("Live chat activated. You can now open chat from the icon and allow floating.");
+      }
+    }
+  </script>  <script src="script.js"></script></body>
+  </html>
