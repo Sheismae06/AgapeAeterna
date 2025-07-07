@@ -4,24 +4,23 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Agape Aeterna</title>
-  
+
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Lora&display=swap" rel="stylesheet">
   
-  <!-- CSS -->
+  <!-- Main CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
   <!-- Navbar -->
   <div class="navbar">
     <div class="nav-left music-toggle">
-      <!-- Speaker icons -->
-      <svg id="speaker-on" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-        <path d="M5 9v6h4l5 5V4L9 9H5z"/>
-      </svg>
-      <svg id="speaker-off" style="display:none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-        <path d="M16.5 12c0-1.77-.77-3.37-2-4.47v8.94c1.23-1.1 2-2.7 2-4.47zM5 9v6h4l5 5V4L9 9H5z"/>
+      <!-- 🎹 Piano Icon with slash (for mute) -->
+      <svg id="piano-icon" class="piano-icon" xmlns="http://www.w3.org/2000/svg"
+           width="24" height="24" viewBox="0 0 24 24" fill="white">
+        <path d="M5 3C3.9 3 3 3.9 3 5v14a2 2 0 002 2h14a2 2 0 002-2V5c0-1.1-.9-2-2-2H5zm0 2h14v14H5V5zm2 2v10h2V7H7zm4 0v10h2V7h-2zm4 0v10h2V7h-2z"/>
+        <!-- Slash (only shown when muted) -->
+        <line id="piano-slash" x1="4" y1="4" x2="20" y2="20" stroke="gold" stroke-width="2" style="display: none;" />
       </svg>
     </div>
 
@@ -38,10 +37,10 @@
     </div>
   </div>
 
-  <!-- Hero Section -->
-  <section class="hero"></section>
+  <!-- Hero Section with Background -->
+  <section class="hero" style="height:100vh; background: url('https://raw.githubusercontent.com/Sheismae06/AgapeAeterna/main/file_00000000d35461f79683e3cc6f46380f.webp') center/120% no-repeat;"></section>
 
-  <!-- JS -->
+  <!-- JavaScript -->
   <script src="script.js"></script>
 </body>
 </html>
