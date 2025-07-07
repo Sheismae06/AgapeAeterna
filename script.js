@@ -6,17 +6,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Music setup
   let isMusicPlaying = sessionStorage.getItem('musicPlaying') === 'true';
-  let music = new Audio("https://cdn.pixabay.com/download/audio/2023/05/23/audio_9991e44547.mp3?filename=elegant-logo-intro-145076.mp3");
+  let music = new Audio("https://www.bensound.com/bensound-music/bensound-tenderness.mp3");
   music.loop = true;
   music.volume = 0.6;
 
   // Toggle mobile menu
   hamburger.addEventListener('click', () => {
     navLinks.classList.toggle('open');
-    hamburger.classList.toggle('active'); // This adds the gold color
+    hamburger.classList.toggle('active'); // Adds gold color to hamburger when active
   });
 
-  // Auto-play music if user already turned it on
+  // Auto-play if session remembers music is playing
   if (isMusicPlaying) {
     music.play();
     speakerOn.style.display = "none";
