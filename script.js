@@ -1,39 +1,55 @@
 document.addEventListener('DOMContentLoaded', function () {
+  const pianoIcon = document.getElementById('piano-icon');
+  const pianoSlash = document.getElementById('piano-slash');
   const hamburger = document.querySelector('.hamburger');
   const navLinks = document.querySelector('.nav-links');
-  const pianoIcon = document.querySelector('#piano-icon');
-  const pianoSlash = document.querySelector('#piano-slash');
   const music = document.getElementById('bg-music');
+
   let isMusicPlaying = sessionStorage.getItem('musicPlaying') === 'true';
 
-  // Resume state
-  if (isMusicPlaying) {
-    music.play();
-    pianoIcon.classList.add('playing');
-    pianoSlash.style.display = 'none';
-  } else {
-    pianoSlash.style.display = 'block';
-    pianoIcon.classList.remove('playing');
+  // Function to update music icon state
+  function updateMusicIcon() {
+    if (isMusicPlaying) {
+      pianoIcon.classList.add('playing');
+      pianoSlash.style.display = "none";
+    } else {
+      pianoIcon.classList.remove('playing');
+      pianoSlash.style.display = "block";
+    }
   }
 
-  // Toggle music
-  window.toggleMusic = function () {
+  // Resume music after user interaction
+  function toggleMusic() {
     if (isMusicPlaying) {
       music.pause();
-      pianoSlash.style.display = 'block';
-      pianoIcon.classList.remove('playing');
     } else {
-      music.play();
-      pianoSlash.style.display = 'none';
-      pianoIcon.classList.add('playing');
+      music.play().catch((e) => {
+        console.warn("Autoplay blocked until user interacts.");
+      });
     }
+
     isMusicPlaying = !isMusicPlaying;
     sessionStorage.setItem('musicPlaying', isMusicPlaying);
-  };
+    updateMusicIcon();
+  }
 
-  // Menu toggle
-  hamburger?.addEventListener('click', () => {
+  // Initial setup after user interaction
+  pianoIcon.addEventListener('click', toggleMusic);
+  updateMusicIcon();
+
+  // Hamburger menu toggle
+  hamburger.addEventListener('click', function () {
     hamburger.classList.toggle('active');
     navLinks.classList.toggle('open');
+  });
+
+  // Try auto-play only after user interacts with any click
+  document.body.addEventListener('click', function once() {
+    if (isMusicPlaying && music.paused) {
+      music.play().catch(() => {
+        console.log("Still blocked, but now interacted.");
+      });
+    }
+    document.body.removeEventListener('click', once);
   });
 });
