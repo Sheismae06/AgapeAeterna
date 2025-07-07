@@ -3,48 +3,38 @@ document.addEventListener('DOMContentLoaded', function () {
   const navLinks = document.getElementById('nav-links');
   const pianoIcon = document.getElementById('piano-icon');
   const pianoSlash = document.getElementById('piano-slash');
+  let isMusicPlaying = sessionStorage.getItem('musicPlaying') === 'true';
+  const music = new Audio("https://www.bensound.com/bensound-music/bensound-tenderness.mp3");
 
-  // Set up the audio
-  let music = new Audio("https://www.bensound.com/bensound-music/bensound-tenderness.mp3");
   music.loop = true;
   music.volume = 1.0;
 
-  // Check session storage
-  let isMusicPlaying = sessionStorage.getItem('musicPlaying') === 'true';
-
-  // Apply the saved state
   if (isMusicPlaying) {
     music.play();
     pianoIcon.classList.add('playing');
-    pianoIcon.classList.remove('muted');
-    pianoSlash.style.display = 'none';
+    pianoSlash.style.display = "none";
   } else {
-    pianoIcon.classList.remove('playing');
-    pianoIcon.classList.add('muted');
-    pianoSlash.style.display = 'block';
+    pianoSlash.style.display = "block";
   }
 
-  // Music toggle
-  pianoIcon.addEventListener('click', () => {
+  function toggleMusic() {
+    if (isMusicPlaying) {
+      music.pause();
+      pianoSlash.style.display = "block";
+      pianoIcon.classList.remove('playing');
+    } else {
+      music.play();
+      pianoSlash.style.display = "none";
+      pianoIcon.classList.add('playing');
+    }
     isMusicPlaying = !isMusicPlaying;
     sessionStorage.setItem('musicPlaying', isMusicPlaying);
+  }
 
-    if (isMusicPlaying) {
-      music.play();
-      pianoIcon.classList.add('playing');
-      pianoIcon.classList.remove('muted');
-      pianoSlash.style.display = 'none';
-    } else {
-      music.pause();
-      pianoIcon.classList.remove('playing');
-      pianoIcon.classList.add('muted');
-      pianoSlash.style.display = 'block';
-    }
-  });
+  pianoIcon.addEventListener('click', toggleMusic);
 
-  // Hamburger menu toggle
-  hamburger.addEventListener('click', () => {
-    navLinks.classList.toggle('open');
+  hamburger.addEventListener('click', function () {
     hamburger.classList.toggle('active');
+    navLinks.classList.toggle('open');
   });
 });
