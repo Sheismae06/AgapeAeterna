@@ -1,113 +1,113 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Collection | Agape Aeterna</title>
+  <title>Our Signature Scents | Agape Aeterna</title>
   <link href="https://fonts.googleapis.com/css2?family=Lora&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
   <script src="script.js" defer></script>
-
   <style>
     .product-card {
-      margin-top: 100px;
+      margin-top: 60px;
       text-align: center;
       animation: fadeSlide 1.5s ease-out forwards;
-    }
+      opacity: 0;
+      transform: translateY(20px);
+    }.product-title {
+  font-size: 1.8rem;
+  color: white;
+  margin-bottom: 10px;
+  font-family: 'Playfair Display', serif;
+  position: relative;
+  display: inline-block;
+}
 
-    .product-title {
-      font-size: 1.8rem;
-      color: white;
-      margin-bottom: 10px;
-      font-family: 'Playfair Display', serif;
-      position: relative;
-      display: inline-block;
-    }
+.product-title::after {
+  content: "";
+  display: block;
+  height: 2px;
+  background-color: #c9a96b;
+  width: 60%;
+  margin: 8px auto 0;
+}
 
-    .product-title::after {
-      content: "";
-      display: block;
-      height: 2px;
-      background-color: #c9a96b;
-      width: 60%;
-      margin: 8px auto 0;
-    }
+.product-img {
+  width: 200px;
+  margin-bottom: 20px;
+}
 
-    .product-img {
-      width: 200px;
-      margin-bottom: 20px;
-    }
+.product-desc {
+  max-width: 600px;
+  margin: 0 auto 15px;
+}
 
-    .product-desc {
-      max-width: 600px;
-      margin: 0 auto 15px;
-    }
+.product-price {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+  font-size: 1rem;
+}
 
-    .product-price {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 20px;
-    }
+.product-price span {
+  font-weight: bold;
+  color: #c9a96b;
+}
 
-    .product-price span {
-      font-size: 1.1rem;
-      font-weight: bold;
-      color: #f5f5f5;
-    }
+.product-price a {
+  color: #f5f5f5;
+  text-decoration: none;
+  font-size: 1rem;
+  cursor: pointer;
+}
 
-    .product-price a {
-      font-size: 0.9rem;
-      color: #c9a96b;
-      cursor: pointer;
-      text-decoration: underline;
-    }
+.product-price a:hover {
+  text-decoration: underline;
+  color: #c9a96b;
+}
 
-    .floating-backdrop {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      backdrop-filter: blur(8px);
-      background: rgba(0, 0, 0, 0.4);
-      z-index: 999;
-      justify-content: center;
-      align-items: center;
-    }
+.floating-backdrop {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  backdrop-filter: blur(8px);
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 999;
+  justify-content: center;
+  align-items: center;
+}
 
-    .floating-box {
-      background: #1a1a1a;
-      color: #f5f5f5;
-      padding: 20px;
-      border-radius: 12px;
-      max-width: 90%;
-      width: 320px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
-      font-size: 0.95rem;
-      position: relative;
-      z-index: 1000;
-    }
+.floating-box {
+  background: #1a1a1a;
+  color: #f5f5f5;
+  padding: 20px;
+  border-radius: 12px;
+  max-width: 90%;
+  width: 320px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+  font-size: 0.95rem;
+  position: relative;
+  z-index: 1000;
+}
 
-    .floating-box a {
-      color: #c9a96b;
-      text-decoration: underline;
-    }
+.floating-box a {
+  color: #c9a96b;
+  text-decoration: underline;
+}
 
-    .close-floating {
-      position: absolute;
-      top: 8px;
-      right: 12px;
-      color: #f5f5f5;
-      font-size: 1.2rem;
-      cursor: pointer;
-    }
+.close-floating {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  color: #f5f5f5;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
   </style>
-</head>
-
-<body>
+</head><body>
   <!-- Navbar -->
   <nav class="navbar">
     <div class="nav-left">
@@ -131,28 +131,22 @@
         <a href="contact.html">Contact</a>
       </div>
     </div>
-  </nav>
+  </nav>  <!-- Title -->  <h1 class="section-title">OUR SIGNATURE SCENTS</h1>  <!-- Product Section -->  <section class="product-card">
+    <img src="https://raw.githubusercontent.com/Sheismae06/AgapeAeterna/main/file_00000000d35461f79683e3cc6f46380f.webp" alt="Aurelena Perfume" class="product-img"><h2 class="product-title">AURELÉNA 50ml</h2>
 
-  <!-- Product Section -->
-  <section class="product-card">
-    <img src="https://raw.githubusercontent.com/Sheismae06/AgapeAeterna/main/file_00000000d35461f79683e3cc6f46380f.webp" alt="Aurelena Perfume" class="product-img">
+<p class="product-desc">
+  A scent of quiet power and modern elegance. AURELÉNA blends sophistication and subtlety—crafted for those who exude CEO aura, celebrity charm, and timeless confidence.
+</p>
 
-    <h2 class="product-title">AURELÉNA 50ml</h2>
+<div class="product-price">
+  <span>PHP 240.00</span>
+  <span>|</span>
+  <a onclick="toggleFloating()">What's included</a>
+</div>
 
-    <p class="product-desc">
-      A scent of quiet power and modern elegance. AURELÉNA blends sophistication and subtlety—crafted for those who exude CEO aura, celebrity charm, and timeless confidence.
-    </p>
+<a href="https://forms.gle/YOUR_ORDER_FORM_LINK" target="_blank" class="elegant-button">Proceed to Checkout</a>
 
-    <div class="product-price">
-      <span>PHP 240.00</span>
-      <a onclick="toggleFloating()">What's included?</a>
-    </div>
-
-    <a href="https://forms.gle/YOUR_ORDER_FORM_LINK" target="_blank" class="elegant-button">Proceed to Checkout</a>
-  </section>
-
-  <!-- Floating Info Popup -->
-  <div class="floating-backdrop" id="floatingBackdrop">
+  </section>  <!-- Floating Info Popup -->  <div class="floating-backdrop" id="floatingBackdrop">
     <div class="floating-box">
       <span class="close-floating" onclick="toggleFloating()">✕</span>
       <strong>Paying PHP 240.00, you will receive:</strong><br><br>
@@ -164,19 +158,12 @@
       ▪︎ <a href="rewards.html">Loyalty Card</a><br>
       ▪︎ Scrunchies
     </div>
-  </div>
-
-  <!-- Music -->
-  <audio id="bg-music" loop>
-    <source src="https://www.bensound.com/bensound-music/bensound-tenderness.mp3" type="audio/mpeg">
-  </audio>
-
-  <!-- Floating Box JS -->
-  <script>
+  </div>  <!-- Background Music -->  <audio id="bg-music" loop>
+    <source src="https://files.freemusicarchive.org/storage-freemusicarchive-org/music/ccCommunity/Komiku/Its_time_for_adventure/Komiku_-_04_-_The_Beginning.mp3" type="audio/mpeg">
+  </audio>  <!-- Toggle Floating JS -->  <script>
     function toggleFloating() {
       const backdrop = document.getElementById("floatingBackdrop");
       backdrop.style.display = backdrop.style.display === "flex" ? "none" : "flex";
     }
-  </script>
-</body>
+  </script></body>
 </html>
