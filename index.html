@@ -3,40 +3,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Agape Aeterna</title>  <!-- Google Fonts -->  <link href="https://fonts.googleapis.com/css2?family=Lora&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet" />  <!-- CSS -->  <link rel="stylesheet" href="style.css?v=9" />  <!-- Favicon -->  <link rel="icon" href="favicon.ico" type="image/x-icon" />
-  <style>
-    .hero {
-      height: 100vh;
-      background-image: url('https://raw.githubusercontent.com/Sheismae06/AgapeAeterna/main/file_00000000d35461f79683e3cc6f46380f.webp');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      margin-top: 60px;
-    }.hamburger {
-  background: none;
-  border: none;
-  font-size: 1.8rem;
-  cursor: pointer;
-  color: white;
-  margin-right: 15px;
-  transition: color 0.3s;
-}
-.hamburger.clicked {
-  color: #c9a96b;
-}
-
-.piano-icon {
-  width: 20px;
-  height: 20px;
-  position: relative;
-}
-#piano-slash {
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  pointer-events: none;
-}
-
-  </style>
 </head>
 <body class="home">
   <nav class="navbar">
@@ -47,14 +13,14 @@
           <path d="M5 3v18h14V3H5zm2 2h2v6h1V5h2v6h1V5h2v6h1V5h2v14H7V5z"/>
         </svg>
         <!-- Slash (Music OFF) -->
-        <svg id="piano-slash" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#c9a96b" style="display: none;">
-          <line x1="1" y1="1" x2="23" y2="23" stroke-width="2" />
+        <svg id="piano-slash" class="piano-slash" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#c9a96b">
+          <line x1="1" y1="1" x2="23" y2="23" stroke-width="2"/>
         </svg>
       </div>
     </div>
     <div class="nav-right">
       <button class="hamburger" id="hamburger">☰</button>
-      <div class="nav-links">
+      <div class="nav-links" id="nav-links">
         <a href="index.html" class="active">Home</a>
         <a href="essence.html">Essence</a>
         <a href="collection.html">Collection</a>
@@ -63,41 +29,15 @@
         <a href="contact.html">Contact</a>
       </div>
     </div>
-  </nav>  <!-- Hero Section -->  <section class="hero"></section>  <!-- Background Music -->  <audio id="bg-music" loop autoplay>
+  </nav>  <!-- Hero Section with fixed zoomed-in image -->  <section class="hero" style="
+    height: calc(100vh - 60px);
+    background-image: url('https://raw.githubusercontent.com/Sheismae06/AgapeAeterna/main/file_00000000d35461f79683e3cc6f46380f.webp');
+    background-size: 120%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin-top: 60px;
+  "></section>  <!-- Background Music -->  <audio id="bg-music">
     <source src="https://files.freemusicarchive.org/storage-freemusicarchive-org/music/ccCommunity/Komiku/Its_time_for_adventure/Komiku_-_04_-_The_Beginning.mp3" type="audio/mpeg">
-  </audio>  <!-- Script -->  <script>
-    const musicToggle = document.getElementById('music-toggle');
-    const music = document.getElementById('bg-music');
-    const pianoIcon = document.getElementById('piano-icon');
-    const pianoSlash = document.getElementById('piano-slash');
-    const hamburger = document.getElementById('hamburger');
-
-    function updateMusicIcon() {
-      if (music.paused) {
-        pianoIcon.setAttribute('fill', 'white');
-        pianoSlash.style.display = 'block';
-      } else {
-        pianoIcon.setAttribute('fill', '#c9a96b');
-        pianoSlash.style.display = 'none';
-      }
-    }
-
-    musicToggle.addEventListener('click', () => {
-      if (music.paused) {
-        music.play();
-      } else {
-        music.pause();
-      }
-      updateMusicIcon();
-    });
-
-    hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('clicked');
-    });
-
-    // Ensure correct icon on load
-    window.addEventListener('DOMContentLoaded', () => {
-      updateMusicIcon();
-    });
-  </script></body>
+  </audio>  <!-- Script -->  <script src="script.js?v=9"></script></body>
 </html>
