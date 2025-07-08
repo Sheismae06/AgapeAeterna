@@ -8,6 +8,17 @@
   <link rel="stylesheet" href="style.css" />
   <script src="script.js" defer></script>
   <style>
+    body.blurred {
+      filter: blur(5px);
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .popup-active {
+      pointer-events: auto;
+      user-select: auto;
+    }
+
     .scent-container {
       max-width: 800px;
       margin: 120px auto 60px auto;
@@ -22,55 +33,96 @@
       width: 200px;
       height: auto;
       border-radius: 10px;
-      margin-bottom: 15px;
+      margin-bottom: 25px;
+    }
+
+    .scent-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      margin-bottom: 6px;
+      color: #ffffff;
+      position: relative;
+      display: inline-block;
+    }
+
+    .scent-title::after {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 2px;
+      background-color: #c9a96b;
+      margin-top: 5px;
+    }
+
+    .scent-description {
+      max-width: 600px;
+      margin: 16px auto 20px;
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .scent-price-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      font-size: 1rem;
+      margin-bottom: 25px;
+      flex-wrap: wrap;
     }
 
     .scent-price {
-      font-size: 1.1rem;
       color: #c9a96b;
-      margin-bottom: 8px;
     }
 
     .whats-included {
       font-size: 0.95rem;
-      color: #f5f5f5;
+      color: #c9a96b;
       cursor: pointer;
       text-decoration: underline;
       transition: color 0.3s ease;
     }
 
     .whats-included:hover {
-      color: #c9a96b;
+      color: #e3c48f;
+    }
+
+    .included-popup-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(3px);
+      display: none;
+      z-index: 9999;
+      justify-content: center;
+      align-items: center;
     }
 
     .included-popup {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
       background-color: #1a1a1a;
       color: #f5f5f5;
-      padding: 25px 20px;
+      padding: 18px 20px;
       border: 1px solid #c9a96b;
-      border-radius: 10px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.6);
-      z-index: 9999;
+      border-radius: 12px;
       width: 90%;
-      max-width: 400px;
-      display: none;
-      animation: fadeSlide 0.5s ease-out forwards;
+      max-width: 320px;
+      position: relative;
+      text-align: left;
+      box-shadow: 0 0 10px rgba(0,0,0,0.6);
     }
 
     .included-popup h3 {
-      margin-bottom: 10px;
-      font-size: 1.1rem;
+      font-size: 1rem;
       color: #c9a96b;
+      margin-bottom: 12px;
     }
 
     .included-popup ul {
       list-style-type: '▪︎ ';
       padding-left: 20px;
-      text-align: left;
     }
 
     .included-popup a {
@@ -121,36 +173,52 @@
     
     <img src="https://raw.githubusercontent.com/Sheismae06/AgapeAeterna/main/file_00000000d35461f79683e3cc6f46380f.webp" alt="Aurelena Perfume" class="scent-image" />
 
-    <div class="scent-price">PHP 240.00</div>
-    <div class="whats-included" onclick="document.getElementById('popup').style.display='block'">What's included?</div>
+    <div class="scent-title">AURELÉNA 50ML</div>
 
-    <h2 style="margin-top: 20px;">AURELÉNA 50ML</h2>
-    <p style="max-width: 600px; margin: 10px auto;">
+    <p class="scent-description">
       A scent of elegant power — sophisticated yet inviting. Imagine the refined aura of a CEO, the quiet luxury of old money, and the magnetic charm of a star. That’s AURELÉNA.
     </p>
 
-    <a href="https://forms.gle/your-google-form-link" target="_blank" class="elegant-button" style="margin-top: 25px;">Proceed to Check Out</a>
+    <div class="scent-price-row">
+      <span class="scent-price">PHP 240.00</span>
+      <span class="whats-included" onclick="openPopup()">What's included?</span>
+    </div>
+
+    <a href="https://forms.gle/your-google-form-link" target="_blank" class="elegant-button">Proceed to Check Out</a>
   </main>
 
-  <!-- Included Popup -->
-  <div id="popup" class="included-popup">
-    <div class="popup-close" onclick="document.getElementById('popup').style.display='none'">×</div>
-    <h3>Paying 240.00, you will receive:</h3>
-    <ul>
-      <li>Perfume 50ml</li>
-      <li>Velvet Dust Bag</li>
-      <li>Packaging box</li>
-      <li>Paper Bag</li>
-      <li>Thank you Card</li>
-      <li><a href="rewards.html">Loyalty Card</a></li>
-      <li>Scrunchies</li>
-    </ul>
+  <!-- Included Floating Popup -->
+  <div id="popupOverlay" class="included-popup-overlay" onclick="closePopup()">
+    <div class="included-popup popup-active" onclick="event.stopPropagation()">
+      <div class="popup-close" onclick="closePopup()">×</div>
+      <h3>Paying 240.00, you will receive:</h3>
+      <ul>
+        <li>Perfume 50ml</li>
+        <li>Velvet Dust Bag</li>
+        <li>Packaging box</li>
+        <li>Paper Bag</li>
+        <li>Thank you Card</li>
+        <li><a href="rewards.html">Loyalty Card</a></li>
+        <li>Scrunchies</li>
+      </ul>
+    </div>
   </div>
 
-  <!-- Music -->
+  <!-- Background Music -->
   <audio id="bg-music" loop>
     <source src="https://www.bensound.com/bensound-music/bensound-tenderness.mp3" type="audio/mpeg">
   </audio>
 
+  <script>
+    function openPopup() {
+      document.getElementById('popupOverlay').style.display = 'flex';
+      document.body.classList.add('blurred');
+    }
+
+    function closePopup() {
+      document.getElementById('popupOverlay').style.display = 'none';
+      document.body.classList.remove('blurred');
+    }
+  </script>
 </body>
 </html>
