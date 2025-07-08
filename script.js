@@ -8,20 +8,21 @@ document.addEventListener('DOMContentLoaded', function () {
 
   let isMusicPlaying = sessionStorage.getItem('musicPlaying') === 'true';
 
-  // Play music if previously toggled ON
-  if (isMusicPlaying) {
+  // Auto resume music if session says so
+  if (isMusicPlaying && music) {
     music.play().then(() => {
       pianoIcon.classList.add('playing');
       pianoSlash.style.display = "none";
     }).catch(() => {
-      console.warn("Music autoplay blocked.");
+      console.warn("Autoplay blocked.");
     });
   } else {
-    pianoSlash.style.display = "block";
+    if (pianoSlash) pianoSlash.style.display = "block";
   }
 
-  // Toggle music manually
+  // Toggle music
   toggle?.addEventListener('click', () => {
+    if (!music) return;
     if (isMusicPlaying) {
       music.pause();
       pianoIcon.classList.remove('playing');
@@ -30,45 +31,47 @@ document.addEventListener('DOMContentLoaded', function () {
       music.play().then(() => {
         pianoIcon.classList.add('playing');
         pianoSlash.style.display = "none";
-      }).catch(() => {
-        console.warn("Music play failed.");
-      });
+      }).catch(() => console.warn("Music play failed."));
     }
     isMusicPlaying = !isMusicPlaying;
     sessionStorage.setItem('musicPlaying', isMusicPlaying);
   });
 
-  // Hamburger toggle
+  // Hamburger menu toggle
   hamburger?.addEventListener('click', () => {
     hamburger.classList.toggle('active');
     navLinks.classList.toggle('open');
   });
 
-  // Autoplay fix after first interaction
+  // One-time user interaction to unblock autoplay
   document.body.addEventListener('click', function once() {
-    if (isMusicPlaying && music.paused) {
-      music.play().catch(() => {
-        console.log("Still blocked after interaction.");
-      });
+    if (isMusicPlaying && music?.paused) {
+      music.play().catch(() => console.log("Still blocked after click."));
     }
     document.body.removeEventListener('click', once);
   });
 
-  // Floating box (Collection page only)
-  const inc = document.querySelector('.what-included');
-  const back = document.querySelector('.floating-backdrop');
-  const close = document.querySelector('.close-floating');
+  // Floating info box for Collection page
+  const includedTrigger = document.querySelector('.what-included');
+  const backdrop = document.getElementById('floatingBackdrop');
   const box = document.querySelector('.floating-box');
+  const closeBtn = document.querySelector('.close-floating');
 
-  inc?.addEventListener('click', () => {
-    back.classList.add('show');
-    box.style.animation = 'fadeSlide 0.3s ease-out';
+  includedTrigger?.addEventListener('click', () => {
+    if (backdrop && box) {
+      backdrop.style.display = 'flex';
+      document.body.classList.add('blurred');
+    }
   });
 
-  close?.addEventListener('click', () => {
-    box.style.animation = 'fbExit 0.3s forwards';
-    setTimeout(() => {
-      back.classList.remove('show');
-    }, 300);
+  closeBtn?.addEventListener('click', () => {
+    if (backdrop && box) {
+      box.style.animation = 'fbExit .3s forwards';
+      setTimeout(() => {
+        backdrop.style.display = 'none';
+        document.body.classList.remove('blurred');
+        box.style.animation = '';
+      }, 300);
+    }
   });
 });
