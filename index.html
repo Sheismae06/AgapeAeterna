@@ -6,28 +6,31 @@
   <title>Agape Aeterna</title>
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Lora&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Lora&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
 
   <!-- CSS -->
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
 
   <!-- Favicon -->
-  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body class="home">
+
+  <!-- Navbar -->
   <nav class="navbar">
     <div class="nav-left">
-      <div class="music-toggle" onclick="toggleMusic()">
+      <div class="music-toggle">
         <svg id="piano-icon" class="piano-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white">
-          <path d="M5 3v18h14V3H5zm2 2h2v6h1V5h2v6h1V5h2v6h1V5h2v14H7V5z"/>
+          <path d="M5 3v18h14V3H5zm2 2h2v6h1V5h2v6h1V5h2v6h1V5h2v14H7V5z" />
         </svg>
         <svg id="piano-slash" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#c9a96b" style="display: none; position: absolute; width: 20px; height: 20px;">
-          <line x1="1" y1="1" x2="23" y2="23" stroke-width="2"/>
+          <line x1="1" y1="1" x2="23" y2="23" stroke-width="2" />
         </svg>
       </div>
     </div>
+
     <div class="nav-right">
-      <button class="hamburger" onclick="toggleMenu()">☰</button>
+      <button class="hamburger">☰</button>
       <div class="nav-links">
         <a href="index.html">Home</a>
         <a href="essence.html">Essence</a>
@@ -45,10 +48,11 @@
   </section>
 
   <!-- Background Music -->
-<audio id="bg-music" loop>
-  <source src="https://files.freemusicarchive.org/storage-freemusicarchive-org/music/ccCommunity/Komiku/Its_time_for_adventure/Komiku_-_04_-_The_Beginning.mp3" type="audio/mpeg">
-</audio>
+  <audio id="bg-music" loop>
+    <source src="https://files.freemusicarchive.org/storage-freemusicarchive-org/music/ccCommunity/Komiku/Its_time_for_adventure/Komiku_-_04_-_The_Beginning.mp3" type="audio/mpeg">
+  </audio>
 
-<script src="script.js"></script>
+  <!-- JS -->
+  <script src="script.js"></script>
 </body>
 </html>
