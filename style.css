@@ -1,37 +1,141 @@
-/* === General Styles === */ body { margin: 0; font-family: 'Lora', serif; background-color: #111; color: #fff; }
+/* RESET & BASE */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-a { text-decoration: none; color: white; }
+body {
+  font-family: 'Lora', serif;
+  background-color: #121212;
+  color: white;
+  overflow-x: hidden;
+}
 
-/* === Navbar === */ .navbar { position: fixed; top: 0; width: 100%; background-color: #1a1a1a; display: flex; justify-content: space-between; align-items: center; padding: 0 20px; height: 60px; z-index: 999; }
+a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
 
-.nav-left { display: flex; align-items: center; }
+a:hover,
+a.active {
+  color: #c9a96b;
+}
 
-.music-toggle { cursor: pointer; position: relative; width: 24px; height: 24px; margin-right: 10px; }
+/* NAVBAR */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 60px;
+  background-color: #1a1a1a;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  z-index: 1000;
+}
 
-.piano-icon { width: 24px; height: 24px; transition: fill 0.3s ease; }
+/* NAV LEFT & MUSIC ICON */
+.nav-left {
+  display: flex;
+  align-items: center;
+}
 
-.piano-slash { display: none; position: absolute; top: 0; left: 0; width: 24px; height: 24px; pointer-events: none; }
+.music-toggle {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  margin-right: 20px;
+}
 
-.music-on #piano-icon { fill: #c9a96b; }
+.piano-icon,
+.piano-slash {
+  width: 20px;
+  height: 20px;
+  transition: all 0.3s ease;
+}
 
-.music-off #piano-icon { fill: white; }
+.piano-slash {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+  pointer-events: none;
+}
 
-.music-off #piano-slash { display: block; }
+/* NAV RIGHT */
+.nav-right {
+  display: flex;
+  align-items: center;
+}
 
-.nav-right { display: flex; align-items: center; }
+.nav-links {
+  display: flex;
+  gap: 16px;
+}
 
-.hamburger { font-size: 22px; background: none; border: none; color: white; cursor: pointer; margin-left: 10px; padding: 5px; transition: color 0.3s ease; }
+.nav-links a {
+  font-size: 15px;
+  font-weight: 500;
+}
 
-.hamburger.active { color: #c9a96b; }
+/* HAMBURGER ICON */
+.hamburger {
+  display: none;
+  font-size: 22px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  margin-left: 15px;
+}
 
-.nav-links { display: flex; gap: 20px; margin-left: 20px; }
+/* HERO SECTION FOR HOMEPAGE */
+.home .hero {
+  height: calc(100vh - 60px);
+  margin-top: 60px;
+  background-size: 120%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
 
-.nav-links a { font-size: 16px; color: white; padding: 4px 0; transition: color 0.3s ease; }
+/* GENERAL SECTION TITLES */
+h1, h2, h3 {
+  color: #c9a96b;
+  font-family: 'Playfair Display', serif;
+  text-align: center;
+  margin-bottom: 20px;
+}
 
-.nav-links a.active, .nav-links a:hover { color: #c9a96b; }
+/* BUTTONS */
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
 
-/* === Hero Section === */ .hero { width: 100%; background-size: 120%; background-position: center; background-repeat: no-repeat; background-attachment: fixed; margin-top: 60px; height: calc(100vh - 60px); animation: none !important; transition: none !important; }
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background-color: #1a1a1a;
+    width: 200px;
+    padding: 15px 20px;
+    gap: 12px;
+  }
 
-/* === Responsive === */ @media (max-width: 768px) { .nav-links { display: none; flex-direction: column; position: absolute; top: 60px; right: 10px; background-color: #1a1a1a; padding: 10px 15px; border-radius: 8px; }
+  .nav-links.show {
+    display: flex;
+  }
 
-.nav-links.show { display: flex; } }
+  .hamburger {
+    display: block;
+  }
+}
