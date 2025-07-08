@@ -4,41 +4,47 @@ document.addEventListener('DOMContentLoaded', function () {
   const pianoIcon = document.getElementById('piano-icon');
   const pianoSlash = document.getElementById('piano-slash');
   const music = document.getElementById('bg-music');
+  const musicToggle = document.querySelector('.music-toggle');
+
   let isMusicPlaying = sessionStorage.getItem('musicPlaying') === 'true';
 
-  // Resume music state
+  // Restore music state on load
   if (isMusicPlaying) {
     music.play().then(() => {
       pianoIcon.classList.add('playing');
-      pianoSlash.style.display = "none";
+      pianoSlash.style.display = 'none';
     }).catch(() => {
-      // Auto-play blocked, wait for interaction
+      // Autoplay was blocked by the browser (requires user interaction)
     });
   } else {
-    pianoSlash.style.display = "block";
+    pianoSlash.style.display = 'block';
   }
 
-  // Toggle Music
+  // Music toggle logic
   function toggleMusic() {
     if (isMusicPlaying) {
       music.pause();
-      pianoSlash.style.display = "block";
       pianoIcon.classList.remove('playing');
+      pianoSlash.style.display = 'block';
     } else {
       music.play();
-      pianoSlash.style.display = "none";
       pianoIcon.classList.add('playing');
+      pianoSlash.style.display = 'none';
     }
     isMusicPlaying = !isMusicPlaying;
     sessionStorage.setItem('musicPlaying', isMusicPlaying);
   }
 
-  // Toggle Menu
-  hamburger.addEventListener('click', function () {
-    hamburger.classList.toggle('active');
-    navLinks.classList.toggle('open');
-  });
+  // Click handler for music icon toggle
+  if (musicToggle) {
+    musicToggle.addEventListener('click', toggleMusic);
+  }
 
-  // Click piano icon
-  document.querySelector('.music-toggle').addEventListener('click', toggleMusic);
+  // Hamburger menu toggle
+  if (hamburger && navLinks) {
+    hamburger.addEventListener('click', function () {
+      hamburger.classList.toggle('active');
+      navLinks.classList.toggle('open');
+    });
+  }
 });
