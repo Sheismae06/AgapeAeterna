@@ -17,7 +17,7 @@ body {
   line-height: 1.6;
 }
 
-/* Home page background */
+/* Home Page Background */
 body.home {
   background: url('https://raw.githubusercontent.com/Sheismae06/AgapeAeterna/main/file_00000000d35461f79683e3cc6f46380f.webp') center/110% no-repeat;
   background-attachment: fixed;
@@ -127,16 +127,49 @@ body.home {
   transition: color 0.3s ease;
 }
 
-.nav-links a:hover {
-  color: #c9a96b;
-}
-
+.nav-links a:hover,
 .nav-links a.active {
   color: #c9a96b;
 }
 
 .nav-links.open {
   display: flex;
+}
+
+@media (min-width: 768px) {
+  .nav-links {
+    display: flex;
+    position: static;
+    flex-direction: row;
+    background: none;
+    box-shadow: none;
+    padding: 0;
+  }
+
+  .nav-links a {
+    margin: 0 12px;
+  }
+
+  .hamburger {
+    display: none;
+  }
+}
+
+/* Hero Section */
+.hero {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 80px;
+  text-align: center;
+}
+
+.tagline {
+  color: white;
+  font-size: 2.5rem;
+  font-family: 'Playfair Display', serif;
+  animation: fadeSlide 1.5s ease-out;
 }
 
 /* Section Titles */
@@ -163,7 +196,7 @@ body.home {
   transform: translateY(20px);
 }
 
-/* Buttons */
+/* Elegant Button */
 .elegant-button {
   display: inline-block;
   background-color: transparent;
@@ -181,7 +214,15 @@ body.home {
   color: #1a1a1a;
 }
 
-/* Animations */
+/* Floating box animation for Collection page */
+@keyframes fbExit {
+  to {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+}
+
+/* Fade Slide Animation */
 @keyframes fadeSlide {
   to {
     opacity: 1;
@@ -189,24 +230,10 @@ body.home {
   }
 }
 
-/* Responsive Navbar */
-@media (min-width: 768px) {
-  .nav-links {
-    display: flex;
-    position: static;
-    flex-direction: row;
-    background: none;
-    box-shadow: none;
-    padding: 0;
-  }
-
-  .nav-links a {
-    margin: 0 12px;
-  }
-
-  .hamburger {
-    display: none;
-  }
+/* Utility Spacing */
+.section-spaced {
+  margin-top: 40px;
+  margin-bottom: 30px;
 }
 
 /* Icon Hover Effect */
@@ -220,16 +247,110 @@ body.home {
   opacity: 1;
 }
 
-/* Utility Spacing */
-.section-spaced {
-  margin-top: 40px;
-  margin-bottom: 30px;
+/* ---- Collection Specific ---- */
+.product-card {
+  margin-top: 80px;
+  text-align: center;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 20px;
+  animation: fadeSlide 1.5s ease-out;
 }
 
-/* Floating box animation for Collection page */
-@keyframes fbExit {
-  to {
-    opacity: 0;
-    transform: scale(0.9);
-  }
+.product-title {
+  font-size: 2rem;
+  color: white;
+  margin-bottom: 10px;
+  font-family: 'Playfair Display', serif;
+  position: relative;
+  display: inline-block;
+}
+
+.product-title::after {
+  content: "";
+  display: block;
+  height: 2px;
+  background-color: #c9a96b;
+  width: 60%;
+  margin: 8px auto 0;
+}
+
+.product-img {
+  width: 220px;
+  margin: 20px auto;
+}
+
+.product-desc {
+  max-width: 600px;
+  margin: 0 auto 15px;
+}
+
+.product-price {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.product-price span {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #c9a96b;
+}
+
+.product-price a {
+  font-size: 0.95rem;
+  color: #c9a96b;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+/* Floating Box and Blur Backdrop */
+.floating-backdrop {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(8px);
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 999;
+  justify-content: center;
+  align-items: center;
+}
+
+.floating-backdrop.show {
+  display: flex;
+}
+
+.floating-box {
+  background: #1a1a1a;
+  color: #f5f5f5;
+  padding: 25px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 360px;
+  text-align: left;
+  position: relative;
+  z-index: 1000;
+  animation: fadeSlide 0.3s ease-out;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.6);
+  font-size: 0.95rem;
+}
+
+.floating-box a {
+  color: #c9a96b;
+  text-decoration: underline;
+}
+
+.close-floating {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: #f5f5f5;
 }
