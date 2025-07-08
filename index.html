@@ -13,7 +13,7 @@
           <path d="M5 3v18h14V3H5zm2 2h2v6h1V5h2v6h1V5h2v6h1V5h2v14H7V5z"/>
         </svg>
         <!-- Slash (Music OFF) -->
-        <svg id="piano-slash" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#c9a96b" style="display: none; position: absolute; width: 20px; height: 20px;">
+        <svg id="piano-slash" class="piano-slash" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#c9a96b">
           <line x1="1" y1="1" x2="23" y2="23" stroke-width="2"/>
         </svg>
       </div>
@@ -29,23 +29,25 @@
         <a href="contact.html">Contact</a>
       </div>
     </div>
-  </nav>  <!-- Hero Section -->  <section class="hero" style="
-    height: calc(100vh - 60px);
+  </nav>  <!-- Hero Section with correct image and fixed background -->  <section class="hero" style="
+    height: 100vh;
     background-image: url('https://raw.githubusercontent.com/Sheismae06/AgapeAeterna/main/file_00000000d35461f79683e3cc6f46380f.webp');
-    background-size: 130%;
-    background-position: center top;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
     background-repeat: no-repeat;
     margin-top: 60px;
-    background-color: #1c1c1c;
+    box-shadow: inset 0 -100px 0 #1c1c1c;
   "></section>  <!-- Background Music -->  <audio id="bg-music" loop>
     <source src="https://files.freemusicarchive.org/storage-freemusicarchive-org/music/ccCommunity/Komiku/Its_time_for_adventure/Komiku_-_04_-_The_Beginning.mp3" type="audio/mpeg">
   </audio>  <!-- Script -->  <script>
-    const bgMusic = document.getElementById("bg-music");
-    const musicToggle = document.getElementById("music-toggle");
     const pianoIcon = document.getElementById("piano-icon");
     const pianoSlash = document.getElementById("piano-slash");
+    const bgMusic = document.getElementById("bg-music");
+    const musicToggle = document.getElementById("music-toggle");
 
-    const isMusicOn = localStorage.getItem("music") === "on";
+    // Load saved state
+    const isMusicOn = localStorage.getItem("music") !== "off";
     if (isMusicOn) {
       bgMusic.play();
       pianoIcon.style.fill = "#c9a96b";
@@ -67,11 +69,6 @@
         pianoSlash.style.display = "block";
         localStorage.setItem("music", "off");
       }
-    });
-
-    // Hamburger Menu Toggle
-    document.querySelector(".hamburger").addEventListener("click", () => {
-      document.querySelector(".nav-links").classList.toggle("show");
     });
   </script></body>
 </html>
