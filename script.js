@@ -8,34 +8,50 @@ document.addEventListener('DOMContentLoaded', function () {
 
   let isMusicPlaying = sessionStorage.getItem('musicPlaying') === 'true';
 
-  // Play music if session says so
-  if (isMusicPlaying) {
-    music.play().then(() => {
+  // Apply music state
+  function updateMusicIcon() {
+    if (isMusicPlaying) {
       pianoIcon.classList.add('playing');
       pianoSlash.style.display = "none";
-    }).catch(() => {
-      console.warn("Music autoplay was blocked.");
+    } else {
+      pianoIcon.classList.remove('playing');
+      pianoSlash.style.display = "block";
+    }
+  }
+
+  // Attempt to autoplay if user allowed it before
+  if (isMusicPlaying) {
+    music.play().then(updateMusicIcon).catch(() => {
+      console.warn("Music autoplay blocked.");
     });
   } else {
-    pianoSlash.style.display = "block";
+    updateMusicIcon();
   }
 
   // Music toggle
   toggle?.addEventListener('click', () => {
-    if (isMusicPlaying) {
-      music.pause();
-      pianoIcon.classList.remove('playing');
-      pianoSlash.style.display = "block";
-    } else {
+    if (music.paused) {
       music.play().then(() => {
-        pianoIcon.classList.add('playing');
-        pianoSlash.style.display = "none";
-      }).catch(() => {
-        console.warn("Music play failed.");
+        isMusicPlaying = true;
+        sessionStorage.setItem('musicPlaying', 'true');
+        updateMusicIcon();
+      }).catch(() => console.warn("Music play failed."));
+    } else {
+      music.pause();
+      isMusicPlaying = false;
+      sessionStorage.setItem('musicPlaying', 'false');
+      updateMusicIcon();
+    }
+  });
+
+  // Ensure music resumes after first click (for autoplay restrictions)
+  document.body.addEventListener('click', function once() {
+    if (isMusicPlaying && music.paused) {
+      music.play().then(updateMusicIcon).catch(() => {
+        console.log("Autoplay still blocked after interaction.");
       });
     }
-    isMusicPlaying = !isMusicPlaying;
-    sessionStorage.setItem('musicPlaying', isMusicPlaying);
+    document.body.removeEventListener('click', once);
   });
 
   // Hamburger toggle
@@ -44,17 +60,7 @@ document.addEventListener('DOMContentLoaded', function () {
     navLinks.classList.toggle('open');
   });
 
-  // Auto play music after first user interaction
-  document.body.addEventListener('click', function once() {
-    if (isMusicPlaying && music.paused) {
-      music.play().catch(() => {
-        console.log("Autoplay still blocked after interaction.");
-      });
-    }
-    document.body.removeEventListener('click', once);
-  });
-
-  // Floating info box for Collection page
+  // Floating info box logic
   const inc = document.querySelector('.what-included');
   const back = document.querySelector('.floating-backdrop');
   const close = document.querySelector('.close-floating');
