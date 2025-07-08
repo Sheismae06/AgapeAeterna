@@ -131,6 +131,10 @@ body.home {
   color: #c9a96b;
 }
 
+.nav-links a.active {
+  color: #c9a96b;
+}
+
 .nav-links.open {
   display: flex;
 }
@@ -220,4 +224,12 @@ body.home {
 .section-spaced {
   margin-top: 40px;
   margin-bottom: 30px;
+}
+
+/* Floating box animation for Collection page */
+@keyframes fbExit {
+  to {
+    opacity: 0;
+    transform: scale(0.9);
+  }
 }
