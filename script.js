@@ -1,37 +1,70 @@
-// DOM elements
-const musicToggle = document.getElementById('music-toggle');
-const pianoIcon = document.getElementById('piano-icon');
-const pianoSlash = document.getElementById('piano-slash');
-const bgMusic = document.getElementById('bg-music');
-const hamburger = document.getElementById('hamburger');
-const navLinks = document.getElementById('nav-links');
+document.addEventListener('DOMContentLoaded', function () {
+  const pianoIcon = document.getElementById('piano-icon');
+  const pianoSlash = document.getElementById('piano-slash');
+  const hamburger = document.querySelector('.hamburger');
+  const navLinks = document.querySelector('.nav-links');
+  const music = document.getElementById('bg-music');
+  const toggle = document.querySelector('.music-toggle');
 
-// load saved state
-let isPlaying = localStorage.getItem('musicPlaying') === 'true';
-updateMusicState();
+  let isMusicPlaying = sessionStorage.getItem('musicPlaying') === 'true';
 
-// toggle music
-musicToggle.addEventListener('click', () => {
-  isPlaying = !isPlaying;
-  if (isPlaying) bgMusic.play().catch(() => {});
-  else bgMusic.pause();
-  updateMusicState();
-  localStorage.setItem('musicPlaying', isPlaying);
-});
-
-function updateMusicState() {
-  if (isPlaying) {
-    pianoIcon.classList.add('playing');
-    pianoSlash.style.display = 'none';
+  // Play music if session says so
+  if (isMusicPlaying) {
+    music.play().then(() => {
+      pianoIcon.classList.add('playing');
+      pianoSlash.style.display = "none";
+    }).catch(() => {
+      console.warn("Music autoplay was blocked.");
+    });
   } else {
-    pianoIcon.classList.remove('playing');
-    pianoSlash.style.display = 'block';
+    pianoSlash.style.display = "block";
   }
-}
 
-// hamburger menu toggle
-hamburger.addEventListener('click', () => {
-  hamburger.classList.toggle('active');
-  navLinks.classList.toggle('show');
-  hamburger.style.color = hamburger.classList.contains('active') ? '#c9a96b' : 'white';
+  // Music toggle
+  toggle?.addEventListener('click', () => {
+    if (isMusicPlaying) {
+      music.pause();
+      pianoIcon.classList.remove('playing');
+      pianoSlash.style.display = "block";
+    } else {
+      music.play().then(() => {
+        pianoIcon.classList.add('playing');
+        pianoSlash.style.display = "none";
+      }).catch(() => {
+        console.warn("Music play failed.");
+      });
+    }
+    isMusicPlaying = !isMusicPlaying;
+    sessionStorage.setItem('musicPlaying', isMusicPlaying);
+  });
+
+  // Hamburger toggle
+  hamburger?.addEventListener('click', function () {
+    hamburger.classList.toggle('active');
+    navLinks.classList.toggle('open');
+  });
+
+  // Auto play music after first user interaction
+  document.body.addEventListener('click', function once() {
+    if (isMusicPlaying && music.paused) {
+      music.play().catch(() => {
+        console.log("Autoplay still blocked after interaction.");
+      });
+    }
+    document.body.removeEventListener('click', once);
+  });
+
+  // Floating info box for Collection page
+  const inc = document.querySelector('.what-included');
+  const back = document.querySelector('.floating-backdrop');
+  const close = document.querySelector('.close-floating');
+
+  inc?.addEventListener('click', () => {
+    back.classList.add('show');
+  });
+
+  close?.addEventListener('click', () => {
+    document.querySelector('.floating-box').style.animation = 'fbExit .3s forwards';
+    setTimeout(() => back.classList.remove('show'), 300);
+  });
 });
