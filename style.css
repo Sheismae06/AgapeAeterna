@@ -1,4 +1,4 @@
-/* RESET & BASE */
+/* General Reset */
 * {
   margin: 0;
   padding: 0;
@@ -7,29 +7,18 @@
 
 body {
   font-family: 'Lora', serif;
-  background-color: #121212;
+  background-color: #111;
   color: white;
   overflow-x: hidden;
 }
 
-a {
-  color: white;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-a:hover,
-a.active {
-  color: #c9a96b;
-}
-
-/* NAVBAR */
+/* Navbar */
 .navbar {
   position: fixed;
   top: 0;
   width: 100%;
   height: 60px;
-  background-color: #1a1a1a;
+  background-color: #111;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -37,97 +26,90 @@ a.active {
   z-index: 1000;
 }
 
-/* NAV LEFT & MUSIC ICON */
-.nav-left {
-  display: flex;
-  align-items: center;
-}
-
+/* Music Icon */
 .music-toggle {
   position: relative;
-  width: 20px;
-  height: 20px;
   cursor: pointer;
-  margin-right: 20px;
+  width: 24px;
+  height: 24px;
 }
 
-.piano-icon,
-.piano-slash {
-  width: 20px;
-  height: 20px;
-  transition: all 0.3s ease;
+.piano-icon {
+  width: 24px;
+  height: 24px;
+  transition: fill 0.3s ease;
 }
 
 .piano-slash {
   position: absolute;
   top: 0;
   left: 0;
+  width: 24px;
+  height: 24px;
   display: none;
-  pointer-events: none;
 }
 
-/* NAV RIGHT */
-.nav-right {
-  display: flex;
-  align-items: center;
-}
-
-.nav-links {
-  display: flex;
-  gap: 16px;
-}
-
-.nav-links a {
-  font-size: 15px;
-  font-weight: 500;
-}
-
-/* HAMBURGER ICON */
+/* Hamburger */
 .hamburger {
-  display: none;
   font-size: 22px;
   background: none;
   border: none;
   color: white;
   cursor: pointer;
-  margin-left: 15px;
+  margin-right: 12px;
+  transition: color 0.3s ease;
 }
 
-/* HERO SECTION FOR HOMEPAGE */
-.home .hero {
+.hamburger:focus {
+  outline: none;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+}
+
+/* Nav Links */
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+  position: relative;
+  transition: color 0.3s;
+}
+
+.nav-links a.active,
+.nav-links a:hover {
+  color: #c9a96b;
+}
+
+/* Hero Section */
+.hero {
   height: calc(100vh - 60px);
-  margin-top: 60px;
+  background-image: url('https://raw.githubusercontent.com/Sheismae06/AgapeAeterna/main/file_00000000d35461f79683e3cc6f46380f.webp');
   background-size: 120%;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  margin-top: 60px;
 }
 
-/* GENERAL SECTION TITLES */
-h1, h2, h3 {
-  color: #c9a96b;
-  font-family: 'Playfair Display', serif;
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-/* BUTTONS */
-button {
-  font-family: inherit;
-  cursor: pointer;
-}
-
-/* RESPONSIVE DESIGN */
+/* Responsive */
 @media (max-width: 768px) {
   .nav-links {
     display: none;
-    flex-direction: column;
     position: absolute;
     top: 60px;
     right: 0;
-    background-color: #1a1a1a;
-    width: 200px;
-    padding: 15px 20px;
+    width: 180px;
+    background-color: #111;
+    flex-direction: column;
+    padding: 12px 16px;
     gap: 12px;
   }
 
@@ -135,7 +117,9 @@ button {
     display: flex;
   }
 
-  .hamburger {
-    display: block;
+  .nav-links a {
+    text-align: left;
+    padding-left: 4px;
+    padding-right: 4px;
   }
 }
