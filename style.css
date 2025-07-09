@@ -1,6 +1,11 @@
-/* General Styles */
-body {
+/* Base Reset */
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
   font-family: 'Lora', serif;
   background-color: #111;
   color: #fff;
@@ -10,100 +15,102 @@ body {
 a {
   text-decoration: none;
   color: white;
-  transition: color 0.3s;
+  transition: color 0.3s ease;
 }
 
-a:hover,
-a.active {
-  color: #c9a96b; /* gold */
+a:hover {
+  color: #c9a96b;
 }
 
-/* Navbar */
 .navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 60px;
+  background-color: #1c1c1c;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #1a1a1a;
-  padding: 0 20px;
-  height: 60px;
-  position: fixed;
-  width: 100%;
+  padding: 0 1.2rem;
   z-index: 1000;
 }
 
-/* Music Toggle */
+.nav-left,
+.nav-right {
+  display: flex;
+  align-items: center;
+}
+
+/* Music Icon */
 .music-toggle {
   position: relative;
-  width: 24px;
-  height: 24px;
   cursor: pointer;
+  margin-right: 1rem;
 }
 
 .piano-icon {
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
   transition: fill 0.3s ease;
 }
 
 .piano-slash {
+  display: none;
   position: absolute;
-  width: 24px;
-  height: 24px;
   top: 0;
   left: 0;
-  display: none;
+  width: 20px;
+  height: 20px;
   pointer-events: none;
 }
 
 /* Hamburger Menu */
 .hamburger {
-  font-size: 24px;
-  color: white;
   background: none;
   border: none;
+  font-size: 26px;
   cursor: pointer;
+  color: white;
+  margin-left: auto;
   margin-right: 10px;
-  transition: color 0.3s;
+  transition: color 0.3s ease;
 }
 
+/* Desktop Links */
 .nav-links {
   display: flex;
-  gap: 25px;
+  gap: 1.4rem;
 }
 
-.nav-links a {
-  font-size: 16px;
+.nav-links a.active {
+  color: #c9a96b;
 }
 
-/* Mobile Menu */
+/* Responsive Nav */
 @media (max-width: 768px) {
   .nav-links {
-    display: none;
-    flex-direction: column;
     position: absolute;
     top: 60px;
-    right: 10px;
-    background-color: #1a1a1a;
-    padding: 10px 15px;
-    border-radius: 5px;
-    text-align: right;
-    min-width: 150px;
+    right: 0;
+    width: 200px;
+    background-color: #1c1c1c;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem 1.4rem;
+    display: none;
+    gap: 0.9rem;
   }
 
   .nav-links.show {
     display: flex;
   }
 
-  .nav-links a {
-    padding: 8px 0;
-  }
-
   .hamburger {
-    margin-right: 16px;
+    margin-right: 15px;
   }
 }
 
-/* Hero Section (no animation on homepage) */
-.home .hero {
-  transition: none !important;
+/* Hero */
+.hero {
+  width: 100%;
 }
