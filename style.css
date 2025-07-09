@@ -1,235 +1,159 @@
-/* Reset and Base Styles */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html, body {
-  height: 100%;
-  overflow-x: hidden;
-}
-
 body {
+  margin: 0;
   font-family: 'Lora', serif;
-  background-color: #1a1a1a;
-  color: #f5f5f5;
-  line-height: 1.6;
+  background-color: #111;
+  color: #fff;
 }
 
-/* Home page background */
-body.home {
-  background: url('https://raw.githubusercontent.com/Sheismae06/AgapeAeterna/main/file_00000000d35461f79683e3cc6f46380f.webp') center/110% no-repeat;
-  background-attachment: fixed;
-  background-color: #1a1a1a;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  padding-bottom: 30px;
-  height: 100vh;
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
-/* Navbar */
 .navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 60px;
-  background-color: #1a1a1a;
+  background-color: #222;
+  padding: 10px 20px;
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  align-items: center;
-  padding: 0 20px;
-  z-index: 1000;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-}
-
-.navbar .nav-left,
-.navbar .nav-right {
-  display: flex;
-  align-items: center;
-}
-
-/* Piano Music Icon */
-.music-toggle {
-  cursor: pointer;
-  position: relative;
-  width: 24px;
-  height: 24px;
-}
-
-.piano-icon {
-  width: 20px;
-  height: 20px;
-  transition: transform 0.3s ease;
-  fill: white;
-}
-
-.piano-icon.playing {
-  animation: playPulse 2s infinite ease-in-out;
-  fill: #c9a96b;
-}
-
-@keyframes playPulse {
-  0% { transform: scale(1); fill: #c9a96b; }
-  50% { transform: scale(1.1); fill: #e3c48f; }
-  100% { transform: scale(1); fill: #c9a96b; }
-}
-
-#piano-slash {
-  position: absolute;
+  position: fixed;
+  width: 100%;
   top: 0;
-  left: 0;
-  width: 20px;
-  height: 20px;
-  stroke: #c9a96b;
-  stroke-width: 2;
-  display: none;
+  z-index: 1000;
 }
 
-/* Hamburger */
-.hamburger {
-  font-size: 22px;
-  background: none;
-  border: none;
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  color: gold;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links li a {
+  color: white;
+  transition: color 0.3s;
+}
+
+.nav-links li a:hover,
+.nav-links li a.active {
+  color: gold;
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 1.5rem;
   color: white;
   cursor: pointer;
-  padding: 8px;
-  margin-left: auto;
-  margin-right: 0;
-  transition: color 0.3s ease;
 }
 
-.hamburger.active {
-  color: #c9a96b;
-}
-
-/* Nav Links */
-.nav-links {
-  display: none;
-  flex-direction: column;
-  position: absolute;
-  top: 60px;
-  right: 20px;
-  background-color: #1a1a1a;
-  padding: 15px 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
-}
-
-.nav-links a {
-  color: #f5f5f5;
-  text-decoration: none;
-  margin: 8px 0;
-  font-family: 'Playfair Display', serif;
-  font-size: 15px;
-  transition: color 0.3s ease;
-}
-
-.nav-links a:hover {
-  color: #c9a96b;
-}
-
-.nav-links a.active {
-  color: #c9a96b;
-}
-
-.nav-links.open {
+.hero-section {
+  height: 100vh;
+  background-image: url('images/hero.jpg');
+  background-size: cover;
+  background-position: center;
   display: flex;
-}
-
-/* Section Titles */
-.section-title {
+  align-items: center;
+  justify-content: center;
+  padding-top: 80px;
   text-align: center;
+}
+
+.hero-content h1 {
   font-family: 'Playfair Display', serif;
-  font-size: 2.2rem;
-  color: #c9a96b;
-  margin-top: 90px;
-  margin-bottom: 20px;
-  animation: fadeSlide 1.5s ease-out forwards;
-  opacity: 0;
-  transform: translateY(20px);
+  font-size: 3rem;
+  color: gold;
 }
 
-/* Page Content */
-.page-content {
-  max-width: 800px;
-  margin: 0 auto 60px auto;
-  padding: 0 20px;
-  font-size: 1rem;
-  animation: fadeSlide 1.5s ease-out forwards;
-  opacity: 0;
-  transform: translateY(20px);
+.hero-content p {
+  font-size: 1.2rem;
+  color: #ddd;
 }
 
-/* Buttons */
-.elegant-button {
+.music-icon {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 30px;
+  height: 30px;
+  background-image: url('icons/piano-off.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: 9999;
+  cursor: pointer;
+}
+
+.music-icon.playing {
+  background-image: url('icons/piano-on.gif');
+}
+
+.music-icon.paused {
+  background-image: url('icons/piano-off.png');
+}
+
+.page-title {
+  text-align: center;
+  color: gold;
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  margin-top: 100px;
+}
+
+.product-highlight {
+  text-align: center;
+  margin-top: -20px;
+}
+
+.product-highlight h2 {
+  font-family: 'Playfair Display', serif;
+  color: gold;
+  border-bottom: 2px solid gold;
   display: inline-block;
-  background-color: transparent;
-  color: #c9a96b;
-  border: 1px solid #c9a96b;
-  padding: 10px 18px;
-  border-radius: 30px;
-  font-size: 0.95rem;
-  text-decoration: none;
-  transition: all 0.3s ease;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+  font-size: 1.8rem;
 }
 
-.elegant-button:hover {
-  background-color: #c9a96b;
-  color: #1a1a1a;
+.product-image {
+  max-width: 200px;
+  margin: 20px 0;
 }
 
-/* Animations */
-@keyframes fadeSlide {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.product-description {
+  font-size: 1rem;
+  font-family: 'Lora', serif;
+  color: #ccc;
+  max-width: 500px;
+  margin: 0 auto;
 }
 
-/* Responsive Navbar */
-@media (min-width: 768px) {
+.product-price {
+  color: gold;
+  margin-top: 10px;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
   .nav-links {
-    display: flex;
-    position: static;
-    flex-direction: row;
-    background: none;
-    box-shadow: none;
-    padding: 0;
-  }
-
-  .nav-links a {
-    margin: 0 12px;
-  }
-
-  .hamburger {
     display: none;
+    flex-direction: column;
+    background-color: #222;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    padding: 10px;
+    border-radius: 8px;
   }
-}
 
-/* Icon Hover Effect */
-.icon-hover svg {
-  transition: transform 0.3s ease, opacity 0.3s ease;
-  opacity: 0.8;
-}
-
-.icon-hover svg:hover {
-  transform: scale(1.1);
-  opacity: 1;
-}
-
-/* Utility Spacing */
-.section-spaced {
-  margin-top: 40px;
-  margin-bottom: 30px;
-}
-
-/* Floating box animation for Collection page */
-@keyframes fbExit {
-  to {
-    opacity: 0;
-    transform: scale(0.9);
+  .nav-links.active {
+    display: flex;
   }
-}
+
+  .menu-toggle {
+    display: block;
+  }
+  }
