@@ -1,45 +1,221 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Collection | Agape Aeterna</title>
-  <link href="https://fonts.googleapis.com/css2?family=Lora&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <!-- Audio and Music Toggle -->
-  <audio id="background-music" src="audio/thebeginning.mp3" loop></audio>
-  <div id="music-toggle" class="music-icon paused" title="Toggle music"></div>
+<!DOCTYPE html>  <html lang="en">  
+<head>  
+  <meta charset="UTF-8" />  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>  
+  <title>Collection | Agape Aeterna</title>  
+  <link href="https://fonts.googleapis.com/css2?family=Lora&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">  
+  <link rel="stylesheet" href="style.css" />  
+  <script defer>  
+    document.addEventListener('DOMContentLoaded', function () {  
+      const music = document.getElementById('bg-music');  
+      const pianoIcon = document.getElementById('piano-icon');  
+      const pianoSlash = document.getElementById('piano-slash');  
+      const hamburger = document.querySelector('.hamburger');  
+      const navLinks = document.querySelector('.nav-links');  let isMusicPlaying = sessionStorage.getItem('musicPlaying') === 'true';  
 
-  <!-- Navbar -->
-  <nav class="navbar">
-    <div class="logo">Agape Aeterna</div>
-    <div class="menu-toggle" id="menu-toggle">&#9776;</div>
-    <ul class="nav-links" id="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="essence.html">Essence</a></li>
-      <li><a href="collection.html" class="active">Collection</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </nav>
+  function updateMusicIcon() {  
+    if (isMusicPlaying) {  
+      pianoIcon.classList.add('playing');  
+      pianoSlash.style.display = "none";  
+    } else {  
+      pianoIcon.classList.remove('playing');  
+      pianoSlash.style.display = "block";  
+    }  
+  }  
 
-  <!-- Collection Section -->
-  <main class="fade-slide">
-    <section class="contact-section">
-      <h1 class="page-title">Our Signature Scents</h1>
+  function toggleMusic() {  
+    if (isMusicPlaying) {  
+      music.pause();  
+    } else {  
+      music.play().catch(() => {});  
+    }  
+    isMusicPlaying = !isMusicPlaying;  
+    sessionStorage.setItem('musicPlaying', isMusicPlaying);  
+    updateMusicIcon();  
+  }  
 
-      <div class="product-highlight">
-        <h2>AURELÉNA 50ml</h2>
-        <img src="images/aurelena.png" alt="AURELÉNA Perfume" class="product-image">
-        <p class="product-description">
-          A delicate blend of elegance and warmth, AURELÉNA is our signature scent designed to enchant with every spritz.
-        </p>
-        <p class="product-price">PHP 240.00 | What's included</p>
-      </div>
-    </section>
-  </main>
+  updateMusicIcon();  
+  if (isMusicPlaying) {  
+    music.play().catch(() => {});  
+  }  
 
-  <script src="script.js"></script>
-</body>
+  document.getElementById('music-toggle').addEventListener('click', toggleMusic);  
+  hamburger?.addEventListener('click', () => {  
+    hamburger.classList.toggle('active');  
+    navLinks.classList.toggle('open');  
+  });  
+
+  document.body.addEventListener('click', function once() {  
+    if (isMusicPlaying && music.paused) {  
+      music.play().catch(() => {});  
+    }  
+    document.body.removeEventListener('click', once);  
+  });  
+});
+
+  </script>    <style>  
+    .product-card {  
+      margin: 120px auto 50px;  
+      padding: 0 20px;  
+      max-width: 800px;  
+      text-align: center;  
+      animation: fadeSlide 1.5s ease-out forwards;  
+    }  
+  
+    .product-title {  
+      font-size: 1.8rem;  
+      color: white;  
+      margin-bottom: 10px;  
+      font-family: 'Playfair Display', serif;  
+      position: relative;  
+      display: inline-block;  
+    }  
+  
+    .product-title::after {  
+      content: "";  
+      display: block;  
+      height: 2px;  
+      background-color: #c9a96b;  
+      width: 60%;  
+      margin: 8px auto 0;  
+    }  
+  
+    .page-heading {  
+      font-family: 'Playfair Display', serif;  
+      font-size: 2.2rem;  
+      color: #c9a96b;  
+      text-align: center;  
+      margin-top: 130px;  
+      animation: fadeSlide 1.5s ease-out;  
+    }  
+  
+    .product-img {  
+      width: 200px;  
+      margin-bottom: 20px;  
+    }  
+  
+    .product-desc {  
+      max-width: 600px;  
+      margin: 0 auto 15px;  
+      color: #f5f5f5;  
+      font-size: 1rem;  
+    }  
+  
+    .product-price {  
+      font-size: 1rem;  
+      color: #c9a96b;  
+      margin: 15px 0 25px;  
+    }  
+  
+    .product-price span {  
+      font-weight: bold;  
+    }  
+  
+    .product-price a {  
+      color: #c9a96b;  
+      text-decoration: underline;  
+      font-weight: normal;  
+      margin-left: 8px;  
+      cursor: pointer;  
+    }  
+  
+    .floating-backdrop {  
+      display: none;  
+      position: fixed;  
+      top: 0;  
+      left: 0;  
+      width: 100%;  
+      height: 100%;  
+      backdrop-filter: blur(8px);  
+      background: rgba(0, 0, 0, 0.4);  
+      z-index: 999;  
+      justify-content: center;  
+      align-items: center;  
+    }  
+  
+    .floating-box {  
+      background: #1a1a1a;  
+      color: #f5f5f5;  
+      padding: 20px;  
+      border-radius: 12px;  
+      max-width: 90%;  
+      width: 320px;  
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);  
+      font-size: 0.95rem;  
+      position: relative;  
+      z-index: 1000;  
+    }  
+  
+    .floating-box a {  
+      color: #c9a96b;  
+      text-decoration: underline;  
+    }  
+  
+    .close-floating {  
+      position: absolute;  
+      top: 8px;  
+      right: 12px;  
+      color: #f5f5f5;  
+      font-size: 1.2rem;  
+      cursor: pointer;  
+    }  
+  </style>  </head>  <body>  
+  <!-- Navbar -->  
+  <nav class="navbar">  
+    <div class="nav-left">  
+      <div class="music-toggle" id="music-toggle">  
+        <svg id="piano-icon" class="piano-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white">  
+          <path d="M5 3v18h14V3H5zm2 2h2v6h1V5h2v6h1V5h2v6h1V5h2v14H7V5z"/>  
+        </svg>  
+        <svg id="piano-slash" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#c9a96b"  
+             style="display: none; position: absolute; width: 20px; height: 20px;">  
+          <line x1="1" y1="1" x2="23" y2="23" stroke-width="2"/>  
+        </svg>  
+      </div>  
+    </div>  
+    <div class="nav-right">  
+      <button class="hamburger">☰</button>  
+      <div class="nav-links">  
+        <a href="index.html">Home</a>  
+        <a href="essence.html">Essence</a>  
+        <a href="collection.html" class="active">Collection</a>  
+        <a href="rewards.html">Rewards</a>  
+        <a href="testimonials.html">Testimonials</a>  
+        <a href="contact.html">Contact</a>  
+      </div>  
+    </div>  
+  </nav>    <!-- Page Title -->    <h1 class="page-heading">OUR SIGNATURE SCENTS</h1>    <!-- Product Section -->    <section class="product-card">  
+    <img src="https://raw.githubusercontent.com/Sheismae06/AgapeAeterna/main/file_00000000d35461f79683e3cc6f46380f.webp" alt="Aurelena Perfume" class="product-img">  <h2 class="product-title">AURELÉNA 50ml</h2>  
+
+<p class="product-desc">  
+  A scent of quiet power and modern elegance. AURELÉNA blends sophistication and subtlety—crafted for those who exude CEO aura, celebrity charm, and timeless confidence.  
+</p>  
+
+<div class="product-price">  
+  <span>PHP 240.00</span> |   
+  <a onclick="toggleFloating()">What's included?</a>  
+</div>  
+
+<a href="https://forms.gle/YOUR_ORDER_FORM_LINK" target="_blank" class="elegant-button">Proceed to Checkout</a>
+
+  </section>    <!-- Floating Info Popup -->    <div class="floating-backdrop" id="floatingBackdrop">  
+    <div class="floating-box">  
+      <span class="close-floating" onclick="toggleFloating()">✕</span>  
+      <strong>Paying PHP 240.00, you will receive:</strong><br><br>  
+      ▪︎ Perfume 50ml<br>  
+      ▪︎ Velvet Dust Bag<br>  
+      ▪︎ Packaging box<br>  
+      ▪︎ Paper Bag<br>  
+      ▪︎ Thank you Card<br>  
+      ▪︎ <a href="rewards.html">Loyalty Card</a><br>  
+      ▪︎ Scrunchies  
+    </div>  
+  </div>    <!-- Background Music -->    <audio id="bg-music" loop>  
+    <source src="https://files.freemusicarchive.org/storage-freemusicarchive-org/music/ccCommunity/Komiku/Its_time_for_adventure/Komiku_-_04_-_The_Beginning.mp3" type="audio/mpeg">  
+  </audio>    <!-- Floating Box JS -->    <script>  
+    function toggleFloating() {  
+      const backdrop = document.getElementById("floatingBackdrop");  
+      backdrop.style.display = backdrop.style.display === "flex" ? "none" : "flex";  
+    }  
+  </script>  </body>  
 </html>
