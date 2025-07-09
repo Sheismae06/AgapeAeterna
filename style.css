@@ -1,116 +1,94 @@
-/* Base Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Lora', serif;
-  background-color: #111;
-  color: #fff;
-  overflow-x: hidden;
-}
-
-a {
-  text-decoration: none;
-  color: white;
-  transition: color 0.3s ease;
-}
-
-a:hover {
-  color: #c9a96b;
-}
-
+/* Navbar */
 .navbar {
   position: fixed;
   top: 0;
-  width: 100%;
+  left: 0; right: 0;
   height: 60px;
-  background-color: #1c1c1c;
+  background: #111;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 0 1.2rem;
+  justify-content: space-between;
+  padding: 0 20px;
   z-index: 1000;
 }
 
-.nav-left,
-.nav-right {
-  display: flex;
-  align-items: center;
+.nav-links {
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+  background: #111;
+  padding: 10px;
+  border-radius: 8px;
+  position: absolute;
+  right: 20px;
+  top: 60px;
 }
 
-/* Music Icon */
+.nav-links.show { display: flex; }
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-family: 'Playfair Display', serif;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.nav-links a:hover,
+.hamburger.active + .nav-links a {
+  color: #c9a96b;
+}
+
 .music-toggle {
-  position: relative;
   cursor: pointer;
-  margin-right: 1rem;
+  position: relative;
+  width: 24px;
+  height: 24px;
 }
 
 .piano-icon {
   width: 20px;
   height: 20px;
-  transition: fill 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.piano-icon.playing {
+  fill: #c9a96b;
+  animation: pulse 1.2s infinite;
 }
 
 .piano-slash {
-  display: none;
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 0; left: 0;
   width: 20px;
   height: 20px;
-  pointer-events: none;
 }
 
-/* Hamburger Menu */
+/* Hero Section */
+.hero {
+  height: calc(100vh - 60px);
+  background: url('https://raw.githubusercontent.com/Sheismae06/AgapeAeterna/main/file_00000000d35461f79683e3cc6f46380f.webp') center/120% no-repeat fixed;
+  margin-top: 60px;
+}
+
+/* Hamburger */
 .hamburger {
   background: none;
   border: none;
-  font-size: 26px;
-  cursor: pointer;
   color: white;
-  margin-left: auto;
-  margin-right: 10px;
-  transition: color 0.3s ease;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 1001;
 }
 
-/* Desktop Links */
-.nav-links {
-  display: flex;
-  gap: 1.4rem;
+/* Animations */
+@keyframes pulse {
+  0%,100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
 }
 
-.nav-links a.active {
-  color: #c9a96b;
-}
-
-/* Responsive Nav */
-@media (max-width: 768px) {
-  .nav-links {
-    position: absolute;
-    top: 60px;
-    right: 0;
-    width: 200px;
-    background-color: #1c1c1c;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 1rem 1.4rem;
-    display: none;
-    gap: 0.9rem;
-  }
-
-  .nav-links.show {
-    display: flex;
-  }
-
-  .hamburger {
-    margin-right: 15px;
-  }
-}
-
-/* Hero */
-.hero {
-  width: 100%;
+/* Media Query */
+@media (min-width: 768px) {
+  .nav-links { position: static; flex-direction: row; display: flex; top: auto; background: none; padding: 0; }
+  .hamburger { display: none; }
 }
