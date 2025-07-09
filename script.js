@@ -1,29 +1,25 @@
-// ===== MUSIC TOGGLE =====
+// MUSIC TOGGLE
 const musicToggle = document.getElementById('music-toggle');
 const pianoIcon = document.getElementById('piano-icon');
 const pianoSlash = document.getElementById('piano-slash');
 const bgMusic = document.getElementById('bg-music');
 
-// Check stored music state
+// Load music state
 let isMusicPlaying = localStorage.getItem('musicPlaying') === 'true';
+if (isMusicPlaying) {
+  bgMusic.play().catch(() => {}); // prevent autoplay block error
+  pianoIcon.setAttribute('fill', '#c9a96b'); // gold
+  pianoSlash.style.display = 'none';
+} else {
+  bgMusic.pause();
+  pianoIcon.setAttribute('fill', 'white');
+  pianoSlash.style.display = 'block';
+}
 
-// On load: apply state
-window.addEventListener('DOMContentLoaded', () => {
-  if (isMusicPlaying) {
-    bgMusic.play().catch(() => {}); // Autoplay might be blocked
-    pianoIcon.setAttribute('fill', '#c9a96b'); // gold
-    pianoSlash.style.display = 'none';
-  } else {
-    bgMusic.pause();
-    pianoIcon.setAttribute('fill', 'white');
-    pianoSlash.style.display = 'block';
-  }
-});
-
-// Toggle music on click
+// Toggle music on icon click
 musicToggle.addEventListener('click', () => {
   if (bgMusic.paused) {
-    bgMusic.play().catch(() => {}); // In case of blocked autoplay
+    bgMusic.play();
     pianoIcon.setAttribute('fill', '#c9a96b'); // gold
     pianoSlash.style.display = 'none';
     localStorage.setItem('musicPlaying', 'true');
@@ -35,7 +31,7 @@ musicToggle.addEventListener('click', () => {
   }
 });
 
-// ===== HAMBURGER MENU TOGGLE =====
+// HAMBURGER MENU
 const hamburger = document.getElementById('hamburger');
 const navLinks = document.getElementById('nav-links');
 
